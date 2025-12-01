@@ -45,5 +45,6 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], functio
         return view('ethics');
     });
     Route::get('/career', [CareerController::class, 'index'])->name('career');
+Route::post('/career/submit', [CareerController::class, 'submit'])->name('career.submit');
 
 });

@@ -80,10 +80,6 @@
     text-align: left;
 }
 
-.positions {
-    margin-top: 60px;
-}
-
 .vacancies-list {
     display: flex;
     flex-direction: column;
@@ -116,12 +112,12 @@
 }
 
 .positions {
-    padding: 60px 0;
+    padding: 0px 120px 10em 120px;
 }
 
 .positions h2 {
     margin-bottom: 30px;
-    color: #012615; /* под зелёный цвет */
+    color: #012615; 
 }
 
 .no-vacancies {
@@ -184,8 +180,8 @@
     color: #fff;
     border: none;
     font-size: 30px;
-    width: 40px;
-    height: 40px;
+    width: 140px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
     margin: 0 10px;
@@ -193,10 +189,9 @@
 }
 
 .vac-arrow:hover {
-    background: #024f2d;
+    background: #ec732c;
 }
 
-/* Мобилки */
 @media (max-width: 600px) {
     .vac-card {
         min-width: 240px;
@@ -205,4 +200,73 @@
     .vac-arrow {
         display: none;
     }
+}
+
+.no-vacancy-form {
+    margin-top: 60px;
+    padding: 40px;
+    background: #f7f8f9;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.no-vacancy-form h3 {
+    color: #012615;
+    margin-bottom: 15px;
+}
+
+.no-vacancy-form p {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.no-vacancy-form .form-group {
+    margin-bottom: 15px;
+}
+
+.no-vacancy-form input,
+.no-vacancy-form textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.no-vacancy-form button {
+    margin-top: 10px;
+    padding: 12px 25px;
+}
+.no-vacancy-form {
+    margin-top: 60px;
+    padding: 40px;
+    background: #f7f8f9;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.no-vacancy-form h3 {
+    color: #012615;
+    margin-bottom: 15px;
+}
+
+.no-vacancy-form p {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.no-vacancy-form input,
+.no-vacancy-form textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.no-vacancy-form button {
+    padding: 12px 25px;
 }

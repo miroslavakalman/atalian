@@ -61,5 +61,23 @@
         </div>
     @endif
 </div>
+@if(session('success'))
+    <p class="success-msg">{{ session('success') }}</p>
+@endif
+
+<div class="no-vacancy-form">
+    <h3>Не нашли подходящую вакансию?</h3>
+    <p>Оставьте своё резюме, и мы свяжемся с вами, когда появится подходящая позиция.</p>
+    
+ <form action="{{ route('career.submit', app()->getLocale()) }}" method="POST" enctype="multipart/form-data">
+    @csrf
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+        <textarea name="message" placeholder="Комментарий (необязательно)"></textarea>
+        <button type="submit" class="btn-primary">Отправить</button>
+    </form>
+</div>
+
 
 @endsection
