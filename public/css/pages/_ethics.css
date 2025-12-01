@@ -1,0 +1,41 @@
+.slide-ethics{
+    background-image: url(/img/ethics/slide.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    height: 600px;
+    width: 100%; 
+    margin-top: 5em; 
+}
+
+.ethics-wrapper {
+    background-color: #fdfdfd;
+    width: 100%;
+    padding: 0 var(--content-padding);
+    margin-top: 10em;
+    padding-bottom: 10em;
+}
+
+.program{
+    padding: 0 var(--content-padding);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 40px;
+    padding-top: 10em;
+    padding-bottom: 10em;
+}
+
+#ethics-desc{
+    max-width: 490px;
+}
+.pdfs img{
+    width: 313px;
+}
+
+.pdfs{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}

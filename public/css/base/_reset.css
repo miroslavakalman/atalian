@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'FindSansPro', 'Inter';
+    font-weight: 400;
+    background-color: #f6f6f6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'FindSansPro';
+}
+
+a {
+    font-family: 'Inter';
+    text-decoration: none;
+    color: #5a5a5a;
+}
+
+p {
+    font-family: 'Inter';
+    color: #fdfdfd;
+    line-height: 1.5em;
+}
+
+input, textarea {
+    outline: none;
+    border: none;
+}

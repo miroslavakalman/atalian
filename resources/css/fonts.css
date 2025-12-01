@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'FindSansPro';
+    src: url('/fonts/FindSansPro/FindSansPro-Regular.ttf') format('ttf'),
+        url('/fonts/FindSansPro/FindSansPro-Regular.ttf') format('ttf'),;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FindSansPro';
+    src: url('/fonts/FindSansPro/FindSansPro-Bold.ttf') format('ttf'),;
+    font-weight: 700;
+    font-style: bold;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FindSansPro';
+    src: url('/fonts/FindSansPro/FindSansPro-Medium.ttf') format('ttf'),;
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FindSansPro';
+    src: url('/fonts/FindSansPro/FindSansPro-Light.ttf') format('ttf'),;
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'DaxPro';
+    src: url('/fonts/DaxPro/DaxPro-Regular.otf') format('otf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DaxPro';
+    src: url('/fonts/DaxPro/DaxPro-Bold.otf') format('otf'),;
+    font-weight: 700;
+    font-style: bold;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DaxPro';
+    src: url('/fonts/DaxPro/DaxPro-Medium.otf') format('otf'),;
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DaxPro';
+    src: url('/fonts/DaxPro/DaxPro-Light.otf') format('otf'),;
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -1,0 +1,54 @@
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 10em;
+}
+
+.row,
+.adv-row,
+.services-row,
+.stats-row,
+.footer-row,
+.dropdown-opened-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1024px) {
+    .row,
+    .adv-row,
+    .services-row,
+    .stats-row,
+    .footer-row,
+    .dropdown-opened-row {
+        justify-content: center;
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .row,
+    .adv-row,
+    .services-row,
+    .stats-row,
+    .footer-row,
+    .dropdown-opened-row {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+.map {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+[class*="ymaps-2"][class*="-ground-pane"] {
+    filter: grayscale(0.3);
+}

@@ -1,0 +1,26 @@
+header {
+    background-color: #fdfdfd;
+    width: 100%;
+    padding: 40px var(--content-padding);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    gap: 5vw;
+}
+
+.logo {
+    width: 154px;
+    height: 75px;
+}
+
+.content-container {
+    padding: 0 var(--content-padding);
+}

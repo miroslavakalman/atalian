@@ -1,0 +1,32 @@
+.stats {
+    background: var(--coop-orange-accent);
+    width: 100%;
+    padding: 80px var(--content-padding);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats img {
+    border-radius: 20px;
+    width: 365px;
+    height: 485px;
+}
+
+.stats-row {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    max-width: 240px;
+}
+
+.column-txt {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,116 @@
+.nav {
+    display: flex;
+    gap: 3vw;
+    position: relative;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav a {
+    padding: 10px 0;
+    color: #5a5a5a;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    display: block;
+}
+
+.nav a:hover {
+    color: var(--coop-orange-accent);
+}
+
+/* Fullscreen Dropdown */
+.fullscreen-dropdown {
+    position: fixed;
+    left: 0;
+    top: 10vw;
+    width: 100%;
+    height: 100%;
+    background-color: #f46f1f;
+    z-index: 999;
+    display: none;
+    padding: 60px var(--content-padding);
+    box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+}
+
+.nav-item:hover .fullscreen-dropdown {
+    display: block;
+}
+
+.dropdown-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.dropdown-section h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dropdown-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+}
+
+.dropdown-links a:hover {
+    color: white;
+    transform: translateX(10px);
+}
+
+.dropdown-section {
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover .dropdown-section {
+    opacity: 1;
+}
+
+.fullscreen-dropdown .dropdown-section {
+    opacity: 0.6;
+}
+
+.nav-item.has-dropdown > a::after {
+    content: '▼';
+    font-size: 0.7em;
+    margin-left: 5px;
+}
+
+.menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.menu-close:hover {
+    transform: scale(1.1);
+    color: #ffeb3b;
+}
