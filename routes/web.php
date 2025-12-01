@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CareerController;
 
 Route::get('/', function () {
     return redirect(app()->getLocale() . '/');
@@ -23,11 +24,6 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], functio
         return view('services');
     });
 
-    Route::get('/career', function($locale){
-        app()->setLocale($locale);
-        return view('career');
-    });
-
     Route::get('/contact', function($locale){
         app()->setLocale($locale);
         return view('contact');
@@ -48,4 +44,6 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], functio
         app()->setLocale($locale);
         return view('ethics');
     });
+    Route::get('/career', [CareerController::class, 'index'])->name('career');
+
 });

@@ -272,3 +272,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('=== СКРИПТЫ ЗАГРУЖЕНЫ ===');
 });
+
+document.getElementById('vac-prev')?.addEventListener('click', () => {
+    document.getElementById('vac-slider').scrollBy({ left: -300, behavior: "smooth" });
+});
+
+document.getElementById('vac-next')?.addEventListener('click', () => {
+    document.getElementById('vac-slider').scrollBy({ left: 300, behavior: "smooth" });
+});

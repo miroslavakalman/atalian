@@ -29,4 +29,37 @@
         </div>
     </div>
 </div>
+<div class="positions">
+    <h2>{{ __('career.vacancies_title') }}</h2>
+
+    @if(count($vacancies) === 0)
+        <p class="no-vacancies">На данный момент открытых вакансий нет.</p>
+    @else
+        <div class="vac-slider-wrapper">
+            <button class="vac-arrow left" id="vac-prev">‹</button>
+
+            <div class="vac-slider" id="vac-slider">
+                @foreach($vacancies as $v)
+                    <div class="vac-card">
+                        <h3>{{ $v['name'] }}</h3>
+                        <p class="city">{{ $v['city'] }}</p>
+
+                        @if($v['salary'])
+                            <p class="salary">от {{ number_format($v['salary'], 0, ',', ' ') }} ₽</p>
+                        @else
+                            <p class="salary empty">Зарплата не указана</p>
+                        @endif
+
+                        <a href="{{ $v['url'] }}" target="_blank" class="btn-primary">
+                            Подробнее
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+
+            <button class="vac-arrow right" id="vac-next">›</button>
+        </div>
+    @endif
+</div>
+
 @endsection
