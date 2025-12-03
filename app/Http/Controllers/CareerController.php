@@ -42,6 +42,6 @@ class CareerController extends Controller
             'resume_path' => $path,
         ]);
 
-        return redirect()->back()->with('success', 'Спасибо! Ваше резюме получено.');
+return redirect()->route('career.thanks', ['locale' => $locale]);
     }
 }
