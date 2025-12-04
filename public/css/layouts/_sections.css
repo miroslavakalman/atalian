@@ -51,3 +51,56 @@
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-lg);
 }
+
+.vacancy-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* фиксированная высота */
+    height: 310px;
+
+    /* чтобы текст не давил карточку */
+    overflow: hidden;
+}
+
+.vacancy-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.vacancy-company {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.vacancy-resp {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #444;
+
+    max-height: 60px;
+    overflow: hidden;
+}
+
+.vacancy-btn {
+    margin-top: auto;
+    padding: 10px 16px;
+    background: #ff6a00;
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.vacancy-btn:hover {
+    background: #ff7d20;
+}

@@ -280,3 +280,45 @@ document.getElementById('vac-prev')?.addEventListener('click', () => {
 document.getElementById('vac-next')?.addEventListener('click', () => {
     document.getElementById('vac-slider').scrollBy({ left: 300, behavior: "smooth" });
 });
+document.getElementById('resume-input').addEventListener('change', function() {
+    const fileName = this.files.length ? this.files[0].name : "Файл не выбран";
+    document.getElementById('file-name').textContent = fileName;
+});
+const maxFileSize = 5 * 1024 * 1024; // 5 МБ
+
+document.getElementById('resume-input').addEventListener('change', function() {
+    const file = this.files[0];
+    const fileNameEl = document.getElementById('file-name');
+    const fileErrorEl = document.getElementById('file-error');
+
+    if(file) {
+        if(file.size > maxFileSize) {
+            fileErrorEl.textContent = "Файл слишком большой! Максимум 5 МБ.";
+            fileErrorEl.style.display = "block";
+            this.value = ""; // сброс файла
+            fileNameEl.textContent = "Файл не выбран";
+        } else {
+            fileErrorEl.style.display = "none";
+            fileNameEl.textContent = file.name;
+        }
+    } else {
+        fileNameEl.textContent = "Файл не выбран";
+        fileErrorEl.style.display = "none";
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const vacCards = document.querySelectorAll('.vac-card');
+    const showMoreBtn = document.getElementById('show-more-btn');
+
+    // Проверяем, есть ли скрытые карточки
+    const hiddenCards = Array.from(vacCards).filter(card => card.classList.contains('vac-hidden'));
+    if(hiddenCards.length > 0) {
+        showMoreBtn.style.display = 'inline-block';
+    }
+
+    showMoreBtn.addEventListener('click', function() {
+        hiddenCards.forEach(card => card.classList.remove('vac-hidden'));
+        showMoreBtn.style.display = 'none';
+    });
+});

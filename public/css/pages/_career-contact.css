@@ -176,21 +176,22 @@
 }
 
 .vac-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background: #012615;
     color: #fff;
-    border: none;
-    font-size: 30px;
-    width: 140px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    font-size: 20px;
+    border: none;
     cursor: pointer;
-    margin: 0 10px;
-    transition: 0.2s;
 }
 
-.vac-arrow:hover {
-    background: #ec732c;
-}
+
+
 
 @media (max-width: 600px) {
     .vac-card {
@@ -302,4 +303,99 @@
     border-radius: 10px;
     text-decoration: none;
     font-size: 18px;
+}
+
+.vacancy-resp{
+    color: #777777;
+    font-style: italic;
+}
+
+.vac-actions {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Оранжевая кнопка */
+.btn-respond {
+    background: #ec732c;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+    width: 120px;
+    height: 35px;
+}
+
+.btn-respond:hover {
+    background: #d55f1c;
+}
+
+/* Серый текст "Подробнее" */
+.vac-more {
+    color: #777;
+    font-size: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.vac-more:hover {
+    color: #000;
+}
+
+.vac-arrow img, .vac-arrow-right img{
+    width: 50px;
+    height: 52px;
+}
+
+.vac-arrow, .vac-arrow-right{
+    background: none;
+    outline: none;
+    border: none;
+}
+
+/* скрываем дефолтный file input */
+.file-input-wrapper input[type="file"] {
+    display: none;
+}
+
+.file-input-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.file-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    background: #FF8000; /* твой фирменный оранжевый */
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 400;
+    transition: 0.2s;
+}
+
+.file-label:hover {
+    background: #e76f00;
+}
+
+.file-name {
+    font-size: 14px;
+    color: #666;
+    padding-left: 4px;
+}
+.vac-hidden {
+    display: none;
 }

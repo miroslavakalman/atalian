@@ -36,7 +36,9 @@
         <p class="no-vacancies">На данный момент открытых вакансий нет.</p>
     @else
         <div class="vac-slider-wrapper">
-            <button class="vac-arrow left" id="vac-prev">‹</button>
+        <button class="vac-arrow" id="vac-prev">
+            <img src="/img/career/arrow-left.png" alt="→">
+        </button>
 
             <div class="vac-slider" id="vac-slider">
                 @foreach($vacancies as $v)
@@ -49,16 +51,32 @@
                         @else
                             <p class="salary empty">Зарплата не указана</p>
                         @endif
+                       @php
+    $responsibility = strip_tags($v['responsibility'] ?? '');
+            @endphp
 
-                        <a href="{{ $v['url'] }}" target="_blank" class="btn-primary">
-                            Подробнее
-                        </a>
+            @if($responsibility)
+                <p class="vacancy-resp">
+                    {{ \Illuminate\Support\Str::limit($responsibility, 120, '…') }}
+                </p>
+            @endif
+      <div class="vac-actions">
+    <button class="btn-respond">Откликнуться</button>
+
+    <a href="{{ $v['url'] }}" target="_blank" class="vac-more">
+        Подробнее
+    </a>
+</div>
+
                     </div>
                 @endforeach
             </div>
+<button id="show-more-btn" class="btn-primary" style="display:none; margin-top:20px;">Показать ещё</button>
 
-            <button class="vac-arrow right" id="vac-next">›</button>
-        </div>
+    <button class="vac-arrow-right" id="vac-next">
+            <img src="/img/career/arrow-right.png" alt="→">
+        </button>        
+    </div>
     @endif
 </div>
 @if(session('success'))
@@ -73,7 +91,15 @@
     @csrf
         <input type="text" name="name" placeholder="Ваше имя" required>
         <input type="email" name="email" placeholder="Email" required>
-        <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+<div class="file-input-wrapper">
+    <input type="file" name="resume" id="resume-input" accept=".pdf,.doc,.docx" required>
+
+    <label for="resume-input" class="file-label">
+        <span class="file-text">Прикрепить резюме</span>
+    </label>
+
+    <span id="file-name" class="file-name">Файл не выбран</span>
+</div>
         <textarea name="message" placeholder="Комментарий (необязательно)"></textarea>
         <button type="submit" class="btn-primary">Отправить</button>
     </form>
