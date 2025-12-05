@@ -335,11 +335,9 @@
     background: #d55f1c;
 }
 
-/* Серый текст "Подробнее" */
 .vac-more {
     color: #777;
     font-size: 15px;
-    text-decoration: underline;
     cursor: pointer;
     transition: 0.25s;
 }

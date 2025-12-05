@@ -24,6 +24,20 @@ return [
             'desc' => 'Opportunities to work in different regions of Russia thanks to the company’s wide presence.'
         ],
     ],
+    'button_main' => 'Apply',
+    'read_more' => 'Read More',
+    'button_more' => 'Show more',
     
     'vacancies_title' => "Open Positions",
+    'form_not_found_title' => "Didn't find a suitable vacancy?",
+    'form_not_found_desc' => "Leave your resume and we'll contact you when a fitting position appears.",
+
+    'form_name' => 'Your name',
+    'form_email' => 'Email',
+    'form_resume' => 'Attach resume',
+    'form_no_file' => 'No file chosen',
+    'form_message' => 'Message (optional)',
+    'form_submit' => 'Send',
+
+    'form_success' => 'Your resume has been submitted!',
 ];

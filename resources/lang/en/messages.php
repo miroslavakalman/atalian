@@ -22,7 +22,7 @@ return [
     | Contacts - additional keys for contact page
     |--------------------------------------------------------------------------
     */
-    'contact_title'      => 'Contacts',
+    'contact_title'      => 'Contact Us',
     'addresses'          => 'Addresses',
     'moscow_address'     => 'Moscow, Skakovaya St, 36 (Belorusskaya Metro)',
     'spb_address'        => 'Saint Petersburg, Leninsky Prospekt, 153, office 145-N',
