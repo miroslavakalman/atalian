@@ -1,0 +1,24 @@
+.slide-logistics{
+    background-image: url('/img/services/logistics/slide.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    height: 600px;
+    width: 100%; 
+    margin-top: 5em;
+}
+
+.slide-admin{
+    background-image: url('/img/services/admin/slide.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    height: 600px;
+    width: 100%; 
+    margin-top: 5em;
+}
+.key-routes{
+    margin-bottom: 10em;
+}

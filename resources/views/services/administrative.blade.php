@@ -5,19 +5,19 @@
 @section('content')
 <div class="slider">
     <div class="slides-container">
-        <div class="slide-logistics">
+        <div class="slide-admin">
             <div class="txt">
-                <h1>{!! __('logistics.hero_title') !!}</h1>
-                <p class="desc">{!! __('logistics.hero_desc') !!}</p>
-                <button class="btn-primary">{!! __('logistics.hero_button') !!}</button>
+                <h1>{!! __('admin.hero_title') !!}</h1>
+                <p class="desc">{!! __('admin.hero_desc') !!}</p>
+                <button class="btn-primary">{!! __('admin.hero_button') !!}</button>
             </div>
         </div>
     </div>
 </div>
 <div class="key-routes" id="career-wrapper">
-    <h2 class="orange-h2">{{ __('logistics.main') }}</h2>
+    <h2 class="orange-h2">{{ __('admin.main') }}</h2>
     <div class="cards-row">
-         @foreach(__('logistics.cards') as $card)
+         @foreach(__('admin.cards') as $card)
                 <div class="career-card">
                     <img src="{{ $card['image'] }}" alt="{{ $card['title'] }}">
                     <h3>{{ $card['title'] }}</h3>

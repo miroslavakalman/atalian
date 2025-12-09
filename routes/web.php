@@ -19,11 +19,43 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], functio
         return view('about');
     });
 
+    // ------------------- Услуги -------------------
     Route::get('/services', function($locale){
         app()->setLocale($locale);
-        return view('services');
-    });
+        return view('services.index'); 
+    })->name('services.index');
 
+    Route::get('/services/logistics', function($locale){
+        app()->setLocale($locale);
+        return view('services.logistics');
+    })->name('services.logistics');
+
+    Route::get('/services/cleaning', function($locale){
+        app()->setLocale($locale);
+        return view('services.cleaning');
+    })->name('services.cleaning');
+
+    Route::get('/services/technical', function($locale){
+        app()->setLocale($locale);
+        return view('services.technical');
+    })->name('services.technical');
+
+    Route::get('/services/administrative', function($locale){
+        app()->setLocale($locale);
+        return view('services.administrative');
+    })->name('services.administrative');
+
+    Route::get('/services/custom', function($locale){
+        app()->setLocale($locale);
+        return view('services.custom');
+    })->name('services.custom');
+
+    Route::get('/services/consulting', function($locale){
+        app()->setLocale($locale);
+        return view('services.consulting');
+    })->name('services.consulting');
+
+    // ------------------- Остальные страницы -------------------
     Route::get('/contact', function($locale){
         app()->setLocale($locale);
         return view('contact');
@@ -39,11 +71,12 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], functio
         return view('sustainability');
     });
 
-    
     Route::get('/ethics', function($locale){
         app()->setLocale($locale);
         return view('ethics');
     });
+
+    // Career
     Route::get('/career', [CareerController::class, 'index'])->name('career');
     Route::post('/career/submit', [CareerController::class, 'submit'])->name('career.submit');
     Route::get('/career/thanks', function () {

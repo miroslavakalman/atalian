@@ -318,7 +318,7 @@
         });
     </script>
 
-    <script src="{{ asset('app.js') }}"></script>
-    @stack('scripts')
+<script type="module" src="/js/app.js"></script>
+
 </body>
 </html>
