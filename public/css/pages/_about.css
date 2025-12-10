@@ -1,0 +1,40 @@
+.slide-about{
+    background-image: url(/img/about/slide.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    height: 600px;
+    width: 100%; 
+    margin-top: 5em; 
+}
+
+.about-company{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10em;
+
+    background-color: #fff;
+    padding: 10em;
+}
+
+.about-company img{
+    width: 365px;
+}
+
+.about-company p{
+    width: 700px;
+}
+
+#stats-rus img{
+    width: 365px;
+    height: 491px;
+}
+
+ hr .about{
+    border: 0.50px solid #fff;
+    width: 760px;
+    height: 0px;
+ }

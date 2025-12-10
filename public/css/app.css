@@ -16,6 +16,7 @@
 @import 'components/_footer.css';
 
 /* Pages */
+@import 'pages/_about.css';
 @import 'pages/_career-contact.css';
 @import 'pages/_industries.css';
 @import 'pages/_sustainability.css';

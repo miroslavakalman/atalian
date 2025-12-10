@@ -19,6 +19,50 @@
     width: 100%; 
     margin-top: 5em;
 }
+
+.slide-facility{
+    background-image: url('/img/services/facility/slide.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    height: 600px;
+    width: 100%; 
+    margin-top: 5em;
+}
+
+.slide-custom{
+    background-image: url('/img/services/custom/slide.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    height: 600px;
+    width: 100%; 
+    margin-top: 5em;
+}
+
+.slide-cleaning{
+    background-image: url('/img/services/cleaning/slide.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    height: 600px;
+    width: 100%; 
+    margin-top: 5em;
+}
+.slide-technical{
+    background-image: url('/img/services/technical/slide.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    height: 600px;
+    width: 100%; 
+    margin-top: 5em;
+}
+
 .key-routes{
     margin-bottom: 10em;
 }

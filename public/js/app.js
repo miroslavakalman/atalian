@@ -179,7 +179,7 @@ function initCounter() {
                 }
 
                 if (target % 1 === 0) element.textContent = Math.floor(current) + suffix;
-                else element.textContent = current.toFixed(3) + suffix;
+                else element.textContent = current.toFixed(1) + suffix;
             }, duration / steps);
         });
     }

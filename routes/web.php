@@ -50,10 +50,10 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], functio
         return view('services.custom');
     })->name('services.custom');
 
-    Route::get('/services/consulting', function($locale){
+    Route::get('/services/facility', function($locale){
         app()->setLocale($locale);
-        return view('services.consulting');
-    })->name('services.consulting');
+        return view('services.facility');
+    })->name('services.facility');
 
     // ------------------- Остальные страницы -------------------
     Route::get('/contact', function($locale){
