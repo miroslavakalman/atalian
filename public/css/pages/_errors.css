@@ -1,0 +1,24 @@
+.btn-white{
+    border-radius: 10px;
+    width: 235px;
+    height: 60px;
+    background: #f8f8f8;
+    color: #ec732c;
+    font-family: 'FindSansPro';
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.error-404{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--coop-orange-accent);
+    border-radius: 10px;
+    height: 600px;
+    margin: 120px;
+}

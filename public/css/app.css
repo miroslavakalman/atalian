@@ -22,6 +22,7 @@
 @import 'pages/_sustainability.css';
 @import 'pages/_ethics.css';
 @import 'pages/_services.css';
+@import 'pages/_errors.css';
 
 /* Layouts */
 @import 'layouts/_grid.css';
