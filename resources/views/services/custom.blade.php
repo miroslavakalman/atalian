@@ -12,7 +12,7 @@
                 <button class="btn-primary">{!! __('custom.hero_button') !!}</button>
             </div>
         </div>
-    </div>
+    </div>  
 </div>
 <div class="key-routes" id="career-wrapper">
     <h2 class="orange-h2">{{ __('custom.main') }}</h2>

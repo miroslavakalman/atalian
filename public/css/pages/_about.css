@@ -38,3 +38,87 @@
     width: 760px;
     height: 0px;
  }
+
+.mission-row, .values-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10em;
+}
+
+
+.values-column{
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    width: 640px;
+}
+
+.pdf-row iframe{
+    width: 358px;
+    height: 500px;
+}
+
+.pdf-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+}
+
+.licenses h2{
+    text-align: center;
+}
+
+.licenses{
+    padding: 10em 0 10em 0;
+    background-color: #fff;
+}
+.stats-separator {
+    border: 0.5px solid #fff;
+    width: 760px;
+    margin: 2em auto;
+}
+.stats {
+    margin-top: -10em; 
+}
+
+
+.map-rf svg {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: 0 auto;
+}
+
+.map-rf path {
+    fill: #ccc; /* базовый цвет */
+    stroke: #fff;
+    stroke-width: 1;
+    cursor: pointer;
+    transition: fill 0.3s;
+}
+
+.map-rf path:hover {
+    fill: #ffa500; /* подсветка при hover */
+}
+
+.map-rf path.active {
+    fill: orange; /* подсветка присутствия */
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    display: none;
+}
+
+.mission-row p{
+    width: 640px;
+}

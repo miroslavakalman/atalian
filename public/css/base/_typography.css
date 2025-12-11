@@ -87,3 +87,15 @@ h5 {
     color: var(--coop-orange-accent);
     font-family: 'FindSansPro';
 }
+
+.orange-secondary{
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 160%;
+    color: var(--coop-orange-accent);
+}
+
+.values-row h3, .mission-row h3{
+    color: #3f3e3e;;
+}
