@@ -1,8 +1,8 @@
 <div class="stats">
-    <img src="/img/stats-img.png" alt="">
+    <img src="/img/stats-img.png" alt="" class="main-stat-img">
     <div class="column-txt">
         <p class="disclaimer">{{ __('messages.stats_label') }}</p>
-        <h2>{{ __('messages.stats_title') }}</h2>
+        <h2 class="main-stat-h2">{{ __('messages.stats_title') }}</h2>
         <p class="secondary-p">{{ __('messages.stats_desc') }}</p>
         <div class="stats-row">
             @foreach(__('messages.stats') as $stat)

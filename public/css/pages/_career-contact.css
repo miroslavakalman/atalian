@@ -46,7 +46,7 @@
 .cards-row {
     display: flex;
     gap: 30px;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -396,4 +396,27 @@
 }
 .vac-hidden {
     display: none;
+}
+
+
+@media (min-width: 320px) and (max-width: 767px){
+    h2{
+        font-size: 22px !important;
+    }
+
+    h3, .no-vacancy-form h3{
+        font-size: 20px;
+    }
+
+    .positions{
+        padding: 0;
+    }
+
+    .no-vacancy-form p{
+        text-align: center;
+    }
+
+    .file-text{
+        font-size: 14px;
+    }
 }

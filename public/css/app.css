@@ -30,3 +30,5 @@
 /* Responsive */
 @import 'responsive/_mobile.css';
 @import 'responsive/career-responsive.css';
+@import 'responsive/industries-responsive.css';
+@import 'responsive/services-responsive.css'

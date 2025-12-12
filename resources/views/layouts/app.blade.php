@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @yield('meta')
     <title>@yield('title', 'Главная - Аталиан')</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset(path: 'css/app.css') }}" rel="stylesheet">
 </head>
 <body class="@yield('body-class')">
 
@@ -202,8 +203,9 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-container">
+@if (!isset($hideFooter) || $hideFooter === false)
+<footer class="footer">
+            <div class="footer-container">
             <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="logo-white">
             <div class="footer-row">
                 <div class="footer-column">
@@ -226,6 +228,7 @@
             </div>
         </div>
     </footer>
+@endif
 
     <script>
         // Mobile Menu Toggle

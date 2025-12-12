@@ -1,0 +1,77 @@
+@media (max-width: 1024px){
+    :root{
+        --content-padding: 80px !important;
+    }
+}
+
+
+@media (max-width: 768px){
+    .slide-career, .slide-cleaning, .slide-logistics, .slide-technical, .slide-custom, .slide-facility, .slide-admin{
+        border-radius: 0;
+    }
+
+    .slider{
+        padding: 0 !important;
+    }
+
+    .btn-primary{
+        font-size: 16px;
+
+        border-radius: 10px;
+        width: 187px;
+        height: 50px;
+    }
+
+    .key-routes{
+        margin-top: 10em;
+    }
+
+    .cards-row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px){
+    .btn-primary{
+        font-size: 12px;
+
+       width: 141px;
+        height: 40px;
+    }
+
+    .txt h2{
+        font-size: 24px;
+    }
+
+    .txt p{
+        font-size: 12px;
+    }
+
+    .slide-career, .slide-cleaning, .slide-logistics, .slides-container, .slide-technical, .slide-custom, .slide-facility, .slide-admin{
+        margin-top: 0 !important;
+    }
+
+    h1{
+        font-size: 24px;
+    }
+
+    .orange-h2{
+        font-size: 22px;
+    }
+
+    .career-card{
+        width: 260px;
+    }
+
+    .career-card h3{
+        font-size: 16px;
+    }
+
+    .career-card p{
+        font-size: 14px;
+    }
+}
+

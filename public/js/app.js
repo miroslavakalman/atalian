@@ -333,3 +333,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('showMore');
+
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.hidden-mobile').forEach(el => {
+            el.style.display = 'flex'; // показываем
+        });
+
+        btn.style.display = 'none'; // прячем кнопку после клика
+    });
+});

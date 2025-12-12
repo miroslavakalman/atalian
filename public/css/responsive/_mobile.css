@@ -95,7 +95,17 @@ img {
         display: block;
         width: 100%;
     }
+    .slide{
+        border-radius: 0;
+    }
 
+    .main-stat-img{
+        display: none;
+    }
+
+    .main-stat-h2{
+        text-align: left;
+    }
     /* Hide desktop language switch on mobile */
     .lang-switch {
         display: none;
@@ -156,7 +166,6 @@ img {
 
     /* Slider Mobile */
     .slides-container {
-        height: 400px;
         margin-top: 10%;
     }
 
@@ -184,7 +193,7 @@ img {
 
     .stats img {
         width: 100%;
-        height: 300px;
+        height: auto;
         order: 2;
     }
 
@@ -322,6 +331,29 @@ img {
     /* Body lock when menu is open */
     body.menu-open {
         overflow: hidden;
+    }
+
+    .error-404{
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .error-404 .desc{
+        text-align: center;
+    }
+    .compliance-column{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wrapper{
+        padding-bottom: 60px;
+    }
+
+    .dropdown-opened-row{
+        gap: 30%;
     }
 }
 

@@ -18,8 +18,7 @@
 <div class="industries-page">
 
     @foreach (config('industries') as $i => $industry)
-        <section class="industry-block {{ $i % 2 === 1 ? 'reverse' : '' }}">
-
+        <section class="industry-block {{ $i >= 3 ? 'hidden-mobile' : '' }} {{ $i % 2 === 1 ? 'reverse' : '' }}">
             <div class="industry-image">
                 <img src="{{ asset($industry['img']) }}" alt="{{ __('industries.' . $industry['key'] . '.title') }}">
             </div>
@@ -28,10 +27,10 @@
                 <h2>{{ __('industries.' . $industry['key'] . '.title') }}</h2>
                 <p>{{ __('industries.' . $industry['key'] . '.desc') }}</p>
             </div>
-
         </section>
     @endforeach
 
+    <button id="showMore" class="btn-primary">Показать ещё</button>
 </div>
 
 @endsection

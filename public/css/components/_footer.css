@@ -19,7 +19,7 @@ footer {
     gap: 2em;
 }
 
-.logo-white {
+ .logo-white {
     width: 222px;
     height: 111px;
 }
@@ -32,4 +32,21 @@ footer {
 
 footer a {
     color: #fdfdfd !important;
+}
+
+@media (max-width: 768px){
+    .footer-column h5{
+        font-size: 16px;
+    }
+
+    .footer-column a{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 475px){
+    .logo-white {
+        width: auto;
+        height: auto;
+    }
 }
