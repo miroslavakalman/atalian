@@ -1,0 +1,71 @@
+@media (max-width: 768px){
+    .slide-about{
+        border-radius: 0;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 650px){
+    .secondary-p-black{
+        font-size: 16px;
+        width: auto !important;
+    }
+
+    .about-company img{
+        display: none;
+    }
+    .mission-row, .values-row{
+        align-items: flex-start;
+    }
+    .about-company{
+        padding: 40px 20px 40px 20px;
+        margin-top: -10em;
+    }
+
+    .pdf-row{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .secondary-p{
+        font-size: 16px;
+        max-width: 340px;
+    }
+
+    #stats-rus img{
+        display: none;
+    }
+
+    .mission{
+        padding: 40px 20px 40px 20px !important;
+    }
+
+    .values-column{
+        width: auto !important;
+        max-width: none;
+    }
+    #stats-rus-row{
+        justify-content: left;
+        order: 0;
+    }
+
+    #stats-rus-row p{
+        text-align: center;
+    }
+
+    .about-company h2, #stats-rus-row h3{
+        text-align: left;
+    }
+
+    .pdf-row iframe{
+        width: auto;
+    }
+
+    h3{
+        font-size: 20px !important;
+    }
+
+    .mission-row h3{
+        text-align: left;
+    }
+}
