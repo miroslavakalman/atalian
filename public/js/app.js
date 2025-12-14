@@ -12,85 +12,108 @@ function initSlider() {
     const dots = document.querySelectorAll('.dot');
     const slider = document.querySelector('.slides-container');
 
-    if (slides.length === 0) {
-        console.warn('Слайдер: нет .slide — пропускаем');
+    if (!slides.length || !slider) {
+        console.warn('Слайдер: нет слайдов');
         return;
     }
 
     let currentSlide = 0;
-    let startX = 0;
-    let currentX = 0;
-    let isDragging = false;
+    let startX = null;
+    let moved = false;
+    let slideInterval = null;
 
-    function showSlide(n) {
-        currentSlide = (n + slides.length) % slides.length;
+    function showSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
 
         slides.forEach(s => s.classList.remove('active'));
         dots.forEach(d => d.classList.remove('active'));
 
-        slides[currentSlide]?.classList.add('active');
+        slides[currentSlide].classList.add('active');
         dots[currentSlide]?.classList.add('active');
     }
 
-    function nextSlide() { showSlide(currentSlide + 1); }
-    function prevSlide() { showSlide(currentSlide - 1); }
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
 
-    if (slider) {
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    /* ---------- DRAG / SWIPE ---------- */
+
+    slider.addEventListener('pointerdown', e => {
+        // ❗ не трогаем клики по кнопкам и ссылкам
+        if (e.target.closest('a, button')) return;
+
+        startX = e.clientX;
+        moved = false;
+        slider.setPointerCapture(e.pointerId);
+        slider.style.cursor = 'grabbing';
+    });
+
+    slider.addEventListener('pointermove', e => {
+        if (startX === null) return;
+
+        const diff = startX - e.clientX;
+        if (Math.abs(diff) > 10) moved = true;
+    });
+
+    slider.addEventListener('pointerup', e => {
+        if (startX === null) return;
+
+        slider.releasePointerCapture(e.pointerId);
         slider.style.cursor = 'grab';
 
-        slider.addEventListener('mousedown', e => {
-            isDragging = true;
-            startX = e.pageX;
-            slider.style.cursor = 'grabbing';
-        });
+        if (!moved) {
+            startX = null;
+            return; // это был клик
+        }
 
-        slider.addEventListener('mousemove', e => {
-            if (!isDragging) return;
-            currentX = e.pageX;
-        });
+        const diff = startX - e.clientX;
 
-        slider.addEventListener('mouseup', () => {
-            if (!isDragging) return;
-            isDragging = false;
-            slider.style.cursor = 'grab';
+        if (diff > 50) nextSlide();
+        if (diff < -50) prevSlide();
 
-            const diff = startX - currentX;
-            if (diff > 50) nextSlide();
-            if (diff < -50) prevSlide();
-        });
+        startX = null;
+    });
 
-        slider.addEventListener('touchstart', e => {
-            startX = e.touches[0].clientX;
-        });
+    slider.addEventListener('pointercancel', () => {
+        startX = null;
+        slider.style.cursor = 'grab';
+    });
 
-        slider.addEventListener('touchmove', e => {
-            currentX = e.touches[0].clientX;
-        });
+    /* ---------- AUTOPLAY ---------- */
 
-        slider.addEventListener('touchend', () => {
-            const diff = startX - currentX;
-            if (diff > 50) nextSlide();
-            if (diff < -50) prevSlide();
-        });
+    function startAutoPlay() {
+        slideInterval = setInterval(nextSlide, 5000);
     }
 
-    let slideInterval = setInterval(nextSlide, 5000);
-
-    if (slider) {
-        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
-        slider.addEventListener('mouseleave', () => {
-            slideInterval = setInterval(nextSlide, 5000);
-        });
+    function stopAutoPlay() {
+        clearInterval(slideInterval);
     }
+
+    startAutoPlay();
+
+    slider.addEventListener('mouseenter', stopAutoPlay);
+    slider.addEventListener('mouseleave', startAutoPlay);
 }
 
-// Переключение вакансионного слайдера
+/* ---------- INIT ---------- */
+document.addEventListener('DOMContentLoaded', initSlider);
+
+
+/* ---------- ВАКАНСИОННЫЙ СЛАЙДЕР (без изменений) ---------- */
 document.getElementById('vac-prev')?.addEventListener('click', () => {
-    document.getElementById('vac-slider').scrollBy({ left: -300, behavior: "smooth" });
+    document.getElementById('vac-slider')
+        ?.scrollBy({ left: -300, behavior: "smooth" });
 });
+
 document.getElementById('vac-next')?.addEventListener('click', () => {
-    document.getElementById('vac-slider').scrollBy({ left: 300, behavior: "smooth" });
+    document.getElementById('vac-slider')
+        ?.scrollBy({ left: 300, behavior: "smooth" });
 });
+
 function initFAQ() {
     const dropdownItems = document.querySelectorAll('.dropdown-item');
     const serviceImage = document.querySelector('.service-img');
@@ -344,5 +367,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         btn.style.display = 'none'; // прячем кнопку после клика
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('scroll-to-vacancies');
+    const target = document.getElementById('open-vacancies');
+
+    if (!btn || !target) return;
+
+    btn.addEventListener('click', () => {
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
     });
 });

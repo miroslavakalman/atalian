@@ -99,3 +99,13 @@
 .dot:hover {
     background: rgba(255, 255, 255, 0.8);
 }
+
+.slides-container {
+    cursor: grab;
+}
+
+.slide a,
+.slide button {
+    position: relative;
+    z-index: 10;
+}

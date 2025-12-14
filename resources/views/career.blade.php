@@ -9,12 +9,16 @@
             <div class="txt">
                 <h1>{!! __('career.hero_title') !!}</h1>
                 <p class="desc">{!! __('career.hero_desc') !!}</p>
-                <button class="btn-primary">{!! __('career.hero_button') !!}</button>
+                <button
+                    class="btn-primary"
+                    id="scroll-to-vacancies"
+                >
+                    {!! __('career.hero_button') !!}
+                </button>
             </div>
-        </div>
     </div>
 </div>
-
+</div>
 <div class="stats" id="career-wrapper">
     <div class="column-txt">
         <h2>{{ __('career.choice_label') }}</h2>
@@ -29,7 +33,8 @@
         </div>
     </div>
 </div>
-<div class="positions">
+
+<div class="positions" id="open-vacancies">
     <h2>{{ __('career.vacancies_title') }}</h2>
 
     @if(count($vacancies) === 0)
@@ -67,6 +72,7 @@
             <a href="{{ $v['url'] }}" target="_blank" class="vac-more">{!! __('career.read_more') !!}</a>
         </div>
     </div>
+    </a>
 @endforeach
 
             </div>
@@ -89,16 +95,17 @@
     <form action="{{ route('career.submit', app()->getLocale()) }}" method="POST" enctype="multipart/form-data">
         @csrf
 
+        <!-- Honeypot field -->
+        <input type="text" name="website" style="display:none" autocomplete="off">
+
         <input type="text" name="name" placeholder="{{ __('career.form_name') }}" required>
         <input type="email" name="email" placeholder="{{ __('career.form_email') }}" required>
 
         <div class="file-input-wrapper">
             <input type="file" name="resume" id="resume-input" accept=".pdf,.doc,.docx" required>
-
             <label for="resume-input" class="file-label">
                 <span class="file-text">{{ __('career.form_resume') }}</span>
             </label>
-
             <span id="file-name" class="file-name">
                 {{ __('career.form_no_file') }}
             </span>
@@ -111,6 +118,7 @@
         </button>
     </form>
 </div>
+
 
 
 

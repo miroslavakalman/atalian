@@ -9,7 +9,6 @@
             <div class="txt">
                 <h1>{!! __('technical.hero_title') !!}</h1>
                 <p class="desc">{!! __('technical.hero_desc') !!}</p>
-                <button class="btn-primary">{!! __('technical.hero_button') !!}</button>
             </div>
         </div>
     </div>

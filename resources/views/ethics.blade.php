@@ -44,9 +44,22 @@
             <h2 class="black">{!! __('ethics.program_title') !!}</h2>
             <p class="secondary-p-black">{!! nl2br(__('ethics.program_desc')) !!}</p>
         </div>
-        <div class="pdfs">
-            <img src="/img/ethics/pdf-1.png" alt="">
-            <img src="/img/ethics/pdf-2.png" alt="">
+       <div class="pdfs">
+            <a
+                href="/docs/Политика информирования о нарушениях.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img src="/img/ethics/pdf-1.png" alt="Политика информирования о нарушениях">
+            </a>
+
+            <a
+                href="/docs/Кодекс деловой этики.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img src="/img/ethics/pdf-2.png" alt="Кодекс деловой этики">
+            </a>
         </div>
     </div>
 

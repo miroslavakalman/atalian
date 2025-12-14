@@ -29,4 +29,6 @@ return [
 
     'premium_housing.title' => 'Premium Residential Properties',
     'premium_housing.desc'  => 'We provide a high standard of service, confidentiality, and precision in execution at premium residential properties.',
+
+    'showmore' => 'Show more',
 ];

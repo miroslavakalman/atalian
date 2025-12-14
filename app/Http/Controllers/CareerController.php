@@ -22,26 +22,33 @@ class CareerController extends Controller
 
     // Метод для обработки формы
     public function submit(Request $request, $locale)
-    {
-        app()->setLocale($locale);
+{
+    app()->setLocale($locale);
 
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'nullable|string|max:50',
-            'resume' => 'required|file|mimes:pdf,doc,docx|max:2048',
-        ]);
-
-        // Загрузка резюме
-        $path = $request->file('resume')->store('resumes');
-
-        $submission = CareerSubmission::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'] ?? null,
-            'resume_path' => $path,
-        ]);
-
-return redirect()->route('career.thanks', ['locale' => $locale]);
+    // Honeypot
+    if ($request->filled('website')) {
+        abort(400, 'Bot detected');
     }
+
+    // Валидация
+    $data = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'phone' => 'nullable|string|max:50',
+        'resume' => 'required|file|mimes:pdf,doc,docx|max:2048',
+    ]);
+
+    // Загрузка резюме
+    $path = $request->file('resume')->store('resumes');
+
+    $submission = CareerSubmission::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'phone' => $data['phone'] ?? null,
+        'resume_path' => $path,
+    ]);
+
+    return redirect()->route('career.thanks', ['locale' => $locale]);
+}
+
 }

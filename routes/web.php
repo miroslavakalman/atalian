@@ -1,23 +1,33 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return redirect(app()->getLocale() . '/');
 });
+Route::post('/contact/submit', [ContactController::class, 'submit'])
+    ->middleware('throttle:5,1')
+    ->name('contact.submit');
 
 // Группа маршрутов с префиксом языка
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], function() {
 
     Route::get('/', function($locale){
         app()->setLocale($locale);
-        return view('welcome'); // главная страница
+        return view('welcome'); 
     });
 
     Route::get('/about', function($locale){
         app()->setLocale($locale);
         return view('about');
-    });
+    })->name('about');
+
+    Route::get('/ethics', function($locale){
+        app()->setLocale($locale);
+        return view('ethics');
+    })->name('ethics');
+
 
     // ------------------- Услуги -------------------
     Route::get('/services', function($locale){
@@ -71,16 +81,36 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], functio
         return view('sustainability');
     });
 
-    Route::get('/ethics', function($locale){
-        app()->setLocale($locale);
-        return view('ethics');
-    });
-
-    // Career
     Route::get('/career', [CareerController::class, 'index'])->name('career');
     Route::post('/career/submit', [CareerController::class, 'submit'])->name('career.submit');
     Route::get('/career/thanks', function () {
         return view('career.thanks');
     })->name('career.thanks');
 
+});
+
+Route::get('/sitemap.xml', function () {
+
+    $locales = ['ru', 'en'];
+
+    $pages = [
+        '',     
+        'about',
+        'contact',
+        'industries',
+        'services',
+        'services/logistics',
+        'services/cleaning',
+        'services/technical',
+        'services/administrative',
+        'services/custom',
+        'career',
+        'sustainability',
+        'ethics',
+    ];
+
+    $content = view('seo.sitemap', compact('locales', 'pages'));
+
+    return response($content, 200)
+        ->header('Content-Type', 'application/xml');
 });

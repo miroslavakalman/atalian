@@ -9,7 +9,12 @@
             <div class="txt">
                 <h1>{{ __('industries.header') }}</h1>
                 <p class="desc">{{ __('industries.subheader') }}</p>
-                <button class="btn-primary">{{ __('industries.presentation_btn') }} ↗</button>
+                <button
+                    class="btn-primary"
+                    onclick="window.open('https://cloud.mail.ru/public/doks/oxZ5kWAdx', '_blank')"
+                >
+                    {{ __('industries.presentation_btn') }} ↗
+                </button>
             </div>
         </div>
 </div>
@@ -30,7 +35,7 @@
         </section>
     @endforeach
 
-    <button id="showMore" class="btn-primary">Показать ещё</button>
+    <button id="showMore" class="btn-primary">{{ __('industries.showmore') }}</button>
 </div>
 
 @endsection

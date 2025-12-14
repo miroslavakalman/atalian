@@ -58,16 +58,19 @@ return [
             'title' => '10 Years <br>in the Russian Market',
             'desc'  => 'We support businesses across multiple sectors, ensuring reliable facility management and high quality standards. Ten years of trust, stability, and professionalism.',
             'btn'   => 'Learn More',
+            'route' => 'about',
         ],
         [
             'title' => 'Professional <br>Team',
             'desc'  => 'Our specialists have extensive experience across industries and provide optimal solutions for your business.',
             'btn'   => 'Our Team',
+            'route' => 'ethics',
         ],
         [
             'title' => 'Innovative <br>Solutions',
             'desc'  => 'We constantly evolve and implement modern technologies to increase the efficiency of your business.',
             'btn'   => 'Our Solutions',
+            'route' => 'services.custom',
         ],
     ],
 
