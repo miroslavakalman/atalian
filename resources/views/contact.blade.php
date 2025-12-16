@@ -25,27 +25,48 @@
 
     <!-- Honeypot -->
     <input type="text" name="website" style="display:none" autocomplete="off">
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 500; color: #3f3e3e;">{{ __('messages.subject') }} *</label>
+                <select class="form-select" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Inter'; font-size: 16px;">
+                    <option value="">{{ __('messages.choose_subject') }}</option>
+                    <option value="general">{{ __('messages.general_question') }}</option>
+                    <option value="services">{{ __('messages.services_info') }}</option>
+                    <option value="partnership">{{ __('messages.partnership') }}</option>
+                    <option value="career">{{ __('messages.career_question') }}</option>
+                    <option value="other">{{ __('messages.other') }}</option>
+                </select>
+            </div>
 
-    <div class="form-group" style="margin-bottom: 20px;">
-        <label class="form-label">{{ __('messages.subject') }} *</label>
-        <select name="subject" class="form-select" required>
-            <option value="">{{ __('messages.choose_subject') }}</option>
-            <option value="general">{{ __('messages.general_question') }}</option>
-            <option value="services">{{ __('messages.services_info') }}</option>
-            <option value="partnership">{{ __('messages.partnership') }}</option>
-            <option value="career">{{ __('messages.career_question') }}</option>
-            <option value="other">{{ __('messages.other') }}</option>
-        </select>
-    </div>
-
-    <input type="text" name="name" required placeholder="{{ __('messages.name') }}">
-    <input type="tel" name="phone" placeholder="{{ __('messages.phone') }}">
-    <input type="email" name="email" required placeholder="{{ __('messages.email') }}">
-    <input type="text" name="company" placeholder="{{ __('messages.company') }}">
-    <textarea name="message" required placeholder="{{ __('messages.message') }}"></textarea>
-
-    <button type="submit" class="btn-primary">{{ __('messages.send_message') }}</button>
-</form>
+            <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 20px;">
+                <div class="form-group" style="flex: 1;">
+                    <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 500; color: #3f3e3e;">{{ __('messages.name') }} *</label>
+                    <input type="text" class="form-input" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Inter'; font-size: 16px;">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 500; color: #3f3e3e;">{{ __('messages.phone') }}</label>
+                    <input type="tel" class="form-input" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Inter'; font-size: 16px;">
+                </div>
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 500; color: #3f3e3e;">{{ __('messages.email') }} *</label>
+                <input type="email" class="form-input" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Inter'; font-size: 16px;">
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 500; color: #3f3e3e;">{{ __('messages.company') }}</label>
+                <input type="text" class="form-input" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Inter'; font-size: 16px;">
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 30px;">
+                <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 500; color: #3f3e3e;">{{ __('messages.message') }} *</label>
+                <textarea class="form-textarea" required rows="5" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; resize: vertical; font-family: 'Inter'; font-size: 16px;"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary" style="width: 100%; background: var(--coop-orange-accent); border: none; border-radius: 10px; padding: 15px; font-family: 'FindSansPro'; font-size: 18px; color: white; cursor: pointer; transition: background 0.3s ease;">
+                {{ __('messages.send_message') }}
+            </button>
+        </form>
 
     </div>
 </div>

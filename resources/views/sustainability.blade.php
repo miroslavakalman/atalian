@@ -20,9 +20,9 @@
 
                 <div class="sust-img-grid">
                     <img src="/img/sustainability/part-1.png" alt="" class="img-1">
-                    <img src="/img/sustainability/part-2.png" alt="">
+                    <img src="/img/sustainability/part-2.png" alt="" class="img-2">
                     <img src="/img/sustainability/part-3.png" alt="" class="img-3">
-                    <img src="/img/sustainability/part-4.png" alt="">
+                    <img src="/img/sustainability/part-4.png" alt=""class="img-4">
                 </div>
 
                 <div class="sust-row">
@@ -82,30 +82,3 @@
 
 </div>
 @endsection
-<script>
-    // Вставьте в конец файла перед закрывающим </body>
-document.addEventListener('DOMContentLoaded', function() {
-    function adjustImageGrid() {
-        const grid = document.querySelector('.sust-img-grid');
-        const images = grid.querySelectorAll('img');
-        
-        if (window.innerWidth <= 1023) {
-            // На планшетах убираем специальные классы
-            images.forEach(img => {
-                img.style.marginTop = '0';
-                img.style.width = 'auto';
-            });
-        } else {
-            // На десктопе возвращаем оригинальные стили
-            const img1 = document.querySelector('.img-1');
-            const img3 = document.querySelector('.img-3');
-            if (img1) img1.style.width = '190px';
-            if (img3) img3.style.marginTop = '70px';
-        }
-    }
-    
-    // Выполняем при загрузке и изменении размера окна
-    adjustImageGrid();
-    window.addEventListener('resize', adjustImageGrid);
-});
-</script>

@@ -266,6 +266,9 @@ body.sust-page-active footer * {
     .sust-item {
         margin-bottom: 25px;
     }
+      .sust-img-grid .img-1, .sust-img-grid .img-3, .sust-img-grid .img-4{
+        display: none;
+    }
 }
 
 /* Телефоны (до 575px) */
@@ -306,6 +309,9 @@ body.sust-page-active footer * {
     .sust-two-col {
         gap: 40px;
     }
+      .sust-img-grid .img-1, .sust-img-grid .img-3, .sust-img-grid .img-4{
+        display: none;
+    }
 }
 
 /* Очень маленькие телефоны (до 375px) */
@@ -321,4 +327,13 @@ body.sust-page-active footer * {
     .sust-wide {
         width: calc(100% - 20px);
     }
-}
+
+    .container{
+        padding: 40px;
+        margin-top: 0px !important;
+    }
+
+    .sust-img-grid .img-1, .sust-img-grid .img-3, .sust-img-grid .img-4{
+        display: none;
+    }
+} 
