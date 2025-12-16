@@ -23,14 +23,19 @@
 <div class="industries-page">
 
     @foreach (config('industries') as $i => $industry)
-        <section class="industry-block {{ $i >= 3 ? 'hidden-mobile' : '' }} {{ $i % 2 === 1 ? 'reverse' : '' }}">
+
+        @php
+            $id = $industry['key']; 
+        @endphp
+
+        <section id="{{ $id }}" class="industry-block {{ $i >= 3 ? 'hidden-mobile' : '' }} {{ $i % 2 === 1 ? 'reverse' : '' }}">
             <div class="industry-image">
-                <img src="{{ asset($industry['img']) }}" alt="{{ __('industries.' . $industry['key'] . '.title') }}">
+                <img src="{{ asset($industry['img']) }}" alt="{{ __('industries.' . $id . '.title') }}">
             </div>
 
             <div class="industry-text">
-                <h2>{{ __('industries.' . $industry['key'] . '.title') }}</h2>
-                <p>{{ __('industries.' . $industry['key'] . '.desc') }}</p>
+                <h2>{{ __('industries.' . $id . '.title') }}</h2>
+                <p>{{ __('industries.' . $id . '.desc') }}</p>
             </div>
         </section>
     @endforeach

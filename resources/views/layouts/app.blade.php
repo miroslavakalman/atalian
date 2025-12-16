@@ -28,180 +28,81 @@
             <span></span>
             <span></span>
         </button>
+<nav class="nav" id="mainNav">
+    <!-- О компании -->
+    <a href="{{ url(app()->getLocale() . '/about') }}">{{ __('menu.about_us') }}</a>
 
-        <nav class="nav" id="mainNav">
-            <!-- О компании -->
-            <div class="nav-item has-dropdown">
-                <a href="{{ url(app()->getLocale() . '/about') }}">{{ __('messages.about_us') }}</a>
-                <div class="fullscreen-dropdown">
-                    <button class="menu-close" onclick="closeMenu(this)">×</button>
-                    <div class="dropdown-content">
-                        <div class="dropdown-section">
-                            <h3>О компании</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/about/history') }}">История</a>
-                                <a href="{{ url(app()->getLocale() . '/about/team') }}">Команда</a>
-                                <a href="{{ url(app()->getLocale() . '/about/values') }}">Ценности</a>
-                                <a href="{{ url(app()->getLocale() . '/about/leadership') }}">Руководство</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <h3>Деятельность</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/about/approach') }}">Наш подход</a>
-                                <a href="{{ url(app()->getLocale() . '/about/geography') }}">География</a>
-                                <a href="{{ url(app()->getLocale() . '/about/partners') }}">Партнеры</a>
-                                <a href="{{ url(app()->getLocale() . '/about/achievements') }}">Достижения</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <h3>Сертификаты</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/about/certificates') }}">Качество</a>
-                                <a href="{{ url(app()->getLocale() . '/about/standards') }}">Стандарты</a>
-                                <a href="{{ url(app()->getLocale() . '/about/compliance') }}">Соответствие</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <h3>Пресс-центр</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/about/news') }}">Новости</a>
-                                <a href="{{ url(app()->getLocale() . '/about/media') }}">СМИ о нас</a>
-                                <a href="{{ url(app()->getLocale() . '/about/events') }}">Мероприятия</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="nav-item has-dropdown">
+        <a href="{{ url(app()->getLocale() . '/services') }}">{{ __('menu.services') }}</a>
+        <div class="dropdown">
+            <div class="dropdown-links">
+                <a href="{{ url(app()->getLocale() . '/services/cleaning') }}">{{ __('menu.cleaning') }}</a>
+                <a href="{{ url(app()->getLocale() . '/services/technical') }}">{{ __('menu.technical') }}</a>
+                <a href="{{ url(app()->getLocale() . '/services/facility') }}">{{ __('menu.facility') }}</a>
+                <a href="{{ url(app()->getLocale() . '/services/logistics') }}">{{ __('menu.logistics') }}</a>
+                <a href="{{ url(app()->getLocale() . '/services/administrative') }}">{{ __('menu.administrative') }}</a>
+                <a href="{{ url(app()->getLocale() . '/services/custom') }}">{{ __('menu.custom_solutions') }}</a>
             </div>
-
-            <!-- Услуги -->
-            <div class="nav-item has-dropdown">
-                <a href="{{ url(app()->getLocale() . '/services') }}">{{ __('messages.services') }}</a>
-                <div class="fullscreen-dropdown">
-                    <button class="menu-close" onclick="closeMenu(this)">×</button>
-                    <div class="dropdown-content">
-                        <div class="dropdown-section">
-                            <h3>Основные услуги</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/services/cleaning') }}">Клининг</a>
-                                <a href="{{ url(app()->getLocale() . '/services/technical') }}">Техобслуживание</a>
-                                <a href="{{ url(app()->getLocale() . '/services/supply') }}">Закупки</a>
-                                <a href="{{ url(app()->getLocale() . '/services/security') }}">Безопасность</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <h3>Отрасли и объекты</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/services/industrial') }}">Офисы</a>
-                                <a href="{{ url(app()->getLocale() . '/services/commercial') }}">Промышленность</a>
-                                <a href="{{ url(app()->getLocale() . '/services/healthcare') }}">Ритейл</a>
-                                <a href="{{ url(app()->getLocale() . '/services/educational') }}">Общественные места</a>
-                                <a href="{{ url(app()->getLocale() . '/services/educational') }}">Транспорт и логистика</a>
-                                <a href="{{ url(app()->getLocale() . '/services/educational') }}">Здравоохранение</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <h3>Дополнительные</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/services/administrative') }}">Административные</a>
-                                <a href="{{ url(app()->getLocale() . '/services/facility') }}">Управление</a>
-                                <a href="{{ url(app()->getLocale() . '/services/custom') }}">Индивидуальные</a>
-                                <a href="{{ url(app()->getLocale() . '/services/consulting') }}">Консалтинг</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <h3>Решения</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/services/innovation') }}">Инновации</a>
-                                <a href="{{ url(app()->getLocale() . '/services/technology') }}">Технологии</a>
-                                <a href="{{ url(app()->getLocale() . '/services/sustainability') }}">Устойчивость</a>
-                                <a href="{{ url(app()->getLocale() . '/services/efficiency') }}">Эффективность</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="nav-item">
-                <a href="{{ url(app()->getLocale() . '/commitments') }}">{{ __('messages.commitments') }}</a>
-            </div>
-
-            <div class="nav-item has-dropdown">
-                <a href="{{ url(app()->getLocale() . '/career') }}">{{ __('messages.career') }}</a>
-                <div class="fullscreen-dropdown">
-                    <button class="menu-close" onclick="closeMenu(this)">×</button>
-                    <div class="dropdown-content">
-                        <div class="dropdown-section">
-                            <h3>Вакансии</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/career/vacancies') }}">Все вакансии</a>
-                                <a href="{{ url(app()->getLocale() . '/career/students') }}">Студентам</a>
-                                <a href="{{ url(app()->getLocale() . '/career/experienced') }}">Опытным</a>
-                                <a href="{{ url(app()->getLocale() . '/career/internships') }}">Стажировки</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <h3>Преимущества</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/career/benefits') }}">Условия</a>
-                                <a href="{{ url(app()->getLocale() . '/career/development') }}">Развитие</a>
-                                <a href="{{ url(app()->getLocale() . '/career/training') }}">Обучение</a>
-                                <a href="{{ url(app()->getLocale() . '/career/culture') }}">Культура</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <h3>Процесс</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/career/process') }}">Отбор</a>
-                                <a href="{{ url(app()->getLocale() . '/career/interview') }}">Собеседование</a>
-                                <a href="{{ url(app()->getLocale() . '/career/onboarding') }}">Адаптация</a>
-                                <a href="{{ url(app()->getLocale() . '/career/feedback') }}">Обратная связь</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <h3>Карьера</h3>
-                            <div class="dropdown-links">
-                                <a href="{{ url(app()->getLocale() . '/career/growth') }}">Рост</a>
-                                <a href="{{ url(app()->getLocale() . '/career/positions') }}">Позиции</a>
-                                <a href="{{ url(app()->getLocale() . '/career/success') }}">Успехи</a>
-                                <a href="{{ url(app()->getLocale() . '/career/testimonials') }}">Отзывы</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="nav-item">
-                <a href="{{ url(app()->getLocale() . '/contact') }}">{{ __('messages.contact') }}</a>
-            </div>
-
-            <!-- Mobile Language Switch -->
-            <div class="mobile-lang-switch">
-                @php
-                    $segments = Request::segments(); 
-                    if (in_array($segments[0] ?? '', ['ru', 'en'])) {
-                        array_shift($segments);
-                    }
-                    $basePath = implode('/', $segments);
-                @endphp
-                <a href="{{ url('ru/' . $basePath) }}" class="lang-link">RU</a>
-                <span>|</span>
-                <a href="{{ url('en/' . $basePath) }}" class="lang-link">EN</a>
-            </div>
-        </nav>
-
-        <!-- Desktop Language Switch -->
-        <div class="lang-switch">
-            @php
-                $segments = Request::segments(); 
-                if (in_array($segments[0] ?? '', ['ru', 'en'])) {
-                    array_shift($segments);
-                }
-                $basePath = implode('/', $segments);
-            @endphp
-            <a href="{{ url('ru/' . $basePath) }}">RU</a> | 
-            <a href="{{ url('en/' . $basePath) }}">EN</a>
         </div>
+    </div>
+
+    <div class="nav-item has-dropdown">
+        <a href="#">{{ __('menu.industries') }}</a>
+        <div class="dropdown">
+            <div class="dropdown-links">
+                <a href="{{ url(app()->getLocale() . '/industries/#offices') }}">{{ __('menu.industries_offices') }}</a>
+                <a href="{{ url(app()->getLocale() . '/industries/#industrial') }}">{{ __('menu.industries_industrial') }}</a>
+                <a href="{{ url(app()->getLocale() . '/industries/#retail_service') }}">{{ __('menu.industries_retail_service') }}</a>
+                <a href="{{ url(app()->getLocale() . '/industries/#public') }}">{{ __('menu.industries_public') }}</a>
+                <a href="{{ url(app()->getLocale() . '/industries/#transport') }}">{{ __('menu.industries_transport') }}</a>
+                <a href="{{ url(app()->getLocale() . '/industries/#healthcare') }}">{{ __('menu.industries_healthcare') }}</a>
+                <a href="{{ url(app()->getLocale() . '/industries/#premium_housing') }}">{{ __('menu.industries_premium_housing') }}</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-item has-dropdown">
+        <a href="{{ url(app()->getLocale() . '/ethics') }}">{{ __('menu.commitments') }}</a>
+        <div class="dropdown">
+            <div class="dropdown-links">
+                <a href="{{ url(app()->getLocale() . '/ethics') }}">{{ __('menu.ethics') }}</a>
+                <a href="{{ url(app()->getLocale() . '/sustainability') }}">{{ __('menu.sustainability') }}</a>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ url(app()->getLocale() . '/career') }}">{{ __('menu.career') }}</a>
+    <a href="{{ url(app()->getLocale() . '/contact') }}">{{ __('menu.contact') }}</a>
+</nav>
+
+    <!-- Mobile Language Switch -->
+    <div class="mobile-lang-switch">
+        @php
+            $segments = Request::segments(); 
+            if (in_array($segments[0] ?? '', ['ru', 'en'])) {
+                array_shift($segments);
+            }
+            $basePath = implode('/', $segments);
+        @endphp
+        <a href="{{ url('ru/' . $basePath) }}" class="lang-link">RU</a>
+        <span>|</span>
+        <a href="{{ url('en/' . $basePath) }}" class="lang-link">EN</a>
+    </div>
+</nav>
+
+<!-- Desktop Language Switch -->
+<div class="lang-switch">
+    @php
+        $segments = Request::segments(); 
+        if (in_array($segments[0] ?? '', ['ru', 'en'])) {
+            array_shift($segments);
+        }
+        $basePath = implode('/', $segments);
+    @endphp
+    <a href="{{ url('ru/' . $basePath) }}">RU</a> | 
+    <a href="{{ url('en/' . $basePath) }}">EN</a>
+</div>
+
     </header>
 
     <!-- MAIN CONTENT -->
@@ -320,7 +221,7 @@
         // Закрытие по ESC
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                const openMenus = document.querySelectorAll('.fullscreen-dropdown[style*="display: block"]');
+                const openMenus = document.querySelectorAll(    '.fullscreen-dropdown[style*="display: block"]');
                 openMenus.forEach(menu => {
                     menu.style.display = 'none';
                 });

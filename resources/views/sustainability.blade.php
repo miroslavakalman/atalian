@@ -82,3 +82,30 @@
 
 </div>
 @endsection
+<script>
+    // Вставьте в конец файла перед закрывающим </body>
+document.addEventListener('DOMContentLoaded', function() {
+    function adjustImageGrid() {
+        const grid = document.querySelector('.sust-img-grid');
+        const images = grid.querySelectorAll('img');
+        
+        if (window.innerWidth <= 1023) {
+            // На планшетах убираем специальные классы
+            images.forEach(img => {
+                img.style.marginTop = '0';
+                img.style.width = 'auto';
+            });
+        } else {
+            // На десктопе возвращаем оригинальные стили
+            const img1 = document.querySelector('.img-1');
+            const img3 = document.querySelector('.img-3');
+            if (img1) img1.style.width = '190px';
+            if (img3) img3.style.marginTop = '70px';
+        }
+    }
+    
+    // Выполняем при загрузке и изменении размера окна
+    adjustImageGrid();
+    window.addEventListener('resize', adjustImageGrid);
+});
+</script>

@@ -60,65 +60,81 @@ $cfg = config('cookie');
     font-size: 14px;
 }
 
+.cookie-category{
+    font-family: 'Inter';
+    margin: 20px;
+}
 .btn { background: var(--coop-orange-accent); color: #fff; }
 .btn-decline { background: #555; color: #fff; }
 </style>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const banner = document.getElementById('cookieBanner');
     const form = document.getElementById('cookieForm');
     const storageKey = '{{ $cfg["storage_key"] }}';
     const metrikaID = '{{ $cfg["metrika_id"] }}';
-    banner.style.display = 'block';
 
-    const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
-    if(!saved || Object.keys(saved).length === 0) banner.style.display = 'block';
-    else if(saved.analytics) initMetrika();
+    let saved = null;
+    try {
+        saved = JSON.parse(localStorage.getItem(storageKey));
+    } catch (e) {
+        saved = null;
+    }
+
+    if (!saved) {
+        banner.classList.add('show');
+    } else if (saved.analytics) {
+        initMetrika();
+    }
 
     document.getElementById('acceptAll').addEventListener('click', () => {
         const data = {};
-        Array.from(form.elements).forEach(el => {
-            if(el.type==='checkbox') data[el.name]=true;
+        [...form.elements].forEach(el => {
+            if (el.type === 'checkbox') data[el.name] = true;
         });
-        localStorage.setItem(storageKey, JSON.stringify(data));
-        hideBanner();
+        save(data);
         initMetrika();
     });
 
     document.getElementById('declineAll').addEventListener('click', () => {
         const data = {};
-        Array.from(form.elements).forEach(el => {
-            if(el.type==='checkbox') data[el.name]=el.disabled ? true : false;
+        [...form.elements].forEach(el => {
+            if (el.type === 'checkbox') data[el.name] = el.disabled;
         });
-        localStorage.setItem(storageKey, JSON.stringify(data));
-        hideBanner();
+        save(data);
     });
 
     form.addEventListener('submit', e => {
         e.preventDefault();
         const data = {};
-        Array.from(form.elements).forEach(el => {
-            if(el.type==='checkbox') data[el.name]=el.checked;
+        [...form.elements].forEach(el => {
+            if (el.type === 'checkbox') data[el.name] = el.checked;
         });
-        localStorage.setItem(storageKey, JSON.stringify(data));
-        hideBanner();
-        if(data.analytics) initMetrika();
+        save(data);
+        if (data.analytics) initMetrika();
     });
 
-    function hideBanner() {
-        banner.style.display = 'none';
+    function save(data) {
+        localStorage.setItem(storageKey, JSON.stringify(data));
+        banner.classList.remove('show');
     }
 
     function initMetrika() {
-        if(!window.ym){
-            (function(m,e,t,r,i,k,a){
-                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-                m[i].l=1*new Date();
-                k=e.createElement(t),a=e.getElementsByTagName(t)[0];
-                k.async=1;k.src=r;a.parentNode.insertBefore(k,a)
-            })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-            ym(metrikaID,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
-        }
+        if (window.ym) return;
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0];
+            k.async=1;k.src=r;a.parentNode.insertBefore(k,a);
+        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(metrikaID, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
     }
 });
 </script>
+        

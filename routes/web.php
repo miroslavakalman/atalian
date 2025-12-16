@@ -28,6 +28,10 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], functio
         return view('ethics');
     })->name('ethics');
 
+    Route::get('/cookies', function($locale){
+        app()->setLocale($locale);
+        return view('cookies');
+    })->name('cookies');
 
     // ------------------- Услуги -------------------
     Route::get('/services', function($locale){

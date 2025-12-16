@@ -383,3 +383,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdowns = document.querySelectorAll('.nav-item.has-dropdown > a');
+
+    dropdowns.forEach(link => {
+        link.addEventListener('click', e => {
+            const dropdown = link.nextElementSibling;
+            if (dropdown) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
+});

@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'about_us' => 'О компании',
+    'services' => 'Услуги',
+    'main_services' => 'Основные услуги',
+    'cleaning' => 'Клининг',
+    'technical' => 'Техническое обслуживание',
+    'facility' => 'Фасилити менеджмент',
+    'logistics' => 'Логистика',
+    'administrative' => 'Административная поддержка',
+    'custom_solutions' => 'Индивидуальные решения',
+    'industries' => 'Отрасли и объекты',
+    'industries_offices' => 'Офисы',
+    'industries_industrial' => 'Промышленность',
+    'industries_retail_service' => 'Ритейл и сервис',
+    'industries_public' => 'Общественные места',
+    'industries_transport' => 'Транспорт и логистика',
+    'industries_healthcare' => 'Здравоохранение',
+    'industries_premium_housing' => 'Недвижимость',
+    'commitments' => 'Обязательства',
+    'ethics' => 'Этика и обязательства',
+    'sustainability' => 'Устойчивое развитие',
+    'career' => 'Карьера',
+    'contact' => 'Контакты',
+];

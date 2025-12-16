@@ -136,3 +136,189 @@ body.sust-page-active footer,
 body.sust-page-active footer * {
     background-color: #012615 !important;
 }
+
+
+/* ======================
+   МЕДИА-ЗАПРОСЫ ДЛЯ АДАПТИВА
+   ====================== */
+
+/* Большие планшеты и маленькие десктопы (1024px - 1199px) */
+@media (max-width: 1199px) {
+    .sust-wide {
+        width: calc(100% - 120px);
+    }
+    
+    .sust-title {
+        font-size: 48px;
+    }
+    
+    .sust-two-col {
+        gap: 60px;
+    }
+    
+    .sust-light-img img {
+        width: 450px;
+        height: auto;
+        max-height: 680px;
+    }
+}
+
+/* Планшеты (768px - 1023px) */
+@media (max-width: 1023px) {
+    .sust-hero,
+    .sust-light {
+        padding: 80px 0;
+    }
+    
+    .sust-wide {
+        width: calc(100% - 60px);
+    }
+    
+    .sust-title {
+        font-size: 42px;
+        margin-bottom: 40px;
+    }
+    
+    .sust-img-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        justify-items: center;
+        margin-bottom: 50px;
+    }
+    
+    .sust-img-grid img {
+        max-width: 90%;
+    }
+    
+    .img-3 {
+        margin-top: 0;
+    }
+    
+    .sust-row {
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 30px;
+    }
+    
+    .sust-col p {
+        max-width: 100%;
+    }
+    
+    .sust-two-col {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        display: grid; /* Возвращаем grid для мобильной версии */
+    }
+    
+    .sust-light-img {
+        text-align: center;
+    }
+    
+    .sust-light-img img {
+        width: 100%;
+        max-width: 511px;
+        height: auto;
+    }
+    
+    .sust-item p {
+        max-width: 100%;
+    }
+}
+
+/* Большие телефоны (576px - 767px) */
+@media (max-width: 767px) {
+    .sust-hero,
+    .sust-light {
+        padding: 60px 0;
+    }
+    
+    .sust-wide {
+        width: calc(100% - 40px);
+    }
+    
+    .sust-title {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+    
+    .sust-img-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .sust-img-grid img {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .sust-col h3 {
+        font-size: 20px;
+    }
+    
+    .sust-col p {
+        font-size: 15px;
+    }
+    
+    .sust-item span {
+        font-size: 18px;
+    }
+    
+    .sust-item {
+        margin-bottom: 25px;
+    }
+}
+
+/* Телефоны (до 575px) */
+@media (max-width: 575px) {
+    .sust-hero,
+    .sust-light {
+        padding: 50px 0;
+    }
+    
+    .sust-wide {
+        width: calc(100% - 30px);
+    }
+    
+    .sust-title {
+        font-size: 30px;
+    }
+    
+    .sust-img-grid img {
+        max-width: 200px;
+    }
+    
+    .sust-col h3 {
+        font-size: 18px;
+    }
+    
+    .sust-col p {
+        font-size: 14px;
+    }
+    
+    .sust-item span {
+        font-size: 17px;
+    }
+    
+    .sust-item p {
+        font-size: 15px;
+    }
+    
+    .sust-two-col {
+        gap: 40px;
+    }
+}
+
+/* Очень маленькие телефоны (до 375px) */
+@media (max-width: 375px) {
+    .sust-title {
+        font-size: 26px;
+    }
+    
+    .sust-img-grid img {
+        max-width: 170px;
+    }
+    
+    .sust-wide {
+        width: calc(100% - 20px);
+    }
+}
