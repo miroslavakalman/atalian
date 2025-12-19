@@ -4,9 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initSlider();
     initFAQ();
     initCounter();
-
-    console.log('=== СКРИПТЫ ЗАГРУЖЕНЫ ===');
 });
+
 function initSlider() {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
@@ -363,10 +362,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btn.addEventListener('click', () => {
         document.querySelectorAll('.hidden-mobile').forEach(el => {
-            el.style.display = 'flex'; // показываем
+            el.style.display = 'flex'; 
         });
 
-        btn.style.display = 'none'; // прячем кнопку после клика
+        btn.style.display = 'none'; 
     });
 });
 

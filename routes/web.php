@@ -84,7 +84,16 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], functio
         app()->setLocale($locale);
         return view('sustainability');
     });
-
+    Route::get('/policy', function ($locale) {
+        app()->setLocale($locale);
+        return view('policy');
+    })->name('policy');
+    
+     Route::get('/cookies', function ($locale) {
+        app()->setLocale($locale);
+        return view('cookies');
+    })->name('cookies');
+    
     Route::get('/career', [CareerController::class, 'index'])->name('career');
     Route::post('/career/submit', [CareerController::class, 'submit'])->name('career.submit');
     Route::get('/career/thanks', function () {
@@ -92,9 +101,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], functio
     })->name('career.thanks');
 
 });
-Route::get('/policy', function () {
-    return view('policy');
-})->name('policy');
+
 
 Route::post('/career/submit', [CareerController::class, 'submit'])->name('career.submit');
 Route::get('/sitemap.xml', function () {

@@ -1,6 +1,3 @@
-/* career-responsive.css */
-
-/* Мобилки до 768px (планшеты) */
 @media (max-width: 768px) {
     h2{
         font-size: 32px;

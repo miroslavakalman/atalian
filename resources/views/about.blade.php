@@ -37,7 +37,7 @@
 
         <hr class="stats-separator">
 
-        <div class="stats-row">
+        <div class="stats-row" id="stats-rus-row">
             @foreach(__('about.stats-2') as $stat)
                 <div class="stat">
                     <h3 data-target="{{ $stat['value'] }}" data-suffix="{{ $stat['suffix'] }}">0</h3>

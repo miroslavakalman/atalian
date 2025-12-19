@@ -16,7 +16,7 @@
 <div class="container">
     <!-- Форма для вопросов -->
     <div class="contact-form-section" style="background: #f6f6f6; padding: 80px var(--content-padding); margin-top: 0px !important">
-        <div class="container">
+        <div class="container" id="contactblock2">
             <h2 class="black" style="text-align: center; margin-bottom: 1em;">{{ __('messages.contact_us') }}</h2>
             <p class="secondary-p-black" style="text-align: center; max-width: 600px; margin: 0 auto 3em;">{{ __('messages.contact_us_desc') }}</p>
             
@@ -55,7 +55,7 @@
                 </div>
                 
                 <div class="form-group" style="margin-bottom: 20px;">
-                    <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 500; color: #3f3e3e;">{{ __('messages.company') }}</label>
+                    <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 500; color: #3f3e3e;">{{ __('messages.company_inquiry') }}</label>
                     <input type="text" name="company" class="form-input" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Inter'; font-size: 16px;">
                 </div>
                 

@@ -237,7 +237,7 @@ img {
     .stats img {
         width: 100%;
         max-width: 500px;
-        height: 400px;
+        height: auto;
     }
 
     .services-row {

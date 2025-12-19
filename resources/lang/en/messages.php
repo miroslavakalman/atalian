@@ -267,4 +267,12 @@ return [
             'btn' => 'Send Message',
         ],
     ],
+        'company_inquiry' => 'Company',
+        'consent_pd' => 'I consent to the <a href=":link" target="_blank">processing of my personal data</a> in accordance with applicable laws, including Federal Law No. 152-FZ',
+        'consent_marketing' => 'I would like to receive news and updates from the company',
+        'age_notice' => 'By proceeding, you confirm that you are 18+ years old',
+        'consent_required' => 'Consent to data processing is required to submit the form',
+        'consent_pd_text' => 'I consent to the processing of personal data as per the',
+        'privacy_policy' => 'Privacy Policy',
+
 ];

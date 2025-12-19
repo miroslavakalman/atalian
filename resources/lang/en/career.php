@@ -40,4 +40,10 @@ return [
     'form_submit' => 'Send',
 
     'form_success' => 'Your resume has been submitted!',
+
+    'company_inquiry' => 'Company',
+    'consent_pd' => 'I consent to the <a href=":link" target="_blank">processing of my personal data</a> in accordance with applicable laws, including Federal Law No. 152-FZ',
+    'consent_marketing' => 'I would like to receive news and updates from the company',
+    'age_notice' => 'By proceeding, you confirm that you are 18+ years old',
+    'consent_required' => 'Consent to data processing is required to submit the form',
 ];

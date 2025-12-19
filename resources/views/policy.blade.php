@@ -1,87 +1,148 @@
 @extends('layouts.app')
 
-@section('title', 'Политика обработки персональных данных')
+@section('title', __('policy.title'))
 
 @section('content')
 <div class="container policy-page">
-    <h1>Политика обработки персональных данных</h1>
+    <h1>{{ __('policy.title') }}</h1>
+    <p class="policy-update">{{ __('policy.last_updated', ['date' => date('d.m.Y')]) }}</p>
     
     <div class="policy-content">
         <section>
-            <h2>1. Общие положения</h2>
-            <p>Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006 №152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных, предпринимаемые ООО "Аталиан" (далее – Оператор).</p>
+            <h2>{{ __('policy.general_provisions') }}</h2>
+            <p>{!! __('policy.general_text') !!}</p>
         </section>
         
         <section>
-            <h2>2. Основные понятия</h2>
+            <h2>{{ __('policy.basic_concepts') }}</h2>
             <ul>
-                <li><strong>Персональные данные</strong> - любая информация, относящаяся к прямо или косвенно определенному или определяемому физическому лицу (субъекту персональных данных);</li>
-                <li><strong>Обработка персональных данных</strong> - любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными;</li>
-                <li><strong>Оператор</strong> - ООО "Аталиан", самостоятельно или совместно с другими лицами организующие и (или) осуществляющие обработку персональных данных;</li>
+                <li><strong>{{ __('policy.personal_data') }}</strong> - {{ __('policy.personal_data_def') }}</li>
+                <li><strong>{{ __('policy.processing') }}</strong> - {{ __('policy.processing_def') }}</li>
+                <li><strong>{{ __('policy.operator') }}</strong> - {{ __('policy.operator_def') }}</li>
+                <li><strong>{{ __('policy.subject') }}</strong> - {{ __('policy.subject_def') }}</li>
             </ul>
         </section>
         
         <section>
-            <h2>3. Цели обработки персональных данных</h2>
-            <p>Цель обработки персональных данных Пользователя:</p>
+            <h2>{{ __('policy.processing_purposes') }}</h2>
+            <p>{{ __('policy.company_info') }} {{ __('policy.processing_purposes') }}:</p>
             <ul>
-                <li>рассмотрение кандидатур на открытые вакансии;</li>
-                <li>информирование о новых вакансиях и мероприятиях компании (при наличии согласия);</li>
-                <li>обратная связь с соискателями.</li>
+                @foreach(__('policy.purposes_list') as $purpose)
+                    <li>{{ $purpose }}</li>
+                @endforeach
             </ul>
         </section>
         
         <section>
-            <h2>4. Правовые основания обработки персональных данных</h2>
-            <p>Оператор обрабатывает персональные данные Пользователя только в случае их заполнения и/или отправки Пользователем самостоятельно через специальные формы, расположенные на сайте. Заполняя соответствующие формы и/или отправляя свои персональные данные Оператору, Пользователь выражает свое согласие с данной Политикой.</p>
+            <h2>{{ __('policy.legal_basis') }}</h2>
+            <p>{!! __('policy.legal_basis_text') !!}</p>
         </section>
         
         <section>
-            <h2>5. Перечень обрабатываемых персональных данных</h2>
-            <p>Оператор может обрабатывать следующие персональные данные Пользователя:</p>
+            <h2>{{ __('policy.data_categories') }}</h2>
+            <p>{!! __('policy.clients_data') !!}</p>
             <ul>
-                <li>Фамилия, имя, отчество;</li>
-                <li>Электронный адрес;</li>
-                <li>Резюме (включая информацию об образовании, опыте работы, навыках);</li>
-                <li>Прочая информация, предоставленная Пользователем.</li>
+                @foreach(__('policy.clients_list') as $data)
+                    <li>{{ $data }}</li>
+                @endforeach
+            </ul>
+            
+            <p>{!! __('policy.candidates_data') !!}</p>
+            <ul>
+                @foreach(__('policy.candidates_list') as $data)
+                    <li>{{ $data }}</li>
+                @endforeach
+            </ul>
+            
+            <p>{!! __('policy.visitors_data') !!}</p>
+            <ul>
+                @foreach(__('policy.visitors_list') as $data)
+                    <li>{{ $data }}</li>
+                @endforeach
             </ul>
         </section>
         
         <section>
-            <h2>6. Сроки хранения персональных данных</h2>
-            <p>Персональные данные хранятся в течение 3 лет с момента последнего взаимодействия с Пользователем, если иное не предусмотрено законодательством РФ.</p>
-        </section>
-        
-        <section>
-            <h2>7. Права субъектов персональных данных</h2>
-            <p>Пользователь имеет право:</p>
+            <h2>{{ __('policy.processing_principles') }}</h2>
             <ul>
-                <li>Получать информацию, касающуюся обработки его персональных данных;</li>
-                <li>Требовать уточнения своих персональных данных, их блокирования или уничтожения в случае, если персональные данные являются неполными, устаревшими, неточными, незаконно полученными или не являются необходимыми для заявленной цели обработки;</li>
-                <li>Отозвать свое согласие на обработку персональных данных;</li>
-                <li>Обжаловать действия или бездействие Оператора в уполномоченный орган по защите прав субъектов персональных данных.</li>
+                @foreach(__('policy.principles_list') as $principle)
+                    <li>{{ $principle }}</li>
+                @endforeach
             </ul>
         </section>
         
         <section>
-            <h2>8. Контактная информация</h2>
-            <p>По всем вопросам, связанным с обработкой персональных данных, обращаться по электронной почте: pd@atalian.ru</p>
-            <p>Дата последнего обновления: {{ date('d.m.Y') }}</p>
+            <h2>{{ __('policy.processing_conditions') }}</h2>
+            <ul>
+                @foreach(__('policy.conditions_list') as $condition)
+                    <li>{{ $condition }}</li>
+                @endforeach
+            </ul>
+        </section>
+        
+        <section>
+            <h2>{{ __('policy.storage_period') }}</h2>
+            <p>{!! __('policy.storage_text') !!}</p>
+        </section>
+        
+        <section>
+            <h2>{{ __('policy.security_measures') }}</h2>
+            <ul>
+                @foreach(__('policy.security_list') as $measure)
+                    <li>{{ $measure }}</li>
+                @endforeach
+            </ul>
+        </section>
+        
+        <section>
+            <h2>{{ __('policy.rights_of_subjects') }}</h2>
+            <ul>
+                @foreach(__('policy.rights_list') as $right)
+                    <li>{{ $right }}</li>
+                @endforeach
+            </ul>
+        </section>
+        
+        <section>
+            <h2>{{ __('policy.cross_border_transfer') }}</h2>
+            <p>{!! __('policy.cross_border_text') !!}</p>
+        </section>
+        
+        <section>
+            <h2>{{ __('policy.final_provisions') }}</h2>
+            <p>{!! __('policy.final_provisions_text', [
+                'email' => __('policy.company_email'),
+                'policy_url' => url('/policy')
+            ]) !!}</p>
+        </section>
+        
+        <section class="contacts-section">
+            <h2>{{ __('policy.contacts') }}</h2>
+            <p>{!! __('policy.contacts_text', ['email' => __('policy.company_email')]) !!}</p>
+            <p>{{ __('policy.company_address') }}</p>
         </section>
     </div>
 </div>
 
 <style>
 .policy-page {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
 .policy-page h1 {
     color: #012615;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     text-align: center;
+    font-size: 28px;
+}
+
+.policy-update {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-style: italic;
 }
 
 .policy-content section {
@@ -92,6 +153,8 @@
     color: #ec732c;
     font-size: 20px;
     margin-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 8px;
 }
 
 .policy-content p {
@@ -101,7 +164,7 @@
 }
 
 .policy-content ul {
-    margin-left: 20px;
+    margin-left: 25px;
     margin-bottom: 15px;
 }
 
@@ -110,6 +173,15 @@
     line-height: 1.5;
 }
 
+.contacts-section {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #ec732c;
+}
+    .policy-content li{
+        color: #666 !important;
+    }
 @media (max-width: 768px) {
     .policy-page {
         margin: 20px auto;
@@ -123,6 +195,12 @@
     .policy-content h2 {
         font-size: 18px;
     }
+    
+    .policy-content ul {
+        margin-left: 20px;
+    }
+
+
 }
 </style>
 @endsection

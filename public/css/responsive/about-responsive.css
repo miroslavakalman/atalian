@@ -3,6 +3,8 @@
         border-radius: 0;
         margin-top: 0;
     }
+
+    
 }
 
 @media (min-width: 320px) and (max-width: 650px){
@@ -45,7 +47,7 @@
         max-width: none;
     }
     #stats-rus-row{
-        justify-content: left;
+        justify-content: center;
         order: 0;
     }
 
@@ -54,7 +56,11 @@
     }
 
     .about-company h2, #stats-rus-row h3{
-        text-align: left;
+        text-align: center;
+    }
+
+    #stats-rus-row .stat .secondary-p{
+        text-align: center !important;
     }
 
     .pdf-row iframe{
@@ -67,5 +73,9 @@
 
     .mission-row h3{
         text-align: left;
+    }
+
+    .licenses h2{
+        margin-bottom: 40px;
     }
 }

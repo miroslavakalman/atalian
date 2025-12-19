@@ -497,16 +497,25 @@
 
 /* Стили для мобильных */
 @media (max-width: 768px) {
-    .consent-checkboxes {
-        max-width: 100%;
-        padding: 0 10px;
+    .slide-contact, .slide-ethics{
+        border-radius: 0;
+        margin-top: 0 !important;
+        height: 600px  !important;
     }
-    
-    .checkbox-group label {
-        font-size: 13px;
+
+    .contact-form-section, #contactblock2{
+        padding: 0 !important;
     }
-    
-    .age-notice {
-        font-size: 12px;
+
+    #contactblock2 .btn-primary{
+        height: 60px;
+        margin-bottom: 160px;
+    }
+    .ethics-wrapper{
+        padding: 0  !important;
+    }
+
+    .stats-separator{
+        display: none;
     }
 }
