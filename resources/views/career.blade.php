@@ -102,7 +102,7 @@
         <input type="email" name="email" placeholder="{{ __('career.form_email') }}" required>
 
         <div class="file-input-wrapper">
-            <input type="file" name="resume" id="resume-input" accept=".pdf,.doc,.docx" required>
+            <input type="file" name="resume" id="resume-input" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required>
             <label for="resume-input" class="file-label">
                 <span class="file-text">{{ __('career.form_resume') }}</span>
             </label>
@@ -113,13 +113,77 @@
 
         <textarea name="message" placeholder="{{ __('career.form_message') }}"></textarea>
 
-        <button type="submit" class="btn-primary">
+        <!-- ЧЕКБОКСЫ СОГЛАСИЙ -->
+        <div class="consent-checkboxes">
+            <!-- Согласие на обработку персональных данных (обязательное) -->
+            <div class="checkbox-group">
+                <input type="checkbox" id="consent-pd" name="consent_pd" required>
+                <label for="consent-pd">
+                    {!! __('career.consent_pd', [
+                        'link' => route('policy', app()->getLocale())
+                    ]) !!}
+                </label>
+            </div>
+
+            <!-- Согласие на рассылку (опциональное) -->
+            <div class="checkbox-group">
+                <input type="checkbox" id="consent-marketing" name="consent_marketing">
+                <label for="consent-marketing">
+                    {{ __('career.consent_marketing') }}
+                </label>
+            </div>
+
+            <!-- Уведомление о возрасте -->
+            <p class="age-notice">
+                {{ __('career.age_notice') }}
+            </p>
+        </div>
+
+        <button type="submit" class="btn-primary" id="submit-btn" disabled>
             {{ __('career.form_submit') }}
         </button>
     </form>
 </div>
 
-
+<script>
+    // Добавьте в конец blade-шаблона или в отдельный JS файл
+document.addEventListener('DOMContentLoaded', function() {
+    const consentPd = document.getElementById('consent-pd');
+    const submitBtn = document.getElementById('submit-btn');
+    const form = document.querySelector('.no-vacancy-form form');
+    
+    // Проверяем состояние чекбокса при изменении
+    consentPd.addEventListener('change', function() {
+        submitBtn.disabled = !this.checked;
+    });
+    
+    // Валидация перед отправкой
+    form.addEventListener('submit', function(e) {
+        if (!consentPd.checked) {
+            e.preventDefault();
+            alert('Необходимо согласие на обработку персональных данных');
+            consentPd.focus();
+            return false;
+        }
+    });
+    
+    // Обработка выбора файла резюме
+    const resumeInput = document.getElementById('resume-input');
+    const fileNameSpan = document.getElementById('file-name');
+    
+    if (resumeInput && fileNameSpan) {
+        resumeInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                fileNameSpan.textContent = this.files[0].name;
+                fileNameSpan.style.color = '#333';
+            } else {
+                fileNameSpan.textContent = '{{ __('career.form_no_file') }}';
+                fileNameSpan.style.color = '#666';
+            }
+        });
+    }
+});
+</script>
 
 
 @endsection

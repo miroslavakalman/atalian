@@ -1,67 +1,70 @@
-    .nav {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-        position: relative;
-        background: #fff;
-    }
-
-    .nav a {
-        color: #333;
-        text-decoration: none;
-        padding: 0.5rem 0;
-        position: relative;
-        transition: color 0.3s;
-    }
-
-    .nav a:hover {
-        color: var(--coop-orange-accent);
-    }
-
-    .nav-item.has-dropdown {
-        position: relative;
-    }
-
-    .nav-item.has-dropdown > a::after {
-        content: "▼";
-        font-size: 0.6em;
-        margin-left: 5px;
-    }
-
-    .dropdown {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: #fff;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        display: none;
-        min-width: 200px;
-        z-index: 1000;
-        border-radius: 5px;
-        overflow: hidden;
-    }
-
-    .dropdown-links {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .dropdown-links a {
-        padding: 10px 15px;
-        color: #333;
-        transition: background 0.2s, color 0.2s;
-    }
-
-    .dropdown-links a:hover {
-        background: var(--coop-orange-accent);
-        color: #fff;
-    }
-
-    .nav-item.has-dropdown:hover .dropdown {
-        display: block;
-    }
 /* ======================
-   БУРГЕР-МЕНЮ
+   ДЕСКТОПНОЕ МЕНЮ (не трогаем)
+   ====================== */
+.nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+}
+
+.nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: var(--coop-orange-accent);
+}
+
+.nav-item.has-dropdown {
+    position: relative;
+}
+
+.nav-item.has-dropdown > a::after {
+    content: "▼";
+    font-size: 0.6em;
+    margin-left: 5px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: none;
+    min-width: 200px;
+    z-index: 1000;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-links a {
+    padding: 10px 15px;
+    color: #333;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-links a:hover {
+    background: var(--coop-orange-accent);
+    color: #fff;
+}
+
+.nav-item.has-dropdown:hover .dropdown {
+    display: block;
+}
+
+/* ======================
+   МОБИЛЬНОЕ МЕНЮ - ИСПРАВЛЕННАЯ ВЕРСИЯ
    ====================== */
 
 /* Кнопка бургер-меню */
@@ -70,41 +73,26 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
+    padding: 0;
     z-index: 1001;
-    position: relative;
     width: 30px;
-    height: 30px;
+    height: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #555;
 }
 
 .mobile-menu-toggle span {
     display: block;
-    width: 25px;
-    height: 2px;
-    background: #333;
-    margin: 5px 0;
-    transition: 0.3s;
-    position: absolute;
-    left: 2.5px;
+    height: 3px;
+    width: 100%;
+    background-color: #000000;
+    transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
-.mobile-menu-toggle span:nth-child(1) {
-    top: 8px;
-}
-
-.mobile-menu-toggle span:nth-child(2) {
-    top: 14px;
-}
-
-.mobile-menu-toggle span:nth-child(3) {
-    top: 20px;
-}
-
-/* Анимация при открытии */
 .mobile-menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 14px;
-    background: #fff;
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
 .mobile-menu-toggle.active span:nth-child(2) {
@@ -112,168 +100,422 @@
 }
 
 .mobile-menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 14px;
-    background: #fff;
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Мобильная навигация */
+/* Оверлей для мобильного меню */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.mobile-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Мобильная навигация - БЫСТРАЯ АНИМАЦИЯ */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 90%;
+    max-width: 380px;
+    height: 100vh;
+    background: #ffffff;
+    flex-direction: column;
+    transition: right 0.25s ease-out; /* БЫСТРЕЕ! */
+    z-index: 999;
+    overflow-y: auto;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+    display: flex; /* Важно! */
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+/* Мобильный хедер */
+.mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #f8f8f8;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    flex-shrink: 0; /* Не сжимается */
+}
+
+.mobile-logo {
+    height: 35px;
+    width: auto;
+    filter: brightness(0.2);
+}
+
+.mobile-menu-close {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 28px;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    line-height: 1;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.mobile-menu-close:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Контент мобильного меню */
+.mobile-nav-content {
+    padding: 0;
+    flex: 1; /* Занимает оставшееся пространство */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ссылки меню */
+.mobile-nav-link {
+    display: block;
+    color: #333;
+    font-size: 16px;
+    padding: 16px 20px;
+    text-decoration: none;
+    transition: all 0.2s;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+.mobile-nav-link:hover {
+    background: rgba(244, 111, 31, 0.1);
+    color: var(--coop-orange-accent);
+    padding-left: 25px;
+}
+
+/* Мобильные выпадающие меню - ИСПРАВЛЕННЫЕ */
+.mobile-dropdown {
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+.mobile-dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    padding: 16px 20px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.mobile-dropdown-toggle:hover {
+    background: rgba(244, 111, 31, 0.1);
+    color: var(--coop-orange-accent);
+    padding-left: 25px;
+}
+
+.mobile-dropdown.active .mobile-dropdown-toggle {
+    background: rgba(244, 111, 31, 0.15);
+    color: var(--coop-orange-accent);
+}
+
+.mobile-dropdown-arrow {
+    transition: transform 0.2s ease;
+    color: #666;
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+.mobile-dropdown.active .mobile-dropdown-arrow {
+    transform: rotate(180deg);
+    color: var(--coop-orange-accent);
+}
+
+/* ДРОПДАУН МЕНЮ - ИСПРАВЛЕНО (не выходит за экран) */
+.mobile-dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f9f9f9;
+}
+
+.mobile-dropdown.active .mobile-dropdown-menu {
+    max-height: 300px; /* ОГРАНИЧИВАЕМ высоту */
+    overflow-y: auto; /* Добавляем скролл если нужно */
+}
+
+.mobile-dropdown-menu a {
+    display: block;
+    padding: 12px 20px 12px 35px;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.mobile-dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.mobile-dropdown-menu a:hover {
+    background: rgba(244, 111, 31, 0.1);
+    color: var(--coop-orange-accent);
+    padding-left: 40px;
+}
+
+.mobile-dropdown-menu a::before {
+    content: "›";
+    position: absolute;
+    left: 20px;
+    color: var(--coop-orange-accent);
+    transition: transform 0.2s;
+}
+
+.mobile-dropdown-menu a:hover::before {
+    transform: translateX(3px);
+}
+
+/* Мобильный переключатель языка - ИСПРАВЛЕНО (по центру) */
+.mobile-lang-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto; /* Прижимаем к низу */
+    padding: 20px;
+    background: #f8f8f8;
+    border-top: 1px solid #eee;
+    flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.mobile-lang-link {
+    color: #666;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 15px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-lang-link:hover,
+.mobile-lang-link.active {
+    background: var(--coop-orange-accent);
+    color: #fff;
+    border-color: var(--coop-orange-accent);
+}
+
+.mobile-lang-separator {
+    color: #999;
+    align-self: center;
+    margin: 0;
+}
+
+/* ======================
+   МЕДИА-ЗАПРОСЫ
+   ====================== */
+
+/* Мобильные и планшеты (до 1024px) */
 @media (max-width: 1024px) {
+    /* Показываем кнопку бургера */
     .mobile-menu-toggle {
-        display: block;
-    }
-    
-    .nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        max-width: 400px;
-        height: 100vh;
-        background: #022A1D;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 80px 30px 30px;
-        transition: 0.4s ease;
-        z-index: 1000;
-        overflow-y: auto;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    }
-    
-    .nav.active {
-        right: 0;
-    }
-    
-    .nav a {
-        color: #022A1D;
-        font-size: 18px;
-        padding: 15px 0;
-        width: 100%;
-        border-bottom: 1px solid rgba(227, 240, 222, 0.1);
-        display: block;
-    }
-    
-    .nav a:hover {
-        color: #fff;
-    }
-    
-    /* Выпадающие меню в мобильной версии */
-    .nav-item.has-dropdown > a::after {
-        content: "›";
-        float: right;
-        transform: rotate(90deg);
-        transition: transform 0.3s;
-    }
-    
-    .nav-item.has-dropdown.active > a::after {
-        transform: rotate(-90deg);
-    }
-    
-    .dropdown {
-        position: static;
-        display: none;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.05);
-        box-shadow: none;
-        border-radius: 0;
-        margin-top: 0;
-        border-left: 2px solid var(--coop-orange-accent);
-        padding-left: 15px;
-    }
-    
-    .nav-item.has-dropdown.active .dropdown {
-        display: block;
-        animation: slideDown 0.3s ease;
-    }
-    
-    .dropdown-links a {
-        padding: 12px 0;
-        font-size: 16px;
-        color: #F46F1F;
-        border-bottom: 1px solid rgba(227, 240, 222, 0.05);
-    }
-    
-    .dropdown-links a:last-child {
-        border-bottom: none;
-    }
-    
-    .dropdown-links a:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: #fff;
-    }
-    
-    /* Переключатель языка в мобильной версии */
-    .mobile-lang-switch {
         display: flex;
-        gap: 10px;
-        margin-top: 30px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(227, 240, 222, 0.1);
-        width: 100%;
     }
     
-    .mobile-lang-switch .lang-link {
-        color: #F46F1F;
-        text-decoration: none;
-        font-weight: 500;
-        padding: 5px 10px;
-        border-radius: 4px;
-        transition: all 0.3s;
+    /* Скрываем десктопную навигацию */
+    .nav {
+        display: none;
     }
     
-    .mobile-lang-switch .lang-link:hover {
-        background: rgba(227, 240, 222, 0.1);
-        color: #fff;
-    }
-    
-    .mobile-lang-switch span {
-        color: rgba(227, 240, 222, 0.5);
-    }
-    
-    /* Десктопный переключатель языка скрываем на мобильных */
+    /* Скрываем десктопный переключатель языка */
     .lang-switch {
         display: none;
     }
     
-    /* Затемнение фона при открытом меню */
-    .menu-open::before {
-        content: '';
+    /* Стили для header на мобильных */
+    .header {
+        padding: 15px 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        width: 120px;
+        height: auto;
+        max-width: 150px;
+    }
+    
+    /* Правильное расположение элементов в header */
+    .logo-link {
+        flex: 0 0 auto;
+    }
+    
+    .mobile-menu-toggle {
+        margin-left: auto;
+        flex: 0 0 auto;
+    }
+}
+
+/* Планшеты (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .mobile-nav {
+        max-width: 400px;
+    }
+    
+    .mobile-nav-link,
+    .mobile-dropdown-toggle {
+        font-size: 17px;
+        padding: 18px 25px;
+    }
+    
+    .mobile-dropdown-menu a {
+        font-size: 15px;
+        padding: 14px 25px 14px 40px;
+    }
+}
+
+/* Мобильные телефоны (до 768px) */
+@media (max-width: 768px) {
+    .mobile-nav {
+        width: 85%;
+        max-width: none;
+    }
+    
+    .mobile-nav-header {
+        padding: 12px 15px;
+    }
+    
+    .mobile-nav-link,
+    .mobile-dropdown-toggle {
+        padding: 14px 15px;
+        font-size: 15px;
+    }
+    
+    .mobile-dropdown-menu a {
+        padding: 10px 15px 10px 30px;
+        font-size: 14px;
+    }
+    
+    .mobile-lang-switch {
+        padding: 15px;
+    }
+    
+    .mobile-lang-link {
+        padding: 5px 12px;
+        font-size: 13px;
+    }
+    
+    .mobile-logo {
+        height: 30px;
+    }
+    
+    .mobile-menu-close {
+        width: 32px;
+        height: 32px;
+        font-size: 24px;
+    }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+    .mobile-nav {
+        width: 100%;
+    }
+    
+    .mobile-nav-header {
+        padding: 10px 15px;
+    }
+    
+    .mobile-nav-link,
+    .mobile-dropdown-toggle {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .mobile-dropdown-menu a {
+        padding: 10px 15px 10px 25px;
+        font-size: 13px;
+    }
+    
+    .mobile-dropdown-menu a::before {
+        left: 15px;
+    }
+    
+    .header {
+        padding: 10px 15px;
+    }
+    
+    .logo {
+        width: 100px;
+    }
+}
+
+/* Десктоп (1025px и выше) */
+@media (min-width: 1025px) {
+    .mobile-menu-toggle,
+    .mobile-nav-container,
+    .mobile-lang-switch {
+        display: none !important;
+    }
+    
+    .nav,
+    .lang-switch {
+        display: flex !important;
+    }
+}
+
+/* Предотвращение скролла при открытом меню */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* ФИКС для iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    body.menu-open {
         position: fixed;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-    }
-}
-
-/* Анимация для выпадающих меню */
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 480px) {
-    .nav {
-        max-width: 100%;
-        padding: 70px 20px 20px;
-    }
-    
-    .nav a {
-        font-size: 16px;
-        padding: 12px 0;
-    }
-    
-    .dropdown-links a {
-        font-size: 15px;
-        padding: 10px 0;
+        overflow: hidden;
     }
 }

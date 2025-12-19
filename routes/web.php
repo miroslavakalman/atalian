@@ -92,7 +92,11 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], functio
     })->name('career.thanks');
 
 });
+Route::get('/policy', function () {
+    return view('policy');
+})->name('policy');
 
+Route::post('/career/submit', [CareerController::class, 'submit'])->name('career.submit');
 Route::get('/sitemap.xml', function () {
 
     $locales = ['ru', 'en'];

@@ -29,7 +29,9 @@ class CareerController extends Controller
     if ($request->filled('website')) {
         abort(400, 'Bot detected');
     }
-
+  if (!$request->has('consent_pd')) {
+        return back()->withErrors(['consent_pd' => 'Необходимо согласие на обработку ПДн']);
+    }
     // Валидация
     $data = $request->validate([
         'name' => 'required|string|max:255',

@@ -16,94 +16,167 @@
 <body class="@yield('body-class')">
 <x-cookie-banner />
  @stack('scripts')
-    <!-- HEADER -->
     <header class="header">
         <a href="{{ url(app()->getLocale() . '/') }}" class="logo-link">
             <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo">
         </a>
 
-        <!-- Mobile Menu Button -->
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
+        <!-- Desktop Navigation -->
+        <nav class="nav" id="mainNav">
+            <!-- О компании -->
+            <a href="{{ url(app()->getLocale() . '/about') }}">{{ __('menu.about_us') }}</a>
+
+            <div class="nav-item has-dropdown">
+                <a href="{{ url(app()->getLocale() . '/services') }}">{{ __('menu.services') }}</a>
+                <div class="dropdown">
+                    <div class="dropdown-links">
+                        <a href="{{ url(app()->getLocale() . '/services/cleaning') }}">{{ __('menu.cleaning') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/services/technical') }}">{{ __('menu.technical') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/services/facility') }}">{{ __('menu.facility') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/services/logistics') }}">{{ __('menu.logistics') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/services/administrative') }}">{{ __('menu.administrative') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/services/custom') }}">{{ __('menu.custom_solutions') }}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item has-dropdown">
+                <a href="#">{{ __('menu.industries') }}</a>
+                <div class="dropdown">
+                    <div class="dropdown-links">
+                        <a href="{{ url(app()->getLocale() . '/industries/#offices') }}">{{ __('menu.industries_offices') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#industrial') }}">{{ __('menu.industries_industrial') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#retail_service') }}">{{ __('menu.industries_retail_service') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#public') }}">{{ __('menu.industries_public') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#transport') }}">{{ __('menu.industries_transport') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#healthcare') }}">{{ __('menu.industries_healthcare') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#premium_housing') }}">{{ __('menu.industries_premium_housing') }}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item has-dropdown">
+                <a href="{{ url(app()->getLocale() . '/ethics') }}">{{ __('menu.commitments') }}</a>
+                <div class="dropdown">
+                    <div class="dropdown-links">
+                        <a href="{{ url(app()->getLocale() . '/ethics') }}">{{ __('menu.ethics') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/sustainability') }}">{{ __('menu.sustainability') }}</a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="{{ url(app()->getLocale() . '/career') }}">{{ __('menu.career') }}</a>
+            <a href="{{ url(app()->getLocale() . '/contact') }}">{{ __('menu.contact') }}</a>
+        </nav>
+
+        <!-- Desktop Language Switch -->
+        <div class="lang-switch">
+            @php
+                $segments = Request::segments(); 
+                if (in_array($segments[0] ?? '', ['ru', 'en'])) {
+                    array_shift($segments);
+                }
+                $basePath = implode('/', $segments);
+            @endphp
+            <a href="{{ url('ru/' . $basePath) }}">RU</a> | 
+            <a href="{{ url('en/' . $basePath) }}">EN</a>
+        </div>
+
+        <!-- Mobile Menu Button (ТЕМНАЯ для белого фона) -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </button>
-<nav class="nav" id="mainNav">
-    <!-- О компании -->
-    <a href="{{ url(app()->getLocale() . '/about') }}">{{ __('menu.about_us') }}</a>
+    </header> <!-- ЗАКРЫВАЕМ header ЗДЕСЬ! -->
 
-    <div class="nav-item has-dropdown">
-        <a href="{{ url(app()->getLocale() . '/services') }}">{{ __('menu.services') }}</a>
-        <div class="dropdown">
-            <div class="dropdown-links">
-                <a href="{{ url(app()->getLocale() . '/services/cleaning') }}">{{ __('menu.cleaning') }}</a>
-                <a href="{{ url(app()->getLocale() . '/services/technical') }}">{{ __('menu.technical') }}</a>
-                <a href="{{ url(app()->getLocale() . '/services/facility') }}">{{ __('menu.facility') }}</a>
-                <a href="{{ url(app()->getLocale() . '/services/logistics') }}">{{ __('menu.logistics') }}</a>
-                <a href="{{ url(app()->getLocale() . '/services/administrative') }}">{{ __('menu.administrative') }}</a>
-                <a href="{{ url(app()->getLocale() . '/services/custom') }}">{{ __('menu.custom_solutions') }}</a>
+    <!-- Mobile Navigation Container (ВНЕ header) -->
+    <div class="mobile-nav-container">
+        <!-- Overlay -->
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        
+        <!-- Mobile Menu -->
+        <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+            <div class="mobile-nav-header">
+                <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="mobile-logo">
+                <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
+                    <span>&times;</span>
+                </button>
             </div>
-        </div>
-    </div>
 
-    <div class="nav-item has-dropdown">
-        <a href="#">{{ __('menu.industries') }}</a>
-        <div class="dropdown">
-            <div class="dropdown-links">
-                <a href="{{ url(app()->getLocale() . '/industries/#offices') }}">{{ __('menu.industries_offices') }}</a>
-                <a href="{{ url(app()->getLocale() . '/industries/#industrial') }}">{{ __('menu.industries_industrial') }}</a>
-                <a href="{{ url(app()->getLocale() . '/industries/#retail_service') }}">{{ __('menu.industries_retail_service') }}</a>
-                <a href="{{ url(app()->getLocale() . '/industries/#public') }}">{{ __('menu.industries_public') }}</a>
-                <a href="{{ url(app()->getLocale() . '/industries/#transport') }}">{{ __('menu.industries_transport') }}</a>
-                <a href="{{ url(app()->getLocale() . '/industries/#healthcare') }}">{{ __('menu.industries_healthcare') }}</a>
-                <a href="{{ url(app()->getLocale() . '/industries/#premium_housing') }}">{{ __('menu.industries_premium_housing') }}</a>
+            <div class="mobile-nav-content">
+                <a href="{{ url(app()->getLocale() . '/about') }}" class="mobile-nav-link">{{ __('menu.about_us') }}</a>
+                
+                <!-- Services Dropdown -->
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle">
+                        {{ __('menu.services') }}
+                        <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+                    <div class="mobile-dropdown-menu">
+                        <a href="{{ url(app()->getLocale() . '/services/cleaning') }}">{{ __('menu.cleaning') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/services/technical') }}">{{ __('menu.technical') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/services/facility') }}">{{ __('menu.facility') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/services/logistics') }}">{{ __('menu.logistics') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/services/administrative') }}">{{ __('menu.administrative') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/services/custom') }}">{{ __('menu.custom_solutions') }}</a>
+                    </div>
+                </div>
+                
+                <!-- Industries Dropdown -->
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle">
+                        {{ __('menu.industries') }}
+                        <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+                    <div class="mobile-dropdown-menu">
+                        <a href="{{ url(app()->getLocale() . '/industries/#offices') }}">{{ __('menu.industries_offices') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#industrial') }}">{{ __('menu.industries_industrial') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#retail_service') }}">{{ __('menu.industries_retail_service') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#public') }}">{{ __('menu.industries_public') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#transport') }}">{{ __('menu.industries_transport') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#healthcare') }}">{{ __('menu.industries_healthcare') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/industries/#premium_housing') }}">{{ __('menu.industries_premium_housing') }}</a>
+                    </div>
+                </div>
+                
+                <!-- Commitments Dropdown -->
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle">
+                        {{ __('menu.commitments') }}
+                        <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+                    <div class="mobile-dropdown-menu">
+                        <a href="{{ url(app()->getLocale() . '/ethics') }}">{{ __('menu.ethics') }}</a>
+                        <a href="{{ url(app()->getLocale() . '/sustainability') }}">{{ __('menu.sustainability') }}</a>
+                    </div>
+                </div>
+                
+                <a href="{{ url(app()->getLocale() . '/career') }}" class="mobile-nav-link">{{ __('menu.career') }}</a>
+                <a href="{{ url(app()->getLocale() . '/contact') }}" class="mobile-nav-link">{{ __('menu.contact') }}</a>
+                
+                <!-- Mobile Language Switch -->
+                <div class="mobile-lang-switch">
+                    @php
+                        $segments = Request::segments(); 
+                        if (in_array($segments[0] ?? '', ['ru', 'en'])) {
+                            array_shift($segments);
+                        }
+                        $basePath = implode('/', $segments);
+                    @endphp
+                    <a href="{{ url('ru/' . $basePath) }}" class="mobile-lang-link {{ app()->getLocale() === 'ru' ? 'active' : '' }}">RU</a>
+                    <span class="mobile-lang-separator">|</span>
+                    <a href="{{ url('en/' . $basePath) }}" class="mobile-lang-link {{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
+                </div>
             </div>
-        </div>
+        </nav>
     </div>
-
-    <div class="nav-item has-dropdown">
-        <a href="{{ url(app()->getLocale() . '/ethics') }}">{{ __('menu.commitments') }}</a>
-        <div class="dropdown">
-            <div class="dropdown-links">
-                <a href="{{ url(app()->getLocale() . '/ethics') }}">{{ __('menu.ethics') }}</a>
-                <a href="{{ url(app()->getLocale() . '/sustainability') }}">{{ __('menu.sustainability') }}</a>
-            </div>
-        </div>
-    </div>
-
-    <a href="{{ url(app()->getLocale() . '/career') }}">{{ __('menu.career') }}</a>
-    <a href="{{ url(app()->getLocale() . '/contact') }}">{{ __('menu.contact') }}</a>
-</nav>
-
-    <!-- Mobile Language Switch -->
-    <div class="mobile-lang-switch">
-        @php
-            $segments = Request::segments(); 
-            if (in_array($segments[0] ?? '', ['ru', 'en'])) {
-                array_shift($segments);
-            }
-            $basePath = implode('/', $segments);
-        @endphp
-        <a href="{{ url('ru/' . $basePath) }}" class="lang-link">RU</a>
-        <span>|</span>
-        <a href="{{ url('en/' . $basePath) }}" class="lang-link">EN</a>
-    </div>
-</nav>
-
-<!-- Desktop Language Switch -->
-<div class="lang-switch">
-    @php
-        $segments = Request::segments(); 
-        if (in_array($segments[0] ?? '', ['ru', 'en'])) {
-            array_shift($segments);
-        }
-        $basePath = implode('/', $segments);
-    @endphp
-    <a href="{{ url('ru/' . $basePath) }}">RU</a> | 
-    <a href="{{ url('en/' . $basePath) }}">EN</a>
-</div>
-
-    </header>
 
     <!-- MAIN CONTENT -->
     <main>
@@ -139,94 +212,112 @@
 @endif
 
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mainNav = document.getElementById('mainNav');
+ // Mobile Menu Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Элементы мобильного меню
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const body = document.body;
+    
+    // Dropdown элементы
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    
+    // Функция открытия меню
+    function openMobileMenu() {
+        mobileMenuToggle.classList.add('active');
+        mobileNav.classList.add('active');
+        mobileOverlay.classList.add('active');
+        body.classList.add('menu-open');
+        mobileMenuToggle.setAttribute('aria-label', 'Закрыть меню');
+    }
+    
+    // Функция закрытия меню
+    function closeMobileMenu() {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        body.classList.remove('menu-open');
+        mobileMenuToggle.setAttribute('aria-label', 'Открыть меню');
         
-        mobileMenuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            mainNav.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
+        // Закрываем все выпадающие меню
+        document.querySelectorAll('.mobile-dropdown.active').forEach(dropdown => {
+            dropdown.classList.remove('active');
         });
-
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuToggle.classList.remove('active');
-                mainNav.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
-        });
-
-        // Existing dropdown functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Инициализация выпадающего меню...');
+    }
+    
+    // Открытие/закрытие по кнопке бургер
+    mobileMenuToggle.addEventListener('click', function() {
+        if (mobileNav.classList.contains('active')) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    });
+    
+    // Закрытие по кнопке закрытия
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+    
+    // Закрытие по клику на оверлей
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+    
+    // Закрытие по Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Обработка выпадающих меню в мобильной версии
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             
-            const navItems = document.querySelectorAll('.nav-item.has-dropdown');
-            let closeTimeout;
+            const dropdown = this.closest('.mobile-dropdown');
+            const isActive = dropdown.classList.contains('active');
             
-            navItems.forEach(item => {
-                const dropdown = item.querySelector('.fullscreen-dropdown');
-                
-                // Открытие при наведении
-                item.addEventListener('mouseenter', function() {
-                    console.log('Открываем меню');
-                    clearTimeout(closeTimeout);
-                    if (dropdown) {
-                        dropdown.style.display = 'block';
-                    }
-                });
-                
-                // Закрытие с задержкой при уходе
-                item.addEventListener('mouseleave', function(e) {
-                    const relatedTarget = e.relatedTarget;
-                    if (relatedTarget && !dropdown.contains(relatedTarget)) {
-                        console.log('Закрываем меню с задержкой');
-                        closeTimeout = setTimeout(() => {
-                            if (dropdown) {
-                                dropdown.style.display = 'none';
-                            }
-                        }, 300);
-                    }
-                });
-                
-                // Обработчики для самого меню
-                if (dropdown) {
-                    dropdown.addEventListener('mouseenter', function() {
-                        console.log('Курсор в меню - отменяем закрытие');
-                        clearTimeout(closeTimeout);
-                    });
-                    
-                    dropdown.addEventListener('mouseleave', function(e) {
-                        console.log('Курсор ушел из меню - закрываем');
-                        closeTimeout = setTimeout(() => {
-                            dropdown.style.display = 'none';
-                        }, 300);
-                    });
+            // Закрываем другие открытые dropdown
+            document.querySelectorAll('.mobile-dropdown.active').forEach(item => {
+                if (item !== dropdown) {
+                    item.classList.remove('active');
                 }
             });
             
-            console.log('Найдено элементов с выпадающим меню:', navItems.length);
+            // Переключаем текущий dropdown
+            dropdown.classList.toggle('active');
         });
-
-        // Функция закрытия меню по крестику
-        function closeMenu(button) {
-            const dropdown = button.closest('.fullscreen-dropdown');
-            if (dropdown) {
-                dropdown.style.display = 'none';
-            }
+    });
+    
+    // Закрытие меню при клике на ссылку (кроме языковых)
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-dropdown-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+    });
+    
+    // Языковые ссылки закрывают только выпадающие меню
+    const langLinks = document.querySelectorAll('.mobile-lang-link');
+    langLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Закрываем только dropdown, но не всё меню
+            document.querySelectorAll('.mobile-dropdown.active').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        });
+    });
+    
+    // Обработка ресайза окна
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 1024 && mobileNav.classList.contains('active')) {
+            closeMobileMenu();
         }
-
-        // Закрытие по ESC
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                const openMenus = document.querySelectorAll(    '.fullscreen-dropdown[style*="display: block"]');
-                openMenus.forEach(menu => {
-                    menu.style.display = 'none';
-                });
-            }
-        });
+    });
+});
     </script>
 
 <script type="module" src="/js/app.js"></script>
