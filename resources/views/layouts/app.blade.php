@@ -186,31 +186,30 @@
     <!-- FOOTER -->
 @if (!isset($hideFooter) || $hideFooter === false)
 <footer class="footer">
-            <div class="footer-container">
-            <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="logo-white">
-            <div class="footer-row">
-                <div class="footer-column">
-                    <h5>{{ __('messages.company') }}</h5>
-                    <a href="#">{{ __('messages.about_us') }}</a>
-                    <a href="#">{{ __('messages.commitments') }}</a>
-                    <a href="#">{{ __('messages.career') }}</a>
-                </div>
-                <div class="footer-column">
-                    <h5>{{ __('messages.documents') }}</h5>
-                    <a href="#">{{ __('messages.csr') }}</a>
-                    <a href="#">{{ __('messages.data_policy') }}</a>
-                </div>
-                <div class="footer-column">
-                    <h5>{{ __('messages.contacts') }}</h5>
-                    <a href="#">+7 (495) 411 56 45</a>
-                    <a href="#">+7 (495) 411 56 43</a>
-                    <a href="#">+7 (812) 384 49 81</a>
-                </div>
+    <div class="footer-container">
+        <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="logo-white">
+        <div class="footer-row">
+            <div class="footer-column">
+                <h5>{{ __('messages.company') }}</h5>
+                <a href="{{ route('about', app()->getLocale()) }}">{{ __('messages.about_us') }}</a>
+                <a href="{{ route('ethics', app()->getLocale()) }}">{{ __('messages.commitments') }}</a>
+                <a href="{{ route('career', app()->getLocale()) }}">{{ __('messages.career') }}</a>
+            </div>
+            <div class="footer-column">
+                <h5>{{ __('messages.documents') }}</h5>
+                <a href="{{ route('cookies', app()->getLocale()) }}">{{ __('cookies.title') }}</a>
+                <a href="{{ route('policy', app()->getLocale()) }}">{{ __('messages.data_policy') }}</a>
+            </div>
+            <div class="footer-column">
+                <h5>{{ __('messages.contacts') }}</h5>
+                <a href="tel:+74954115645">+7 (495) 411 56 45</a>
+                <a href="tel:+74954115643">+7 (495) 411 56 43</a>
+                <a href="tel:+78123844981">+7 (812) 384 49 81</a>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 @endif
-
     <script>
  // Mobile Menu Functionality
 document.addEventListener('DOMContentLoaded', function() {
