@@ -1,4 +1,4 @@
-<div class="services wrapper">
+<div class="services wrapper" id="wrapper-adv">
     <h2 class="black">{{ __('messages.services_title') }}</h2>
 
     <div class="services-row">

@@ -1,0 +1,40 @@
+@media (min-width: 320px) and (max-width: 650px){
+    h4{
+        font-size: 18px;
+    }
+
+    .ellipse{
+        width: 60px;
+        height: 60px;
+    }
+
+    .program .secondary-p-black{
+        text-align: center;
+    }
+
+    .logo-white{
+        width: 180px;
+    }
+
+    .ethics-wrapper .secondary-p-black{
+        margin-left: 8px;
+    }
+}
+
+@media (min-width: 651px) and (max-width: 1200px){
+    .program{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .pdfs{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .compliance-img{
+        display: none;
+    }
+}

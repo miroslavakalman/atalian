@@ -203,6 +203,43 @@ img {
     .dropdown-opened-row{
         gap: 30%;
     }
+
+    .stats  {
+        margin-top: -10em;
+        padding: 10px;
+    }
+
+    .stat{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #wrapper-adv, .partners, .program, .compliance{
+        --content-padding: 10px !important;  
+    }
+    .partners .secondary-p-black, .compliance p, .advantages .secondary-p-black{
+        text-align: center;
+    }
+    .dropdown-opened-row .secondary-p-white{
+        font-size: 16px;
+    }
+
+    .dropdown-list li{
+        font-size: 14px;
+    }
+
+    .dropdown-opened-row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .stats p{
+        text-align: center;
+    }
 }
 
 /* Tablet Styles */
@@ -210,7 +247,6 @@ img {
     :root {
         --content-padding: 5vw;
     }
-
 
 
     .nav {
@@ -272,3 +308,17 @@ img {
     }
 }
 
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .main-stat-img{
+        width: 340px !important;
+    }
+
+    .stats{
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+    .services-row, .adv-row, .stats-row{
+        flex-wrap: nowrap;
+    }
+}

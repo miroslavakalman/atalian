@@ -198,7 +198,7 @@
             <div class="footer-column">
                 <h5>{{ __('messages.documents') }}</h5>
                 <a href="{{ route('cookies', app()->getLocale()) }}">{{ __('cookies.title') }}</a>
-                <a href="{{ route('policy', app()->getLocale()) }}">{{ __('messages.data_policy') }}</a>
+                <a href="{{ route('policy', parameters: app()->getLocale()) }}">{{ __('messages.data_policy') }}</a>
             </div>
             <div class="footer-column">
                 <h5>{{ __('messages.contacts') }}</h5>

@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" id="wrapper-adv">
 <div class="advantages">
     <h2 class="black">{{ __('messages.advantages_title') }}</h2>
     <p class="secondary-p-black">{{ __('messages.advantages_desc') }}</p>

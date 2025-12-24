@@ -56,8 +56,11 @@
 
     .slide-career, .slide-cleaning, .slide-logistics, .slides-container, .slide-technical, .slide-custom, .slide-facility, .slide-admin{
         margin-top: 0 !important;
+        border-radius: 0px;
     }
-
+    .slide{
+        border-radius: 0px
+    }
     h1{
         font-size: 24px;
     }
