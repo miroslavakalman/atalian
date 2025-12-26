@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Карьера')
+@section('title', __('career.page_title'))
+
+@section('meta')
+    <meta name="description" content="{{ __('career.meta_description') }}">
+    <meta name="keywords" content="{{ __('career.meta_keywords') }}">
+    <meta property="og:title" content="{{ __('career.og_title') }}">
+    <meta property="og:description" content="{{ __('career.og_description') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+@endsection
 
 @section('content')
 <div class="slider">

@@ -22,4 +22,11 @@ return [
             'desc' => 'A full turnkey service package for comprehensive facility management.'
         ],
     ],
+    
+    // SEO Meta Tags
+    'page_title' => 'Tailored Solutions | Atalian',
+    'meta_description' => 'Custom facility management solutions by Atalian. Individual services, multi-service solutions, integrated turnkey packages. Tailored to your business needs.',
+    'meta_keywords' => 'custom facility management, tailored solutions, integrated facility services, facility outsourcing, custom business solutions',
+    'og_title' => 'Tailored Solutions | Atalian',
+    'og_description' => 'Professional services customized to your business needs. Optimal balance between service scope and budget.',
 ];

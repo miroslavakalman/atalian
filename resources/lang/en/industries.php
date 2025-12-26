@@ -31,4 +31,10 @@ return [
     'premium_housing.desc'  => 'We provide a high standard of service, confidentiality, and precision in execution at premium residential properties.',
 
     'showmore' => 'Show more',
+    
+    // SEO Meta Tags
+    'meta_description' => 'Atalian provides comprehensive facility management services for healthcare, transport, retail, offices, industrial facilities, and premium housing across Russia. Over 2.5 million m² serviced.',
+    'meta_keywords' => 'facility management industries, healthcare facilities, office management, retail facilities, industrial maintenance, transport hubs, facility services Russia',
+    'og_title' => 'Industries & Facilities | Atalian',
+    'og_description' => 'Comprehensive facility management services across multiple industries in Russia. Healthcare, transport, retail, offices, and more.',
 ];

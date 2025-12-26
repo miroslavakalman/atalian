@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+@section('title', __('ethics.page_title'))
+
+@section('meta')
+    <meta name="description" content="{{ __('ethics.meta_description') }}">
+    <meta name="keywords" content="{{ __('ethics.meta_keywords') }}">
+    <meta property="og:title" content="{{ __('ethics.og_title') }}">
+    <meta property="og:description" content="{{ __('ethics.og_description') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+@endsection
+
 @section('styles')
 <link rel="stylesheet" href="../css/pages/_ethics.css">
 @endsection
@@ -50,7 +61,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src="/img/ethics/pdf-1.png" alt="Политика информирования о нарушениях">
+                <img src="/img/ethics/pdf-1.png" alt="{{ __('ethics.pdf1_alt') }}">
             </a>
 
             <a
@@ -58,7 +69,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src="/img/ethics/pdf-2.png" alt="Кодекс деловой этики">
+                <img src="/img/ethics/pdf-2.png" alt="{{ __('ethics.pdf2_alt') }}">
             </a>
         </div>
     </div>

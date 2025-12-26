@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Facility Management')
+@section('title', __('facility.page_title'))
+
+@section('meta')
+    <meta name="description" content="{{ __('facility.meta_description') }}">
+    <meta name="keywords" content="{{ __('facility.meta_keywords') }}">
+    <meta property="og:title" content="{{ __('facility.og_title') }}">
+    <meta property="og:description" content="{{ __('facility.og_description') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+@endsection
 
 @section('content')
 <div class="slider">

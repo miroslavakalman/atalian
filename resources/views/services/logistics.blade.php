@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Управление поставками')
+@section('title', __('logistics.page_title'))
+
+@section('meta')
+    <meta name="description" content="{{ __('logistics.meta_description') }}">
+    <meta name="keywords" content="{{ __('logistics.meta_keywords') }}">
+    <meta property="og:title" content="{{ __('logistics.og_title') }}">
+    <meta property="og:description" content="{{ __('logistics.og_description') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+@endsection
 
 @section('content')
 <div class="slider">

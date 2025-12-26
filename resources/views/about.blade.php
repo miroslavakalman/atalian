@@ -2,6 +2,15 @@
 
 @section('title', __('about.page_title'))
 
+@section('meta')
+    <meta name="description" content="{{ __('about.meta_description') }}">
+    <meta name="keywords" content="{{ __('about.meta_keywords') }}">
+    <meta property="og:title" content="{{ __('about.og_title') }}">
+    <meta property="og:description" content="{{ __('about.og_description') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+@endsection
+
 @section('content')
 <div class="slider">
     <div class="slides-container">
@@ -19,10 +28,10 @@
         <h2 class="black">{!! __('about.block-1-title') !!}</h2>
         <p class="secondary-p-black">{!! __('about.block-1-desc') !!}</p>
     </div>
-    <img src="/img/about/card-1.png" alt="">
+    <img src="/img/about/card-1.png" alt="{{ __('about.img_card1_alt') }}">
 </div>
 <div class="stats" id="stats-rus">
-    <img src="/img/about/card-2.png" alt="">
+    <img src="/img/about/card-2.png" alt="{{ __('about.img_card2_alt') }}">
     <div class="column-txt">
         <p class="disclaimer">{{ __('about.stats_label') }}</p>
         <h2>{{ __('about.stats_title') }}</h2>

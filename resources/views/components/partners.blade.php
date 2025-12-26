@@ -12,10 +12,10 @@
                                target="_blank" 
                                rel="noopener noreferrer" 
                                class="partner-link">
-                                <img src="img/logo-{{ $i }}.png" class="partner-logo">
+                                <img src="img/logo-{{ $i }}.png" class="partner-logo" alt="{{ __('messages.partner_logo_alt', ['num' => $i]) }}">
                             </a>
                         @else
-                            <img src="img/logo-{{ $i }}.png" class="partner-logo">
+                            <img src="img/logo-{{ $i }}.png" class="partner-logo" alt="{{ __('messages.partner_logo_alt', ['num' => $i]) }}">
                         @endif
                     @endforeach
                 </div>

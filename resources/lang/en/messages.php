@@ -6,6 +6,10 @@ return [
     |--------------------------------------------------------------------------
     */
     'home_title' => 'Home - Atalian Russia',
+    'home_meta_description' => 'Atalian - Leading facility management company in Russia. Professional cleaning, technical maintenance, logistics, and administrative services. Trusted by 150+ clients across 9 regions.',
+    'home_meta_keywords' => 'Atalian, facility management, cleaning services, technical maintenance, logistics, building maintenance, property management, Russia',
+    'home_og_title' => 'Atalian - Professional Facility Management Services',
+    'home_og_description' => 'Expert facility management solutions across Russia. Quality services, unified standards, transparent processes.',
     'about_us'       => 'About Us',
     'services'       => 'Services',
     'commitments'    => 'Commitments',
@@ -230,6 +234,14 @@ return [
     'contact_meta_keywords' => 'contact Atalian, facility management contact, Moscow office, Saint Petersburg office, get in touch',
     'contact_og_title' => 'Contact Us | Atalian',
     'contact_og_description' => 'Reach out to our Moscow and Saint Petersburg offices for facility management services and inquiries.',
+    
+    // Image Alt Tags
+    'stats_img_alt' => 'Atalian company statistics and achievements',
+    'services_img_alt' => 'Atalian facility management services overview',
+    'arrow_down_alt' => 'Expand service details',
+    'arrow_up_alt' => 'Collapse service details',
+    'partner_logo_alt' => 'Atalian partner company logo :num',
+    'compliance_img_alt' => 'Atalian compliance and ethics program',
     'contacts_block' => [
         'title'            => 'Contact Atalian',
         'addresses_title'  => 'Addresses',

@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Техническое обслуживание')
+@section('title', __('technical.page_title'))
+
+@section('meta')
+    <meta name="description" content="{{ __('technical.meta_description') }}">
+    <meta name="keywords" content="{{ __('technical.meta_keywords') }}">
+    <meta property="og:title" content="{{ __('technical.og_title') }}">
+    <meta property="og:description" content="{{ __('technical.og_description') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+@endsection
 
 @section('content')
 <div class="slider">

@@ -22,4 +22,11 @@ return [
             'desc' => 'Deep carpet cleaning and seasonal maintenance to keep interiors and surrounding areas spotless.'
         ],
     ],
+    
+    // SEO Meta Tags
+    'page_title' => 'Cleaning Services | Atalian',
+    'meta_description' => 'Professional cleaning services by Atalian. Facade cleaning, glass cleaning, post-construction cleaning, carpet cleaning. Over 3 million m² maintained daily across Russia.',
+    'meta_keywords' => 'cleaning services, facade cleaning, glass cleaning, carpet cleaning, post-construction cleaning, professional cleaning Russia',
+    'og_title' => 'Cleaning & Related Services | Atalian',
+    'og_description' => 'Comprehensive cleaning solutions for indoor and outdoor spaces. Professional service, reliable results.',
 ];
