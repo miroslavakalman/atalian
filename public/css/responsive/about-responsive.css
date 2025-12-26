@@ -66,9 +66,7 @@
     }
 
     .about-company img {
-        width: 100%;
-        max-width: 400px;
-        order: 2;
+        display: none;
     }
 
     .about-company > div {
@@ -86,6 +84,23 @@
         padding: 5em 4em;
     }
 
+    /* Remove gaps between main sections on tablets */
+    .about-company {
+        margin-bottom: 0;
+    }
+
+    #stats-rus {
+        margin-top: 0;
+    }
+
+    .mission {
+        margin-top: 0;
+    }
+
+    .licenses {
+        margin-top: 0;
+    }
+
     #stats-rus img {
         width: 100%;
         max-width: 350px;
@@ -93,14 +108,16 @@
     }
 
     .stats-row {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2em;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 1.5em;
     }
 
     .stat {
-        max-width: 200px;
-        flex: 0 1 auto;
+        flex: 1;
+        max-width: none;
+        min-width: 0;
     }
 
     .stats-separator {
@@ -125,13 +142,15 @@
     }
 
     .values-column {
-        flex-direction: column;
+        flex-direction: row;
         max-width: 100%;
         gap: 2em;
+        flex-wrap: nowrap;
     }
 
     .values-column .column {
-        min-width: 100%;
+        flex: 1;
+        min-width: 0;
     }
 
     /* Licenses Section */
@@ -141,11 +160,12 @@
 
     .pdf-row {
         gap: 1.5em;
+        flex-wrap: nowrap;
     }
 
     .pdf-row iframe {
-        width: calc(33.333% - 1em);
-        min-width: 280px;
+        flex: 1;
+        min-width: 0;
         height: 450px;
     }
 
@@ -249,9 +269,22 @@
         text-align: center;
     }
 
+    /* Remove gaps between main sections on mobile large */
+    .about-company {
+        margin-bottom: 0;
+    }
+
+    .mission {
+        margin-top: 0;
+    }
+
+    .licenses {
+        margin-top: 0;
+    }
+
     /* Stats Section */
     #stats-rus {
-        margin-top: -3em;
+        margin-top: 0;
         padding: 3em 2em;
         flex-direction: column;
     }
@@ -461,9 +494,22 @@
         font-size: 24px;
     }
 
+    /* Remove gaps between main sections on mobile */
+    .about-company {
+        margin-bottom: 0;
+    }
+
+    .mission {
+        margin-top: 0;
+    }
+
+    .licenses {
+        margin-top: 0;
+    }
+
     /* Stats Section */
     #stats-rus {
-        margin-top: -2em;
+        margin-top: 0;
         padding: 2.5em 1.5em;
         flex-direction: column;
     }
@@ -595,6 +641,22 @@
         height: 45px;
         font-size: 14px;
         line-height: 1.5;
+    }
+}
+
+/* ============================================
+   FOOTER FIXES FOR TABLET
+   ============================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .footer-row {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .footer-column {
+        width: auto;
+        flex: 1;
+        margin-bottom: 0;
     }
 }
 
