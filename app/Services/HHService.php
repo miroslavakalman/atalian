@@ -33,14 +33,14 @@ class HHService
             return [];
         }
 
-        return array_map(function ($v) {   // ← ЗДЕСЬ ПАРАМЕТР $v
+        return array_map(function ($v) {  
             return [
                 'name' => $v['name'] ?? '',
                 'url' => $v['alternate_url'] ?? '',
                 'salary' => $v['salary']['from'] ?? null,
                 'city' => $v['area']['name'] ?? '',
-                'responsibility' => $v['snippet']['responsibility'] ?? null,   // ← ПРАВИЛЬНО
-                'requirement' => $v['snippet']['requirement'] ?? null,        // ← ПРАВИЛЬНО
+                'responsibility' => $v['snippet']['responsibility'] ?? null,   
+                'requirement' => $v['snippet']['requirement'] ?? null,       
             ];
         }, $json['items']);
     }

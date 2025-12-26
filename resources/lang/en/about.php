@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'page_title' => "About Us",
     'hero_title' => "Efficiency of Your Facility",
     'hero_desc' => "Atalian is an expert in facility management: cleaning, technical services, logistics, and staff support. Unified standards. Transparent processes. Controlled quality.",
     'hero_button' => "Learn More",

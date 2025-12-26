@@ -200,11 +200,10 @@ return [
     */
     'partners' => [
         ['image' => 'logo-1.png'],
-        ['image' => 'logo-2.png'],
-        ['image' => 'logo-3.png'],
-        ['image' => 'logo-4.png'],
-        ['image' => 'logo-5.png'],
-        ['image' => 'logo-6.png'],
+        [
+            'image' => 'logo-2.png',
+            'link' => 'https://proffadmin.ru'
+        ],
     ],
     'partners_title' => 'Partners',
     'partners_desc'  => 'We collaborate with leading companies to provide you with the highest quality solutions',
@@ -227,6 +226,10 @@ return [
     | Contacts
     |--------------------------------------------------------------------------
     */
+    'contact_meta_description' => 'Contact Atalian in Moscow and Saint Petersburg. Get in touch via phone, email, or contact form.',
+    'contact_meta_keywords' => 'contact Atalian, facility management contact, Moscow office, Saint Petersburg office, get in touch',
+    'contact_og_title' => 'Contact Us | Atalian',
+    'contact_og_description' => 'Reach out to our Moscow and Saint Petersburg offices for facility management services and inquiries.',
     'contacts_block' => [
         'title'            => 'Contact Atalian',
         'addresses_title'  => 'Addresses',

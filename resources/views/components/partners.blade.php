@@ -4,10 +4,19 @@
 
     <div class="partners-slider">
         <div class="partners-track">
-            @foreach([1,2] as $row)
+            @foreach([1, 2] as $row)
                 <div class="partners-slide">
-                    @foreach(range(1,6) as $i)
-                        <img src="img/logo-{{ $i }}.png" class="partner-logo" alt="Partner {{ $i }}">
+                    @foreach(range(1,2) as $i)
+                        @if($i == 2)
+                            <a href="https://proffadmin.ru" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="partner-link">
+                                <img src="img/logo-{{ $i }}.png" class="partner-logo">
+                            </a>
+                        @else
+                            <img src="img/logo-{{ $i }}.png" class="partner-logo">
+                        @endif
                     @endforeach
                 </div>
             @endforeach

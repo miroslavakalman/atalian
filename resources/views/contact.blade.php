@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
-@section('title', __('messages.contact', [], app()->getLocale()))
+@section('meta')
+    <meta name="description" content="{{ __('messages.contact_meta_description') }}">
+    <meta name="keywords" content="{{ __('messages.contact_meta_keywords') }}">
+    <meta property="og:title" content="{{ __('messages.contact_og_title') }}">
+    <meta property="og:description" content="{{ __('messages.contact_og_description') }}">
+    <meta property="og:type" content="website">
+@endsection
 
 @section('content')
 <div class="slider">

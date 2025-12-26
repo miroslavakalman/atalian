@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class CareerController extends Controller
 {
-    // Метод для отображения страницы
     public function index($locale)
     {
         app()->setLocale($locale);
@@ -20,19 +19,16 @@ class CareerController extends Controller
         return view('career', compact('vacancies'));
     }
 
-    // Метод для обработки формы
     public function submit(Request $request, $locale)
 {
     app()->setLocale($locale);
 
-    // Honeypot
     if ($request->filled('website')) {
         abort(400, 'Bot detected');
     }
   if (!$request->has('consent_pd')) {
         return back()->withErrors(['consent_pd' => 'Необходимо согласие на обработку ПДн']);
     }
-    // Валидация
     $data = $request->validate([
         'name' => 'required|string|max:255',
         'email' => 'required|email|max:255',
@@ -40,7 +36,6 @@ class CareerController extends Controller
         'resume' => 'required|file|mimes:pdf,doc,docx|max:2048',
     ]);
 
-    // Загрузка резюме
     $path = $request->file('resume')->store('resumes');
 
     $submission = CareerSubmission::create([

@@ -36,6 +36,16 @@
         display: flex;
         flex-direction: column;
     }
+        .txt h2{
+        font-size: 24px;
+    }
+
+    .txt p{
+        font-size: 16px;
+    }
+        h1{
+        font-size: 24px;
+    }
 }
 
 @media (min-width: 320px) and (max-width: 767px){
@@ -46,13 +56,7 @@
         height: 40px;
     }
 
-    .txt h2{
-        font-size: 24px;
-    }
 
-    .txt p{
-        font-size: 12px;
-    }
 
     .slide-career, .slide-cleaning, .slide-logistics, .slides-container, .slide-technical, .slide-custom, .slide-facility, .slide-admin{
         margin-top: 0 !important;
@@ -61,9 +65,7 @@
     .slide{
         border-radius: 0px
     }
-    h1{
-        font-size: 24px;
-    }
+
 
     .orange-h2{
         font-size: 22px;
@@ -80,7 +82,8 @@
     .career-card p{
         font-size: 14px;
     }
-        .pdfs{
+
+    .pdfs{
         display: flex;
         flex-direction: column;
         align-items: center;

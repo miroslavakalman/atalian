@@ -1,6 +1,21 @@
 <?php
 
 return [
+     'page_title' => 'Sustainability | Atalian',
+    'meta_description' => 'Discover our commitment to sustainability, environmental protection, and social responsibility. Learn about our eco-friendly practices.',
+    'meta_keywords' => 'sustainability, environmental protection, corporate responsibility, eco-friendly, green initiatives',
+    'og_title' => 'Our Sustainability Commitment',
+    'og_description' => 'Learn how we implement sustainable practices in our operations.',
+    'hero_title' => 'Our Commitment to <span>Sustainability</span>',
+    'hero_grid_alt' => 'Four images representing different aspects of our sustainability initiatives',
+    'img_part1_alt' => 'Environmental protection initiatives',
+    'img_part2_alt' => 'Community engagement programs',
+    'img_part3_alt' => 'Sustainable resource management',
+    'img_part4_alt' => 'Green technology implementation',
+    
+    'section_light_aria' => 'Our sustainability pillars',
+    
+    'main_image_alt' => 'Overview of our sustainability projects and achievements',
 
     'hero_title' => "Our Commitments<br> to Sustainable<br> Development",
 
