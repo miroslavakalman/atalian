@@ -1,34 +1,52 @@
-@media (max-width: 1024px){
+@media (min-width: 768px) and (max-width: 1023px){
     :root{
-        --content-padding: 80px !important;
+        --content-padding: 5vw;
     }
+    
+    .industry-block {
+        flex-direction: column !important;
+        gap: 30px;
+        margin-bottom: 80px;
+    }
+    
+    .industry-image {
+        max-width: 100%;
+        width: 100%;
+    }
+    
     .industry-image img{
         border-radius: 10px;
-        width: 864px !important;
-        height: 269px;
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover;
     }
 
-    .industry-image, .industry-text{
-        max-width: none;
-    }
-    .industry-block, .industry-block reverse{
-        display: flex;
-        flex-direction: column !important;
+    .industry-text{
+        max-width: 100%;
     }
 
     .industry-text h2{
         font-weight: 500;
         text-align: left;
+        font-size: 32px;
     }
-    .industry-text{
-        max-width: 848px;
+    
+    .industry-text p {
+        font-size: 16px;
     }
 }
 
 
-@media (max-width: 768px){
+@media (max-width: 767px){
     .slide-industries{
         border-radius: 0;
+        margin-top: 0 !important;
+        height: 500px;
+    }
+
+    .slides-container {
+        margin-top: 0;
     }
 
     .slider{
@@ -37,7 +55,6 @@
 
     .btn-primary{
         font-size: 16px;
-
         border-radius: 10px;
         width: 187px;
         height: 50px;
@@ -51,16 +68,23 @@
         font-size: 14px;
     }
 
-       .hidden-mobile {
+    .hidden-mobile {
         display: none;
+    }
+    
+    .industries-page {
+        padding: 60px 20px;
+    }
+    
+    .industry-block {
+        margin-bottom: 50px;
     }
 }
 
-@media (min-width: 320px) and (max-width: 767px){
+@media (max-width: 479px){
     .btn-primary{
         font-size: 12px;
-
-       width: 141px;
+        width: 141px;
         height: 40px;
     }
 
@@ -80,8 +104,12 @@
         font-size: 12px;
     }
 
-    .slide-industries, .slides-container{
-        margin-top: 0 !important;
+    .slide-industries{
+        height: 400px;
+    }
+    
+    .industries-page {
+        padding: 40px 15px;
     }
 }
 

@@ -9,3 +9,46 @@
 .cookie-page h1, .cookie-page p, .cookie-page h2, .cookie-page li{
     color: #3F3E3E;
 }
+
+/* Responsive Styles */
+@media (max-width: 1023px) {
+    .cookie-page {
+        padding: 5% 6%;
+    }
+}
+
+@media (max-width: 767px) {
+    .cookie-page {
+        padding: 40px 20px;
+        border-radius: 0;
+        margin: 0;
+    }
+    
+    .cookie-page h1 {
+        font-size: 28px;
+    }
+    
+    .cookie-page h2 {
+        font-size: 24px;
+    }
+    
+    .cookie-page p,
+    .cookie-page li {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 479px) {
+    .cookie-page {
+        padding: 30px 15px;
+    }
+    
+    .cookie-page h1 {
+        font-size: 24px;
+    }
+    
+    .cookie-page h2 {
+        font-size: 20px;
+    }
+}

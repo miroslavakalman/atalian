@@ -299,12 +299,14 @@ img {
     }
 
     .footer-row {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        justify-content: space-between;
     }
 
     .footer-column {
-        width: calc(50% - 20px);
-        margin-bottom: 30px;
+        width: auto;
+        flex: 1;
+        margin-bottom: 0;
     }
 }
 

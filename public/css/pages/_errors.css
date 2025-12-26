@@ -22,3 +22,63 @@
     height: 600px;
     margin: 120px;
 }
+
+/* Responsive Styles */
+@media (max-width: 1023px) {
+    .error-404 {
+        margin: 80px 40px;
+        height: 500px;
+    }
+    
+    .error-404 h1 {
+        font-size: 48px;
+    }
+    
+    .error-404 .desc {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    .error-404 {
+        margin: 0;
+        border-radius: 0;
+        height: 500px;
+        padding: 40px 20px;
+    }
+    
+    .error-404 h1 {
+        font-size: 36px;
+    }
+    
+    .error-404 .desc {
+        font-size: 16px;
+    }
+    
+    .btn-white {
+        width: 200px;
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 479px) {
+    .error-404 {
+        height: 400px;
+        padding: 30px 15px;
+    }
+    
+    .error-404 h1 {
+        font-size: 28px;
+    }
+    
+    .error-404 .desc {
+        font-size: 14px;
+    }
+    
+    .btn-white {
+        width: 180px;
+        height: 45px;
+        font-size: 14px;
+    }
+}

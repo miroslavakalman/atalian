@@ -1,36 +1,144 @@
-@media (min-width: 320px) and (max-width: 650px){
-    h4{
-        font-size: 18px;
+/* Tablet Styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .slide-ethics {
+        height: 500px;
+        margin-top: 3em;
+        border-radius: 15px;
     }
-
-    .ellipse{
-        width: 60px;
-        height: 60px;
+    
+    .ethics-wrapper {
+        margin-top: 5em;
+        padding-bottom: 5em;
     }
-
-    .program .secondary-p-black{
+    
+    .program {
+        flex-direction: column;
+        gap: 30px;
+        padding-top: 5em;
+        padding-bottom: 5em;
+    }
+    
+    .pdfs {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5em;
+    }
+    
+    .pdfs img {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    #ethics-desc {
+        max-width: 100%;
         text-align: center;
-    }
-
-    .ethics-wrapper .secondary-p-black{
-        margin-left: 8px;
     }
 }
 
-@media (min-width: 651px) and (max-width: 1200px){
-    .program{
-        display: flex;
+/* Mobile Large */
+@media (min-width: 480px) and (max-width: 767px) {
+    .slide-ethics {
+        height: 450px;
+        margin-top: 2em;
+        border-radius: 10px;
+    }
+    
+    .ethics-wrapper {
+        margin-top: 3em;
+        padding-bottom: 3em;
+    }
+    
+    .program {
         flex-direction: column;
         gap: 20px;
+        padding-top: 3em;
+        padding-bottom: 3em;
     }
-
-    .pdfs{
-        display: flex;
-        justify-content: center;
+    
+    .pdfs {
+        flex-direction: column;
         align-items: center;
+        gap: 1.5em;
+    }
+    
+    .pdfs img {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    #ethics-desc {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    h4 {
+        font-size: 20px;
+    }
+    
+    .ellipse {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Mobile */
+@media (min-width: 320px) and (max-width: 479px) {
+    .slide-ethics {
+        height: 400px;
+        margin-top: 0;
+        border-radius: 0;
+    }
+    
+    .ethics-wrapper {
+        margin-top: 0;
+        padding-bottom: 2.5em;
+    }
+    
+    .program {
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 2.5em;
+        padding-bottom: 2.5em;
+    }
+    
+    .program .secondary-p-black {
+        text-align: center;
+        font-size: 14px;
+    }
+    
+    .ethics-wrapper .secondary-p-black {
+        margin-left: 0;
+        text-align: center;
+        font-size: 14px;
+    }
+    
+    .pdfs {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5em;
+    }
+    
+    .pdfs img {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #ethics-desc {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    h4 {
+        font-size: 18px;
     }
 
-    .compliance-img{
+    .ellipse {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .compliance-img {
         display: none;
     }
 }
