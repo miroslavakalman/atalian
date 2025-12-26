@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'О компании')
+@section('title', __('about.page_title'))
 
 @section('content')
 <div class="slider">
@@ -48,7 +48,7 @@
 
     </div>
 </div>
-<div class="mission" style="padding: 0 120px;">
+<div class="mission">
     <h2 class="black">{{ __('about.mission_title')}}</h2>
 
     <div class="mission-row row">
@@ -58,7 +58,7 @@
 
     <div class="values-row row">
         <h3>{!! __('about.values_title') !!}</h3>
-        <div class="values-column" style="display: flex; gap: 50px; justify-content: space-between;">
+        <div class="values-column">
             <div class="column">
                 <p class="orange-secondary">{!! __('about.values_card_1') !!}</p>
                 <p class="secondary-p-black">{!! __('about.values_card_1_desc') !!}</p>
