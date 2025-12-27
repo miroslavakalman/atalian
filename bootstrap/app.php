@@ -10,9 +10,18 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware): void {
-        //
+    ->withMiddleware(function (Middleware $middleware) {
+        // Регистрация middleware
+        $middleware->alias([
+            'check.permission' => \App\Http\Middleware\CheckPermission::class,
+        ]);
+        
+        // Создание группы middleware для админки
+        $middleware->group('admin', [
+            'auth',
+            'check.permission',
+        ]);
     })
-    ->withExceptions(function (Exceptions $exceptions): void {
+    ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

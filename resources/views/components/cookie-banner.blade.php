@@ -1,6 +1,11 @@
 @php
 $lang = app()->getLocale();
 $cfg = config('cookie');
+
+if ($lang === 'admin') {
+    $lang = 'ru';
+}
+
 @endphp
 
 <div id="cookieBanner" class="cookie-banner">

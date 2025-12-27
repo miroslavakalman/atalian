@@ -140,14 +140,21 @@ img {
         padding: 60px var(--content-padding);
     }
 
+    .footer-container {
+        align-items: center;
+    }
+    
     .footer-row {
         flex-direction: column;
         gap: 30px;
         text-align: center;
+        justify-content: center;
+        max-width: 100%;
     }
 
     .footer-column {
         gap: 15px;
+        width: 100%;
     }
 
     /* Career/Contact Pages Mobile */
@@ -298,14 +305,20 @@ img {
         width: calc(50% - 15px);
     }
 
+    .footer-container {
+        align-items: center;
+    }
+    
     .footer-row {
         flex-wrap: nowrap;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 2.5em;
+        max-width: 100%;
     }
 
     .footer-column {
-        width: auto;
-        flex: 1;
+        flex: 0 1 auto;
+        min-width: 0;
         margin-bottom: 0;
     }
 }

@@ -134,7 +134,6 @@
                 </label>
             </div>
 
-            <!-- Согласие на рассылку (опциональное) -->
             <div class="checkbox-group">
                 <input type="checkbox" id="consent-marketing" name="consent_marketing">
                 <label for="consent-marketing">
@@ -142,7 +141,6 @@
                 </label>
             </div>
 
-            <!-- Уведомление о возрасте -->
             <p class="age-notice">
                 {{ __('career.age_notice') }}
             </p>
@@ -155,18 +153,15 @@
 </div>
 
 <script>
-    // Добавьте в конец blade-шаблона или в отдельный JS файл
 document.addEventListener('DOMContentLoaded', function() {
     const consentPd = document.getElementById('consent-pd');
     const submitBtn = document.getElementById('submit-btn');
     const form = document.querySelector('.no-vacancy-form form');
     
-    // Проверяем состояние чекбокса при изменении
     consentPd.addEventListener('change', function() {
         submitBtn.disabled = !this.checked;
     });
     
-    // Валидация перед отправкой
     form.addEventListener('submit', function(e) {
         if (!consentPd.checked) {
             e.preventDefault();
@@ -176,7 +171,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Обработка выбора файла резюме
     const resumeInput = document.getElementById('resume-input');
     const fileNameSpan = document.getElementById('file-name');
     
@@ -193,6 +187,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-
-
 @endsection

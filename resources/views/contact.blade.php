@@ -26,7 +26,7 @@
             <h2 class="black" style="text-align: center; margin-bottom: 1em;">{{ __('messages.contact_us') }}</h2>
             <p class="secondary-p-black" style="text-align: center; max-width: 600px; margin: 0 auto 3em;">{{ __('messages.contact_us_desc') }}</p>
             
-            <form class="contact-form" method="POST" action="{{ route('contact.submit', app()->getLocale()) }}" style="max-width: 600px; margin: 0 auto;">
+<form class="contact-form" method="POST" action="{{ route('contact.submit', app()->getLocale()) }}" style="max-width: 600px; margin: 0 auto;">
                 @csrf
 
                 <!-- Honeypot -->

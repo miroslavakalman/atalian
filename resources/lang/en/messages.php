@@ -18,6 +18,7 @@ return [
     'company'        => 'Atalian',
     'documents'      => 'Documents',
     'contacts'       => 'Contacts',
+    'sitemap'        => 'Sitemap',
     'csr'            => 'Corporate Social Responsibility',
     'data_policy'    => 'Data Protection & Privacy Policy',
 

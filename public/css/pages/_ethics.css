@@ -9,6 +9,11 @@
     margin-top: 5em; 
 }
 
+.ethics-content {
+    position: relative;
+    z-index: 1;
+}
+
 .ethics-wrapper {
     background-color: #fdfdfd;
     width: 100%;

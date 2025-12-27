@@ -44,8 +44,19 @@
         border-radius: 10px;
     }
     
+    .slides-container {
+        margin-top: 2%;
+        height: 450px;
+    }
+    
+    .ethics-content {
+        position: relative;
+        z-index: 1;
+    }
+    
     .ethics-wrapper {
-        margin-top: 3em;
+        margin-top: 2em;
+        padding-top: 2em;
         padding-bottom: 3em;
     }
     
@@ -90,8 +101,24 @@
         border-radius: 0;
     }
     
+    .slides-container {
+        margin-top: 0;
+        height: 400px;
+    }
+    
+    .slider {
+        padding: 0;
+        margin-bottom: 0;
+    }
+    
+    .ethics-content {
+        position: relative;
+        z-index: 1;
+    }
+    
     .ethics-wrapper {
         margin-top: 0;
+        padding-top: 2em;
         padding-bottom: 2.5em;
     }
     

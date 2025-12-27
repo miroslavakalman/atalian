@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @yield('meta')
     <title>@yield('title', 'Главная - Аталиан')</title>
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url()->current() }}">
+    <!-- Language Alternates -->
+    @php
+        $currentPath = request()->getPathInfo();
+        $pathWithoutLocale = preg_replace('#^/(en|ru)/#', '/', $currentPath);
+        if ($pathWithoutLocale === '/') {
+            $pathWithoutLocale = '';
+        }
+    @endphp
+    <link rel="alternate" hreflang="ru" href="{{ url('ru' . $pathWithoutLocale) }}">
+    <link rel="alternate" hreflang="en" href="{{ url('en' . $pathWithoutLocale) }}">
+    <link rel="alternate" hreflang="x-default" href="{{ url('ru' . $pathWithoutLocale) }}">
     <link href="{{ asset(path: 'css/app.css') }}" rel="stylesheet">
     <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
@@ -199,6 +212,7 @@
                 <h5>{{ __('messages.documents') }}</h5>
                 <a href="{{ route('cookies', app()->getLocale()) }}">{{ __('cookies.title') }}</a>
                 <a href="{{ route('policy', parameters: app()->getLocale()) }}">{{ __('messages.data_policy') }}</a>
+                <a href="{{ route('sitemap', app()->getLocale()) }}">{{ __('messages.sitemap') }}</a>
             </div>
             <div class="footer-column">
                 <h5>{{ __('messages.contacts') }}</h5>
