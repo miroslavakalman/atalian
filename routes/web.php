@@ -4,6 +4,7 @@ use App\Http\Controllers\CareerController;
 use App\Http\Controllers\Admin\CareerAdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\ContactAdminController;
+use App\Http\Controllers\Admin\ContentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,6 +36,15 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/{submission}', [ContactAdminController::class, 'show'])->name('show');
     Route::put('/{submission}/status', [ContactAdminController::class, 'updateStatus'])->name('update-status');
     Route::delete('/{submission}', [ContactAdminController::class, 'destroy'])->name('destroy');
+});
+Route::prefix('content')->name('content.')->group(function () {
+    Route::get('/', [ContentController::class, 'index'])->name('index');
+    Route::get('/create', [ContentController::class, 'create'])->name('create');
+    Route::post('/', [ContentController::class, 'store'])->name('store');
+    Route::get('/{content}/edit', [ContentController::class, 'edit'])->name('edit');
+    Route::put('/{content}', [ContentController::class, 'update'])->name('update');
+    Route::delete('/{content}', [ContentController::class, 'destroy'])->name('destroy');
+    Route::post('/bulk', [ContentController::class, 'bulkAction'])->name('bulk');
 });
 });
 
@@ -219,4 +229,10 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::get('/{submission}/download', [\App\Http\Controllers\Admin\CareerAdminController::class, 'downloadResume'])->name('download');
         Route::delete('/{submission}', [\App\Http\Controllers\Admin\CareerAdminController::class, 'destroy'])->name('destroy');
     });
+});
+// routes/web.php
+Route::get('/test-content', function() {
+    // Проверка работы хелпера
+    $test = \App\Helpers\ContentHelper::get('about.title', 'Значение по умолчанию');
+    dd($test);
 });

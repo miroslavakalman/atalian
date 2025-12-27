@@ -396,36 +396,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const consentPd = document.getElementById('consent-pd');
-    const submitBtn = document.getElementById('submit-btn');
-    const form = document.querySelector('.no-vacancy-form form');
-    
-    consentPd.addEventListener('change', function() {
-        submitBtn.disabled = !this.checked;
-    });
-    
-    form.addEventListener('submit', function(e) {
-        if (!consentPd.checked) {
-            e.preventDefault();
-            alert('Необходимо согласие на обработку персональных данных');
-            consentPd.focus();
-            return false;
-        }
-    });
-    
-    const resumeInput = document.getElementById('resume-input');
-    const fileNameSpan = document.getElementById('file-name');
-    
-    if (resumeInput && fileNameSpan) {
-        resumeInput.addEventListener('change', function() {
-            if (this.files && this.files[0]) {
-                fileNameSpan.textContent = this.files[0].name;
-                fileNameSpan.style.color = '#333';
-            } else {
-                fileNameSpan.textContent = '{{ __('career.form_no_file') }}';
-                fileNameSpan.style.color = '#666';
-            }
-        });
-    }
-});
