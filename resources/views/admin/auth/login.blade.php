@@ -8,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            height: 100vh;
+            background: white;           
+             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -26,6 +26,16 @@
             text-align: center;
             margin-bottom: 30px;
             color: #333;
+        }
+
+        button{
+            background-color: #F46F1F !important;
+            border: none !important;
+            outline: none !important;
+        }
+
+        a{
+            color: #F46F1F;
         }
     </style>
 </head>

@@ -30,7 +30,8 @@
 <x-cookie-banner />
  @stack('scripts')
     <header class="header">
-        <a href="{{ url(app()->getLocale() . '/') }}" class="logo-link">
+        <!-- ЛОГОТИП С СЕКРЕТНОЙ КОМБИНАЦИЕЙ -->
+        <a href="{{ url(app()->getLocale() . '/') }}" class="logo-link" id="secret-logo">
             <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo">
         </a>
 
@@ -111,7 +112,7 @@
         <!-- Mobile Menu -->
         <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
             <div class="mobile-nav-header">
-                <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="mobile-logo">
+                <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="mobile-logo" id="secret-logo-mobile">
                 <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
                     <span>&times;</span>
                 </button>
@@ -191,6 +192,33 @@
         </nav>
     </div>
 
+    <!-- СЕКРЕТНАЯ АДМИН-ПАНЕЛЬ (скрыта до активации) -->
+    <div id="admin-panel" style="display: none; position: fixed; top: 20px; right: 20px; z-index: 9999;">
+        <div style="background: rgba(44, 62, 80, 0.95); color: white; padding: 15px; 
+                    border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+                    border-left: 4px solid #f46f1f;">
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <span style="color: #f46f1f; margin-right: 8px;">🔐</span>
+                <strong>Доступ к админ-панели</strong>
+            </div>
+            <a href="{{ route('login') }}" 
+               style="display: block; background: #f46f1f; color: white; 
+                      text-decoration: none; padding: 8px 16px; 
+                      border-radius: 4px; text-align: center; margin-bottom: 8px;">
+                Войти в админку
+            </a>
+            <small style="opacity: 0.8; display: block; margin-top: 8px;">
+                Секретная комбинация: 5 кликов по логотипу
+            </small>
+            <button onclick="hideAdminPanel()" 
+                    style="position: absolute; top: 5px; right: 5px; 
+                           background: none; border: none; color: white; 
+                           font-size: 18px; cursor: pointer;">
+                ×
+            </button>
+        </div>
+    </div>
+
     <!-- MAIN CONTENT -->
     <main>
         @yield('content')
@@ -200,7 +228,7 @@
 @if (!isset($hideFooter) || $hideFooter === false)
 <footer class="footer">
     <div class="footer-container">
-        <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="logo-white">
+        <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="logo-white" id="secret-logo-footer">
         <div class="footer-row">
             <div class="footer-column">
                 <h5>{{ __('messages.company') }}</h5>
@@ -225,7 +253,7 @@
 </footer>
 @endif
     <script>
- // Mobile Menu Functionality
+// Mobile Menu Functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Элементы мобильного меню
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
@@ -331,6 +359,129 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// ================= СЕКРЕТНАЯ КОМБИНАЦИЯ КЛИКОВ =================
+(function() {
+    let clickCount = 0;
+    let clickTimeout;
+    let isAdminPanelVisible = false;
+    
+    // Функция для показа админ-панели
+    function showAdminPanel() {
+        const panel = document.getElementById('admin-panel');
+        if (panel) {
+            panel.style.display = 'block';
+            isAdminPanelVisible = true;
+            
+            // Автоматическое скрытие через 30 секунд
+            setTimeout(() => {
+                if (isAdminPanelVisible) {
+                    hideAdminPanel();
+                }
+            }, 30000);
+        }
+    }
+    
+    // Функция для скрытия админ-панели
+    window.hideAdminPanel = function() {
+        const panel = document.getElementById('admin-panel');
+        if (panel) {
+            panel.style.display = 'none';
+            isAdminPanelVisible = false;
+        }
+    }
+    
+    // Функция обработки клика по логотипу
+    function handleSecretClick(e) {
+        // Предотвращаем стандартное поведение ссылки
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Сброс таймера
+        clearTimeout(clickTimeout);
+        clickCount++;
+        
+        // Визуальная обратная связь (легкая анимация)
+        const logo = e.target.closest('.logo-link, .mobile-logo, .logo-white');
+        if (logo) {
+            logo.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                logo.style.transform = 'scale(1)';
+            }, 150);
+        }
+        
+        // Консоль для отладки (можно убрать)
+        console.log(`Секретные клики: ${clickCount}/5`);
+        
+        // Проверка на 5 кликов
+        if (clickCount === 5) {
+            // Воспроизводим звук (опционально)
+            try {
+                const audio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAZGF0YQ');
+                audio.play();
+            } catch(e) {}
+            
+            // Показываем админ-панель
+            showAdminPanel();
+            
+            // Сбрасываем счетчик
+            clickCount = 0;
+            
+            return false;
+        }
+        
+        // Сброс счетчика через 2 секунды
+        clickTimeout = setTimeout(() => {
+            console.log('Секретная комбинация сброшена');
+            clickCount = 0;
+        }, 2000);
+        
+        // Возвращаемся на главную (обычное поведение ссылки)
+        setTimeout(() => {
+            if (clickCount === 1) {
+                window.location.href = e.currentTarget.href;
+            }
+        }, 50);
+        
+        return false;
+    }
+    
+    // Добавляем обработчики ко всем логотипам
+    const secretLogos = [
+        document.getElementById('secret-logo'),
+        document.getElementById('secret-logo-mobile'),
+        document.getElementById('secret-logo-footer')
+    ];
+    
+    secretLogos.forEach(logo => {
+        if (logo) {
+            logo.addEventListener('click', handleSecretClick);
+            logo.style.cursor = 'pointer';
+            logo.title = 'Нажмите для перехода на главную';
+        }
+    });
+    
+    // Закрытие админ-панели по клику вне ее
+    document.addEventListener('click', function(e) {
+        const panel = document.getElementById('admin-panel');
+        if (panel && isAdminPanelVisible && !panel.contains(e.target)) {
+            hideAdminPanel();
+        }
+    });
+    
+    // Закрытие по Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isAdminPanelVisible) {
+            hideAdminPanel();
+        }
+    });
+    
+    // Сообщение в консоль для разработчиков
+    console.log('%c🔐 Секретная админ-панель активирована', 
+                'color: #f46f1f; font-weight: bold; font-size: 14px;');
+    console.log('%cЧтобы открыть панель доступа, сделайте 5 быстрых кликов по любому логотипу', 
+                'color: #666;');
+})();
     </script>
 
 <script type="module" src="/js/app.js"></script>
