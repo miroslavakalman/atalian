@@ -28,7 +28,6 @@ class CareerSubmission extends Model
         'created_at' => 'datetime',
     ];
 
-    // Статусы откликов
     const STATUS_NEW = 'new';
     const STATUS_REVIEWED = 'reviewed';
     const STATUS_INVITED = 'invited';

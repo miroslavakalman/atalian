@@ -11,12 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // Регистрация middleware
         $middleware->alias([
             'check.permission' => \App\Http\Middleware\CheckPermission::class,
         ]);
         
-        // Создание группы middleware для админки
         $middleware->group('admin', [
             'auth',
             'check.permission',

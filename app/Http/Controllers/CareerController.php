@@ -23,12 +23,10 @@ class CareerController extends Controller
     {
         app()->setLocale($locale);
 
-        // Бот-ловушка
         if ($request->filled('website')) {
             abort(400, 'Bot detected');
         }
 
-        // Проверка согласия на ПДн
         if (!$request->has('consent_pd')) {
             return back()->withErrors(['consent_pd' => 'Необходимо согласие на обработку ПДн']);
         }
@@ -42,10 +40,8 @@ class CareerController extends Controller
             'vacancy_name' => 'nullable|string|max:255',
         ]);
 
-        // Загрузка резюме
         $path = $request->file('resume')->store('resumes', 'public');
 
-        // Создание записи
         $submission = CareerSubmission::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -58,14 +54,11 @@ class CareerController extends Controller
             'status' => CareerSubmission::STATUS_NEW,
         ]);
 
-        // Отправка уведомления на email (если нужно)
-        // Mail::to(config('mail.admin_email'))->send(new NewCareerSubmission($submission));
 
         return redirect()->route('career.thanks', ['locale' => $locale])
             ->with('success', 'Ваша заявка успешно отправлена!');
     }
 
-    // Новая страница благодарности
     public function thanks($locale)
     {
         app()->setLocale($locale);

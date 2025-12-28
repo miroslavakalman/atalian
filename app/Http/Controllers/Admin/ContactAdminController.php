@@ -10,7 +10,6 @@ class ContactAdminController extends Controller
 {
     public function index(Request $request)
     {
-        // Проверка аутентификации
         if (!auth()->check()) {
             abort(403, 'Требуется авторизация');
         }
@@ -29,17 +28,14 @@ class ContactAdminController extends Controller
             });
         }
 
-        // Фильтр по статусу
         if ($request->filled('status')) {
             $query->where('status', $request->status);
         }
 
-        // Фильтр по теме
         if ($request->filled('subject')) {
             $query->where('subject', $request->subject);
         }
 
-        // Фильтр по дате
         if ($request->filled('date_from')) {
             $query->whereDate('created_at', '>=', $request->date_from);
         }

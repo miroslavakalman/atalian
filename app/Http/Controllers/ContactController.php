@@ -11,16 +11,13 @@ class ContactController extends Controller
 {
    public function submit(Request $request)
 {
-    // Получаем локаль из сессии или используем по умолчанию
     $locale = session('locale', app()->getLocale());
     app()->setLocale($locale);
 
-    // Бот-ловушка
     if ($request->filled('website')) {
         abort(400, 'Bot detected');
     }
 
-    // Проверка согласия на ПДн
     if (!$request->has('consent_pd')) {
         return back()->withErrors(['consent_pd' => 'Необходимо согласие на обработку ПДн']);
     }
@@ -35,7 +32,6 @@ class ContactController extends Controller
         'consent_pd' => 'required|accepted',
     ]);
 
-    // Сохраняем в базу данных
     $submission = ContactSubmission::create([
         'subject' => $data['subject'],
         'name' => $data['name'],

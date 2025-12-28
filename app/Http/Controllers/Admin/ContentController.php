@@ -11,19 +11,16 @@ class ContentController extends Controller
 {
     public function index(Request $request)
     {
-        // Проверка аутентификации
         if (!auth()->check()) {
             abort(403, 'Требуется авторизация');
         }
 
         $query = Content::query();
         
-        // Фильтр по группе
         if ($request->filled('group')) {
             $query->where('group', $request->group);
         }
         
-        // Поиск
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where(function($q) use ($search) {
@@ -129,7 +126,6 @@ class ContentController extends Controller
             ->with('success', 'Контент удален успешно');
     }
 
-    // Массовые действия
     public function bulkAction(Request $request)
     {
         if (!auth()->check()) {
