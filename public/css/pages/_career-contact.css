@@ -317,7 +317,6 @@
     align-items: center;
 }
 
-/* Оранжевая кнопка */
 .btn-respond {
     background: #ec732c;
     color: #fff;
@@ -357,7 +356,6 @@
     border: none;
 }
 
-/* скрываем дефолтный file input */
 .file-input-wrapper input[type="file"] {
     display: none;
 }
@@ -422,7 +420,6 @@
 }       
 
 
-/* Стили для чекбоксов согласий */
 .consent-checkboxes {
     width: 100%;
     max-width: 400px;
@@ -441,7 +438,7 @@
     height: 18px;
     margin: 2px 10px 0 0;
     flex-shrink: 0;
-    accent-color: #ec732c; /* Оранжевый цвет чекбокса */
+    accent-color: #ec732c; 
     cursor: pointer;
 }
 
@@ -478,7 +475,6 @@
     font-style: italic;
 }
 
-/* Стиль для отключенной кнопки */
 #submit-btn:disabled {
     background-color: #ccc;
     cursor: not-allowed;
@@ -489,14 +485,11 @@
     background-color: #ccc;
 }
 
-/* Ошибка при незаполненных обязательных чекбоксах */
 .checkbox-group input[type="checkbox"]:invalid {
     outline: 2px solid #ff0000;
     outline-offset: 2px;
 }
 
-/* Стили для мобильных */
-/* Contact Page Responsive */
 @media (max-width: 1023px) {
     .contact-form-section {
         padding: 60px var(--content-padding) !important;

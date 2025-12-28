@@ -23,7 +23,6 @@ return [
         ],
     ],
     
-    // SEO Meta Tags
     'page_title' => 'Cleaning Services | Atalian',
     'meta_description' => 'Professional cleaning services by Atalian. Facade cleaning, glass cleaning, post-construction cleaning, carpet cleaning. Over 3 million m² maintained daily across Russia.',
     'meta_keywords' => 'cleaning services, facade cleaning, glass cleaning, carpet cleaning, post-construction cleaning, professional cleaning Russia',

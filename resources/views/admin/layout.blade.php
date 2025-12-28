@@ -89,7 +89,6 @@
             </div>
         </header>
 
-        <!-- Контент -->
         <div class="content-wrapper">
             @if(session('success'))
                 <div class="alert alert-admin alert-admin-success alert-dismissible fade show" role="alert">
@@ -113,7 +112,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Переключение мобильного меню
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.querySelector('.menu-toggle');
             const sidebar = document.querySelector('.sidebar');
@@ -124,7 +122,6 @@
                 });
             }
             
-            // Подтверждение удаления
             document.querySelectorAll('.delete-form').forEach(form => {
                 form.addEventListener('submit', function(e) {
                     if (!confirm('Вы уверены, что хотите удалить эту запись?')) {
@@ -133,7 +130,6 @@
                 });
             });
 
-            // Выбор всех чекбоксов
             const selectAll = document.getElementById('select-all');
             if (selectAll) {
                 selectAll.addEventListener('change', function() {
@@ -143,7 +139,6 @@
                 });
             }
             
-            // Закрытие меню при клике на ссылку на мобильных
             if (window.innerWidth < 992) {
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.addEventListener('click', function() {

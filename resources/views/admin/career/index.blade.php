@@ -10,7 +10,6 @@
     </div>
 </div>
 
-<!-- Фильтры -->
 <div class="card mb-4">
     <div class="card-body">
         <form method="GET" class="row g-3">
@@ -48,7 +47,6 @@
     </div>
 </div>
 
-<!-- Форма массовых действий -->
 <form id="bulk-form" method="POST" action="{{ route('admin.career.bulk') }}">
     @csrf
     @method('POST')

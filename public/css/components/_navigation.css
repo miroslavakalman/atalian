@@ -1,6 +1,3 @@
-/* ======================
-   ДЕСКТОПНОЕ МЕНЮ (не трогаем)
-   ====================== */
 .nav {
     display: flex;
     gap: 2rem;
@@ -63,11 +60,7 @@
     display: block;
 }
 
-/* ======================
-   МОБИЛЬНОЕ МЕНЮ - ИСПРАВЛЕННАЯ ВЕРСИЯ
-   ====================== */
 
-/* Кнопка бургер-меню */
 .mobile-menu-toggle {
     display: none;
     background: none;
@@ -103,7 +96,6 @@
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Оверлей для мобильного меню */
 .mobile-overlay {
     display: none;
     position: fixed;
@@ -122,7 +114,6 @@
     opacity: 1;
 }
 
-/* Мобильная навигация - БЫСТРАЯ АНИМАЦИЯ */
 .mobile-nav {
     position: fixed;
     top: 0;
@@ -132,18 +123,17 @@
     height: 100vh;
     background: #ffffff;
     flex-direction: column;
-    transition: right 0.25s ease-out; /* БЫСТРЕЕ! */
+    transition: right 0.25s ease-out; 
     z-index: 999;
     overflow-y: auto;
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
-    display: flex; /* Важно! */
+    display: flex; 
 }
 
 .mobile-nav.active {
     right: 0;
 }
 
-/* Мобильный хедер */
 .mobile-nav-header {
     display: flex;
     justify-content: space-between;
@@ -154,7 +144,7 @@
     position: sticky;
     top: 0;
     z-index: 1;
-    flex-shrink: 0; /* Не сжимается */
+    flex-shrink: 0; 
 }
 
 .mobile-logo {
@@ -185,16 +175,14 @@
     background: rgba(0, 0, 0, 0.05);
 }
 
-/* Контент мобильного меню */
 .mobile-nav-content {
     padding: 0;
-    flex: 1; /* Занимает оставшееся пространство */
+    flex: 1; 
     overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
 
-/* Ссылки меню */
 .mobile-nav-link {
     display: block;
     color: #333;
@@ -212,7 +200,6 @@
     padding-left: 25px;
 }
 
-/* Мобильные выпадающие меню - ИСПРАВЛЕННЫЕ */
 .mobile-dropdown {
     border-bottom: 1px solid #eee;
     flex-shrink: 0;
@@ -258,7 +245,6 @@
     color: var(--coop-orange-accent);
 }
 
-/* ДРОПДАУН МЕНЮ - ИСПРАВЛЕНО (не выходит за экран) */
 .mobile-dropdown-menu {
     max-height: 0;
     overflow: hidden;
@@ -267,8 +253,8 @@
 }
 
 .mobile-dropdown.active .mobile-dropdown-menu {
-    max-height: 300px; /* ОГРАНИЧИВАЕМ высоту */
-    overflow-y: auto; /* Добавляем скролл если нужно */
+    max-height: 300px;
+    overflow-y: auto; 
 }
 
 .mobile-dropdown-menu a {
@@ -305,13 +291,12 @@
     transform: translateX(3px);
 }
 
-/* Мобильный переключатель языка - ИСПРАВЛЕНО (по центру) */
 .mobile-lang-switch {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: auto; /* Прижимаем к низу */
+    margin-top: auto; 
     padding: 20px;
     background: #f8f8f8;
     border-top: 1px solid #eee;
@@ -347,28 +332,21 @@
     margin: 0;
 }
 
-/* ======================
-   МЕДИА-ЗАПРОСЫ
-   ====================== */
 
-/* Мобильные и планшеты (до 1024px) */
+
 @media (max-width: 1024px) {
-    /* Показываем кнопку бургера */
     .mobile-menu-toggle {
         display: flex;
     }
     
-    /* Скрываем десктопную навигацию */
     .nav {
         display: none;
     }
     
-    /* Скрываем десктопный переключатель языка */
     .lang-switch {
         display: none;
     }
     
-    /* Стили для header на мобильных */
     .header {
         padding: 15px 20px;
         position: relative;
@@ -383,7 +361,6 @@
         max-width: 150px;
     }
     
-    /* Правильное расположение элементов в header */
     .logo-link {
         flex: 0 0 auto;
     }
@@ -394,7 +371,6 @@
     }
 }
 
-/* Планшеты (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .mobile-nav {
         max-width: 400px;
@@ -412,7 +388,6 @@
     }
 }
 
-/* Мобильные телефоны (до 768px) */
 @media (max-width: 768px) {
     .mobile-nav {
         width: 85%;
@@ -454,7 +429,6 @@
     }
 }
 
-/* Очень маленькие экраны */
 @media (max-width: 480px) {
     .mobile-nav {
         width: 100%;
@@ -488,7 +462,6 @@
     }
 }
 
-/* Десктоп (1025px и выше) */
 @media (min-width: 1025px) {
     .mobile-menu-toggle,
     .mobile-nav-container,
@@ -502,7 +475,6 @@
     }
 }
 
-/* Предотвращение скролла при открытом меню */
 body.menu-open {
     overflow: hidden;
     position: fixed;
@@ -510,7 +482,6 @@ body.menu-open {
     height: 100%;
 }
 
-/* ФИКС для iOS Safari */
 @supports (-webkit-touch-callout: none) {
     body.menu-open {
         position: fixed;

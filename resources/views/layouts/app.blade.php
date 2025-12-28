@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @yield('meta')
     <title>@yield('title', 'Главная - Аталиан')</title>
-    <!-- Canonical URL -->
     <link rel="canonical" href="{{ url()->current() }}">
-    <!-- Language Alternates -->
     @php
         $currentPath = request()->getPathInfo();
         $pathWithoutLocale = preg_replace('#^/(en|ru)/#', '/', $currentPath);
@@ -30,14 +28,11 @@
 <x-cookie-banner />
  @stack('scripts')
     <header class="header">
-        <!-- ОБЫЧНЫЙ ЛОГОТИП в хедере (без секрета) -->
         <a href="{{ url(app()->getLocale() . '/') }}" class="logo-link">
             <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo">
         </a>
 
-        <!-- Desktop Navigation -->
         <nav class="nav" id="mainNav">
-            <!-- О компании -->
             <a href="{{ url(app()->getLocale() . '/about') }}">{{ __('menu.about_us') }}</a>
 
             <div class="nav-item has-dropdown">
@@ -83,7 +78,6 @@
             <a href="{{ url(app()->getLocale() . '/contact') }}">{{ __('menu.contact') }}</a>
         </nav>
 
-        <!-- Desktop Language Switch -->
         <div class="lang-switch">
             @php
                 $segments = Request::segments(); 
@@ -96,23 +90,18 @@
             <a href="{{ url('en/' . $basePath) }}">EN</a>
         </div>
 
-        <!-- Mobile Menu Button (ТЕМНАЯ для белого фона) -->
         <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-    </header> <!-- ЗАКРЫВАЕМ header ЗДЕСЬ! -->
+    </header> 
 
-    <!-- Mobile Navigation Container (ВНЕ header) -->
     <div class="mobile-nav-container">
-        <!-- Overlay -->
         <div class="mobile-overlay" id="mobileOverlay"></div>
         
-        <!-- Mobile Menu -->
         <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
             <div class="mobile-nav-header">
-                <!-- ОБЫЧНЫЙ ЛОГОТИП в мобильном меню (без секрета) -->
                 <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="mobile-logo">
                 <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
                     <span>&times;</span>
@@ -122,7 +111,6 @@
             <div class="mobile-nav-content">
                 <a href="{{ url(app()->getLocale() . '/about') }}" class="mobile-nav-link">{{ __('menu.about_us') }}</a>
                 
-                <!-- Services Dropdown -->
                 <div class="mobile-dropdown">
                     <button class="mobile-dropdown-toggle">
                         {{ __('menu.services') }}
@@ -140,7 +128,6 @@
                     </div>
                 </div>
                 
-                <!-- Industries Dropdown -->
                 <div class="mobile-dropdown">
                     <button class="mobile-dropdown-toggle">
                         {{ __('menu.industries') }}
@@ -159,7 +146,6 @@
                     </div>
                 </div>
                 
-                <!-- Commitments Dropdown -->
                 <div class="mobile-dropdown">
                     <button class="mobile-dropdown-toggle">
                         {{ __('menu.commitments') }}
@@ -176,7 +162,6 @@
                 <a href="{{ url(app()->getLocale() . '/career') }}" class="mobile-nav-link">{{ __('menu.career') }}</a>
                 <a href="{{ url(app()->getLocale() . '/contact') }}" class="mobile-nav-link">{{ __('menu.contact') }}</a>
                 
-                <!-- Mobile Language Switch -->
                 <div class="mobile-lang-switch">
                     @php
                         $segments = Request::segments(); 
@@ -193,7 +178,6 @@
         </nav>
     </div>
 
-    <!-- СЕКРЕТНАЯ АДМИН-ПАНЕЛЬ (скрыта до активации) -->
     <div id="admin-panel" style="display: none; position: fixed; top: 20px; right: 20px; z-index: 9999;">
         <div style="background: rgba(44, 62, 80, 0.95); color: white; padding: 15px; 
                     border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
@@ -221,16 +205,13 @@
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <main>
         @yield('content')
     </main>
 
-    <!-- FOOTER -->
 @if (!isset($hideFooter) || $hideFooter === false)
 <footer class="footer">
     <div class="footer-container">
-        <!-- СЕКРЕТНЫЙ ЛОГОТИП ТОЛЬКО ЗДЕСЬ -->
         <img src="{{ asset('img/logo-white.png') }}" alt="Logo" 
              class="logo-white" id="secret-logo-footer" 
              style="cursor: pointer;" 
@@ -260,19 +241,15 @@
 </footer>
 @endif
     <script>
-// Mobile Menu Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Элементы мобильного меню
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const mobileMenuClose = document.getElementById('mobileMenuClose');
     const mobileNav = document.getElementById('mobileNav');
     const mobileOverlay = document.getElementById('mobileOverlay');
     const body = document.body;
     
-    // Dropdown элементы
     const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
     
-    // Функция открытия меню
     function openMobileMenu() {
         mobileMenuToggle.classList.add('active');
         mobileNav.classList.add('active');
@@ -281,7 +258,6 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuToggle.setAttribute('aria-label', 'Закрыть меню');
     }
     
-    // Функция закрытия меню
     function closeMobileMenu() {
         mobileMenuToggle.classList.remove('active');
         mobileNav.classList.remove('active');
@@ -289,13 +265,11 @@ document.addEventListener('DOMContentLoaded', function() {
         body.classList.remove('menu-open');
         mobileMenuToggle.setAttribute('aria-label', 'Открыть меню');
         
-        // Закрываем все выпадающие меню
         document.querySelectorAll('.mobile-dropdown.active').forEach(dropdown => {
             dropdown.classList.remove('active');
         });
     }
     
-    // Открытие/закрытие по кнопке бургер
     mobileMenuToggle.addEventListener('click', function() {
         if (mobileNav.classList.contains('active')) {
             closeMobileMenu();
@@ -304,22 +278,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Закрытие по кнопке закрытия
     if (mobileMenuClose) {
         mobileMenuClose.addEventListener('click', closeMobileMenu);
     }
     
-    // Закрытие по клику на оверлей
     mobileOverlay.addEventListener('click', closeMobileMenu);
     
-    // Закрытие по Escape
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
             closeMobileMenu();
         }
     });
     
-    // Обработка выпадающих меню в мобильной версии
     mobileDropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
@@ -328,19 +298,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const dropdown = this.closest('.mobile-dropdown');
             const isActive = dropdown.classList.contains('active');
             
-            // Закрываем другие открытые dropdown
             document.querySelectorAll('.mobile-dropdown.active').forEach(item => {
                 if (item !== dropdown) {
                     item.classList.remove('active');
                 }
             });
             
-            // Переключаем текущий dropdown
             dropdown.classList.toggle('active');
         });
     });
     
-    // Закрытие меню при клике на ссылку (кроме языковых)
     const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-dropdown-menu a');
     mobileLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -348,18 +315,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Языковые ссылки закрывают только выпадающие меню
     const langLinks = document.querySelectorAll('.mobile-lang-link');
     langLinks.forEach(link => {
         link.addEventListener('click', function() {
-            // Закрываем только dropdown, но не всё меню
             document.querySelectorAll('.mobile-dropdown.active').forEach(dropdown => {
                 dropdown.classList.remove('active');
             });
         });
     });
     
-    // Обработка ресайза окна
     window.addEventListener('resize', function() {
         if (window.innerWidth > 1024 && mobileNav.classList.contains('active')) {
             closeMobileMenu();
@@ -367,13 +331,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ================= СЕКРЕТНАЯ КОМБИНАЦИЯ КЛИКОВ (ТОЛЬКО ДЛЯ ЛОГО В ФУТЕРЕ) =================
 (function() {
     let clickCount = 0;
     let clickTimeout;
     let isAdminPanelVisible = false;
     
-    // Только один секретный логотип - в футере
     const secretLogo = document.getElementById('secret-logo-footer');
     
     if (!secretLogo) {
@@ -381,26 +343,22 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
-    // Функция для показа админ-панели
     function showAdminPanel() {
         const panel = document.getElementById('admin-panel');
         if (panel) {
             panel.style.display = 'block';
             isAdminPanelVisible = true;
             
-            // Автоматическое скрытие через 30 секунд
             setTimeout(() => {
                 if (isAdminPanelVisible) {
                     hideAdminPanel();
                 }
             }, 30000);
             
-            // Скрыть панель при скролле
             window.addEventListener('scroll', hideAdminPanelOnScroll);
         }
     }
     
-    // Функция для скрытия админ-панели
     window.hideAdminPanel = function() {
         const panel = document.getElementById('admin-panel');
         if (panel) {
@@ -410,23 +368,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Скрытие при скролле
     function hideAdminPanelOnScroll() {
         if (isAdminPanelVisible) {
             hideAdminPanel();
         }
     }
     
-    // Функция обработки клика по секретному логотипу
     function handleSecretClick(e) {
         e.preventDefault();
         e.stopPropagation();
         
-        // Сброс таймера
         clearTimeout(clickTimeout);
         clickCount++;
         
-        // Визуальная обратная связь (легкая анимация)
         secretLogo.style.transform = 'scale(0.95)';
         secretLogo.style.opacity = '0.8';
         
@@ -435,22 +389,16 @@ document.addEventListener('DOMContentLoaded', function() {
             secretLogo.style.opacity = '1';
         }, 150);
         
-        // Консоль для отладки
         console.log(`🤫 Секретные клики: ${clickCount}/5`);
         
-        // Проверка на 5 кликов
         if (clickCount === 5) {
-            // Эффект успеха
             secretLogo.style.boxShadow = '0 0 15px rgba(244, 111, 31, 0.7)';
             secretLogo.style.transition = 'box-shadow 0.3s ease';
             
-            // Показываем админ-панель
             showAdminPanel();
             
-            // Сбрасываем счетчик
             clickCount = 0;
             
-            // Убираем эффект через 1 секунду
             setTimeout(() => {
                 secretLogo.style.boxShadow = '';
             }, 1000);
@@ -458,7 +406,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Сброс счетчика через 3 секунды
         clickTimeout = setTimeout(() => {
             console.log('⏰ Секретная комбинация сброшена');
             clickCount = 0;
@@ -467,11 +414,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
     }
     
-    // Добавляем обработчик к секретному логотипу
     secretLogo.addEventListener('click', handleSecretClick);
     secretLogo.style.cursor = 'pointer';
     
-    // Закрытие админ-панели по клику вне ее
     document.addEventListener('click', function(e) {
         const panel = document.getElementById('admin-panel');
         if (panel && isAdminPanelVisible && !panel.contains(e.target)) {
@@ -479,20 +424,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Закрытие по Escape
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && isAdminPanelVisible) {
             hideAdminPanel();
         }
     });
     
-    // Сообщение в консоль для разработчиков
     console.log('%c🔐 Секретная админ-панель активирована', 
                 'color: #f46f1f; font-weight: bold; font-size: 14px;');
     console.log('%cЧтобы открыть панель доступа, сделайте 5 быстрых кликов по белому логотипу в футере', 
                 'color: #666; font-style: italic;');
     
-    // Дополнительная подсказка при наведении на логотип
     secretLogo.addEventListener('mouseenter', function() {
         this.title = 'Нажмите 5 раз для доступа к админке';
     });

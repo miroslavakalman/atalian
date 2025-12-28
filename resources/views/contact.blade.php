@@ -20,16 +20,14 @@
 </div>
 
 <div class="container">
-    <!-- Форма для вопросов -->
     <div class="contact-form-section" style="background: #f6f6f6; padding: 80px var(--content-padding); margin-top: 0px !important">
         <div class="container" id="contactblock2">
             <h2 class="black" style="text-align: center; margin-bottom: 1em;">{{ __('messages.contact_us') }}</h2>
             <p class="secondary-p-black" style="text-align: center; max-width: 600px; margin: 0 auto 3em;">{{ __('messages.contact_us_desc') }}</p>
             
-<form class="contact-form" method="POST" action="{{ route('contact.submit', app()->getLocale()) }}" style="max-width: 600px; margin: 0 auto;">
+            <form class="contact-form" method="POST" action="{{ route('contact.submit', app()->getLocale()) }}" style="max-width: 600px; margin: 0 auto;">
                 @csrf
 
-                <!-- Honeypot -->
                 <input type="text" name="website" style="display:none" autocomplete="off">
 
                 <div class="form-group" style="margin-bottom: 20px;">
@@ -70,7 +68,6 @@
                     <textarea name="message" class="form-textarea" required rows="5" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; resize: vertical; font-family: 'Inter'; font-size: 16px;"></textarea>
                 </div>
                 
-                <!-- СОГЛАСИЕ НА ОБРАБОТКУ ПДн -->
                 <div class="consent-checkbox" style="margin-bottom: 25px; display: flex; align-items: flex-start;">
                     <input type="checkbox" id="consent-pd" name="consent_pd" required 
                            style="width: 18px; height: 18px; margin: 2px 10px 0 0; flex-shrink: 0; accent-color: #ec732c; cursor: pointer;">
@@ -95,16 +92,13 @@
     <div class="row">
         <div class="row-1">
             <p class="secondary-p-black">{{ __('messages.moscow_address') }}</p>
-            <!-- Интерактивная карта Москвы -->
             <div id="map-moscow" style="width: 428px; height: 252px; border-radius: 10px;"></div>
         </div>
         
-        <!-- Горизонтальная линия между адресами -->
         <div class="vertical-divider"></div>
         
         <div class="row-1">
             <p class="secondary-p-black">{{ __('messages.spb_address') }}</p>
-            <!-- Интерактивная карта СПб -->
             <div id="map-spb" style="width: 428px; height: 252px; border-radius: 10px;"></div>
         </div>
     </div>
@@ -117,7 +111,6 @@
             <p class="secondary-p-black">+7 (812) 384 49 81</p>
         </div>
         
-        <!-- Горизонтальная линия между контактами -->
         <div class="vertical-divider"></div>
         
         <div class="row-1">
@@ -206,7 +199,6 @@
 </script>
 
 <style>
-    /* Адаптивность для мобильных */
     @media (max-width: 768px) {
         .form-row {
             flex-direction: column !important;

@@ -1,17 +1,5 @@
-/* ============================================
-   COMPREHENSIVE RESPONSIVE SYSTEM FOR ABOUT PAGE
-   Breakpoints:
-   - Mobile: < 480px
-   - Mobile Large: 480px - 767px
-   - Tablet: 768px - 1023px
-   - Desktop: 1024px+
-   ============================================ */
 
-/* ============================================
-   TABLET STYLES (768px - 1023px)
-   ============================================ */
 @media (min-width: 768px) and (max-width: 1023px) {
-    /* Typography Scaling */
     h1 {
         font-size: 48px;
     }
@@ -41,7 +29,6 @@
         font-size: 13px;
     }
 
-    /* Slide About */
     .slide-about {
         height: 500px;
         margin-top: 3em;
@@ -57,7 +44,6 @@
         padding: 0 2em;
     }
 
-    /* About Company Section */
     .about-company {
         flex-direction: column;
         padding: 5em 4em;
@@ -78,13 +64,11 @@
         text-align: center;
     }
 
-    /* Stats Section */
     #stats-rus {
         margin-top: -5em;
         padding: 5em 4em;
     }
 
-    /* Remove gaps between main sections on tablets */
     .about-company {
         margin-bottom: 0;
     }
@@ -125,7 +109,6 @@
         margin: 2em 0;
     }
 
-    /* Mission Section */
     .mission {
         padding: 5em 4em;
     }
@@ -153,7 +136,6 @@
         min-width: 0;
     }
 
-    /* Licenses Section */
     .licenses {
         padding: 5em 4em;
     }
@@ -169,7 +151,6 @@
         height: 450px;
     }
 
-    /* Button Responsive */
     .btn-primary {
         width: 200px;
         height: 55px;
@@ -177,11 +158,8 @@
     }
 }
 
-/* ============================================
-   MOBILE LARGE STYLES (480px - 767px)
-   ============================================ */
+
 @media (min-width: 480px) and (max-width: 767px) {
-    /* Typography Scaling */
     h1 {
         font-size: 40px;
     }
@@ -211,7 +189,6 @@
         font-size: 12px;
     }
 
-    /* Slide About */
     .slide-about {
         height: 450px;
         margin-top: 2em;
@@ -246,7 +223,6 @@
         right: 10px;
     }
 
-    /* About Company Section */
     .about-company {
         flex-direction: column;
         padding: 3em 2em;
@@ -269,7 +245,6 @@
         text-align: center;
     }
 
-    /* Remove gaps between main sections on mobile large */
     .about-company {
         margin-bottom: 0;
     }
@@ -282,7 +257,6 @@
         margin-top: 0;
     }
 
-    /* Stats Section */
     #stats-rus {
         margin-top: 0;
         padding: 3em 2em;
@@ -320,7 +294,6 @@
         margin: 2em 0;
     }
 
-    /* Mission Section */
     .mission {
         padding: 3em 2em;
     }
@@ -355,7 +328,6 @@
         width: 100%;
     }
 
-    /* Licenses Section */
     .licenses {
         padding: 3em 2em;
     }
@@ -377,7 +349,6 @@
         height: 500px;
     }
 
-    /* Button Responsive */
     .btn-primary {
         width: 180px;
         height: 50px;
@@ -385,11 +356,8 @@
     }
 }
 
-/* ============================================
-   MOBILE STYLES (< 480px)
-   ============================================ */
+
 @media (max-width: 479px) {
-    /* Typography Scaling */
     h1 {
         font-size: 32px;
         line-height: 1.2;
@@ -426,7 +394,6 @@
         font-size: 12px;
     }
 
-    /* Slide About */
     .slide-about {
         height: 400px;
         margin-top: 0;
@@ -470,7 +437,6 @@
         height: 10px;
     }
 
-    /* About Company Section */
     .about-company {
         flex-direction: column;
         padding: 2.5em 1.5em;
@@ -494,7 +460,6 @@
         font-size: 24px;
     }
 
-    /* Remove gaps between main sections on mobile */
     .about-company {
         margin-bottom: 0;
     }
@@ -507,7 +472,6 @@
         margin-top: 0;
     }
 
-    /* Stats Section */
     #stats-rus {
         margin-top: 0;
         padding: 2.5em 1.5em;
@@ -557,7 +521,6 @@
         margin: 1.5em 0;
     }
 
-    /* Mission Section */
     .mission {
         padding: 2.5em 1.5em;
     }
@@ -611,7 +574,6 @@
         margin-bottom: 0.5em;
     }
 
-    /* Licenses Section */
     .licenses {
         padding: 2.5em 1.5em;
     }
@@ -635,7 +597,6 @@
         min-height: 400px;
     }
 
-    /* Button Responsive */
     .btn-primary {
         width: 160px;
         height: 45px;
@@ -644,9 +605,7 @@
     }
 }
 
-/* ============================================
-   FOOTER FIXES FOR TABLET
-   ============================================ */
+
 @media (min-width: 768px) and (max-width: 1023px) {
     .footer-row {
         flex-wrap: nowrap;
@@ -660,9 +619,7 @@
     }
 }
 
-/* ============================================
-   VERY SMALL MOBILE (< 360px)
-   ============================================ */
+
 @media (max-width: 359px) {
     h1 {
         font-size: 28px;
@@ -701,7 +658,6 @@
         height: 350px;
     }
 
-    /* Button Responsive */
     .btn-primary {
         width: 150px;
         height: 40px;
@@ -709,9 +665,7 @@
     }
 }
 
-/* ============================================
-   LARGE DESKTOP (> 1440px) - Optional optimization
-   ============================================ */
+
 @media (min-width: 1440px) {
     .about-company {
         padding: 10em var(--content-padding);

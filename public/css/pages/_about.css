@@ -121,7 +121,7 @@
 }
 
 .map-rf path {
-    fill: #ccc; /* базовый цвет */
+    fill: #ccc; 
     stroke: #fff;
     stroke-width: 1;
     cursor: pointer;
@@ -129,14 +129,13 @@
 }
 
 .map-rf path:hover {
-    fill: #ffa500; /* подсветка при hover */
+    fill: #ffa500; 
 }
 
 .map-rf path.active {
-    fill: orange; /* подсветка присутствия */
+    fill: orange; 
 }
 
-/* Tooltip */
 .tooltip {
     position: absolute;
     background: rgba(0,0,0,0.7);

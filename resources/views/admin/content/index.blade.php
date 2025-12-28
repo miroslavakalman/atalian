@@ -8,7 +8,6 @@
     </a>
 </div>
 
-<!-- Фильтры -->
 <div class="data-table mb-4">
     <div class="table-header">
         <h5>Фильтры</h5>
@@ -43,7 +42,6 @@
     </div>
 </div>
 
-<!-- Форма массовых действий -->
 <form id="bulk-form" method="POST" action="{{ route('admin.content.bulk') }}">
     @csrf
     @method('POST')

@@ -1,6 +1,5 @@
 <?php
 
-// lang/en/policy.php
 return [
     'title' => 'Personal Data Processing Policy',
     'last_updated' => 'Last updated: :date',
@@ -9,7 +8,6 @@ return [
     'company_address' => 'Legal address: 125284, Moscow, Begovaya street, 7, building 1',
     'company_email' => 'info@atalian.ru',
     
-    // Sections
     'general_provisions' => '1. GENERAL PROVISIONS',
     'general_text' => '1.1. This Personal Data Processing Policy (hereinafter referred to as the "Policy") is drawn up in accordance with the requirements of Federal Law No. 152-FZ dated July 27, 2006 "On Personal Data" and defines the procedure for processing personal data and measures to ensure the security of personal data taken by LLC "ATALIAN GLOBAL SERVICES" (hereinafter referred to as the "Operator").',
     

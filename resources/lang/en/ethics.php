@@ -24,14 +24,12 @@ return [
     'program_title' => "ATALIAN Program",
     'program_desc' => "Since 2018, the ATALIAN Group has been operating based on a compliance program that meets the legal and regulatory requirements of the countries where it operates.<br><br>This program is based on codes, procedures, and initiatives covering all compliance issues that may arise.",
     
-    // SEO Meta Tags
     'page_title' => 'Ethics & Compliance | Atalian',
     'meta_description' => 'Learn about Atalian\'s commitment to ethical business conduct, compliance, and corporate responsibility. Transparency, unified standards, and responsible growth.',
     'meta_keywords' => 'ethics compliance, corporate responsibility, business ethics, compliance program, ethical business conduct, Atalian compliance',
     'og_title' => 'Ethics & Compliance | Atalian',
     'og_description' => 'Atalian ensures ethical business conduct and compliance with legislation. Professional and responsible commitment to partners and society.',
     
-    // Image Alt Tags
     'pdf1_alt' => 'Whistleblowing Policy document',
     'pdf2_alt' => 'Code of Business Ethics document',
     'compliance_img_alt' => 'Atalian compliance and ethics program overview',

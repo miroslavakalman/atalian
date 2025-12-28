@@ -23,7 +23,6 @@
     margin: 120px;
 }
 
-/* Responsive Styles */
 @media (max-width: 1023px) {
     .error-404 {
         margin: 80px 40px;

@@ -1,4 +1,3 @@
-{{-- resources/views/admin/auth/login.blade.php --}}
 <!DOCTYPE html>
 <html lang="ru">
 <head>

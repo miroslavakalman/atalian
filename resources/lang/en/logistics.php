@@ -22,7 +22,6 @@ return [
         ],
     ],
     
-    // SEO Meta Tags
     'page_title' => 'Supply Chain Management | Atalian',
     'meta_description' => 'Comprehensive supply chain management by Atalian. Food supplies, hygiene products, office supplies. Trusted supplier network across Russia.',
     'meta_keywords' => 'supply chain management, logistics services, food supplies, office supplies, facility supplies, procurement services',

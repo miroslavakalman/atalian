@@ -33,7 +33,6 @@
     gap: var(--space-md);
 }
 
-/* Responsive grid */
 .grid-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -60,11 +59,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    /* фиксированная высота */
     height: 310px;
-
-    /* чтобы текст не давил карточку */
     overflow: hidden;
 }
 

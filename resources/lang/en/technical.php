@@ -23,7 +23,6 @@ return [
         ],
     ],
     
-    // SEO Meta Tags
     'page_title' => 'Technical Maintenance | Atalian',
     'meta_description' => 'Professional technical maintenance services by Atalian. Electrical, HVAC, water systems, safety and automation. Reliable facility operation guaranteed.',
     'meta_keywords' => 'technical maintenance, facility maintenance, HVAC maintenance, electrical maintenance, building automation, engineering systems',

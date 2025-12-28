@@ -23,7 +23,6 @@ return [
         ],
     ],
     
-    // SEO Meta Tags
     'page_title' => 'Facility Management | Atalian',
     'meta_description' => 'Comprehensive facility management services by Atalian. Quality control, budget management, digitalization, smart management. Tailored solutions for your facility.',
     'meta_keywords' => 'facility management, property management, facility services, building management, smart facility management, digital facility management',

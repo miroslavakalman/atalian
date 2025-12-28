@@ -21,7 +21,6 @@
             min-height: 100vh;
         }
         
-        /* Сайдбар */
         .sidebar {
             position: fixed;
             left: 0;
@@ -153,13 +152,11 @@
             border-color: #ff6b6b;
         }
         
-        /* Контент */
         .content-wrapper {
             padding: 30px;
             min-height: calc(100vh - var(--header-height));
         }
         
-        /* Карточки */
         .stat-card {
             background: white;
             border-radius: 12px;
@@ -218,7 +215,6 @@
             color: #6c757d;
         }
         
-        /* Таблицы */
         .data-table {
             background: white;
             border-radius: 12px;
@@ -264,7 +260,6 @@
             background: #f8f9fa;
         }
         
-        /* Бейджи статусов */
         .status-badge {
             font-size: 12px;
             padding: 4px 10px;
@@ -297,7 +292,6 @@
             color: #212529;
         }
         
-        /* Кнопки */
         .btn-admin {
             padding: 8px 16px;
             border-radius: 8px;
@@ -328,7 +322,6 @@
             border-color: #bbb;
         }
         
-        /* Алерты */
         .alert-admin {
             border-radius: 8px;
             border: none;
@@ -349,7 +342,6 @@
             border-left: 4px solid #dc3545;
         }
         
-        /* Формы */
         .form-control-admin {
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -363,7 +355,6 @@
             box-shadow: 0 0 0 3px rgba(244, 111, 31, 0.1);
         }
         
-        /* Заголовки */
         .admin-title {
             font-weight: 400;
             font-size: 32px;
@@ -377,7 +368,6 @@
             margin-bottom: 30px;
         }
         
-        /* Адаптивность */
         @media (max-width: 992px) {
             .sidebar {
                 transform: translateX(-100%);

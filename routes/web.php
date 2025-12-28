@@ -15,7 +15,6 @@ Route::prefix('{locale}')->group(function () {
     Route::get('career/thanks', [CareerController::class, 'thanks'])->name('career.thanks');
 });
 
-// Админ-роуты с middleware в роутах
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('dashboard', [CareerAdminController::class, 'dashboard'])->name('dashboard');
     
@@ -48,7 +47,6 @@ Route::prefix('content')->name('content.')->group(function () {
 });
 });
 
-// Аутентификация
 Route::get('/login', function () {
     if (Auth::check()) {
         return redirect()->route('admin.dashboard');
@@ -87,7 +85,6 @@ Route::post('/contact/submit', [ContactController::class, 'submit'])
     ->middleware('throttle:5,1')
     ->name('contact.submit');
 
-// Группа маршрутов с префиксом языка
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru']], function() {
 
     Route::get('/', function($locale){

@@ -104,7 +104,6 @@
     <form action="{{ route('career.submit', app()->getLocale()) }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <!-- Honeypot field -->
         <input type="text" name="website" style="display:none" autocomplete="off">
 
         <input type="text" name="name" placeholder="{{ __('career.form_name') }}" required>
@@ -122,9 +121,7 @@
 
         <textarea name="message" placeholder="{{ __('career.form_message') }}"></textarea>
 
-        <!-- ЧЕКБОКСЫ СОГЛАСИЙ -->
         <div class="consent-checkboxes">
-            <!-- Согласие на обработку персональных данных (обязательное) -->
             <div class="checkbox-group">
                 <input type="checkbox" id="consent-pd" name="consent_pd" required>
                 <label for="consent-pd">

@@ -1,5 +1,4 @@
 <?php
-// lang/en/cookies.php
 return [
     'title' => 'Cookie Policy',
     'last_updated' => 'Last updated: :date',

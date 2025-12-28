@@ -23,7 +23,6 @@ return [
         ],
     ],
     
-    // SEO Meta Tags
     'page_title' => 'Administrative Services | Atalian',
     'meta_description' => 'Professional administrative services by Atalian. Reception, security, concierge, administrative support for your facility.',
     'meta_keywords' => 'administrative services, reception services, facility security, concierge services, administrative support',

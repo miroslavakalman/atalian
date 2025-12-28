@@ -1,5 +1,4 @@
 <?php
-// lang/ru/cookies.php
 return [
     'title' => 'Политика использования cookie-файлов',
     'last_updated' => 'Дата последнего обновления: :date',

@@ -58,13 +58,11 @@ return [
 
     'license_title' => 'Certificates and Compliance',
     
-    // SEO Meta Tags
     'meta_description' => 'Learn about Atalian - a leading facility management company in Russia. Expert services in cleaning, technical maintenance, logistics, and staff support. 10+ years of experience, 150+ clients.',
     'meta_keywords' => 'Atalian, facility management, cleaning services, technical maintenance, logistics, facility management Russia, building maintenance, property management',
     'og_title' => 'About Atalian - Facility Management Experts',
     'og_description' => 'Atalian provides comprehensive facility management services across Russia. Expert team, unified standards, transparent processes.',
     
-    // Image Alt Tags
     'img_card1_alt' => 'Atalian facility management services overview',
     'img_card2_alt' => 'Atalian company statistics and achievements',
 ];

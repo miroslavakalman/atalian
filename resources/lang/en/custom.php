@@ -23,7 +23,6 @@ return [
         ],
     ],
     
-    // SEO Meta Tags
     'page_title' => 'Tailored Solutions | Atalian',
     'meta_description' => 'Custom facility management solutions by Atalian. Individual services, multi-service solutions, integrated turnkey packages. Tailored to your business needs.',
     'meta_keywords' => 'custom facility management, tailored solutions, integrated facility services, facility outsourcing, custom business solutions',

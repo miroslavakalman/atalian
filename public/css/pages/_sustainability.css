@@ -9,11 +9,6 @@
     box-sizing: border-box;
 }
 
-
-/* ======================
-   HERO
-   ====================== */
-
 .sust-hero {
     padding: 120px 0;
 }
@@ -71,9 +66,6 @@
 }
 
 
-/* ======================
-   LIGHT BLOCK
-   ====================== */
 
 .sust-light {
     background: #F4F7EC;
@@ -138,11 +130,6 @@ body.sust-page-active footer * {
 }
 
 
-/* ======================
-   МЕДИА-ЗАПРОСЫ ДЛЯ АДАПТИВА
-   ====================== */
-
-/* Большие планшеты и маленькие десктопы (1024px - 1199px) */
 @media (max-width: 1199px) {
     .sust-wide {
         width: calc(100% - 120px);
@@ -163,7 +150,6 @@ body.sust-page-active footer * {
     }
 }
 
-/* Планшеты (768px - 1023px) */
 @media (max-width: 1023px) {
     .sust-hero,
     .sust-light {
@@ -207,7 +193,7 @@ body.sust-page-active footer * {
     .sust-two-col {
         grid-template-columns: 1fr;
         gap: 50px;
-        display: grid; /* Возвращаем grid для мобильной версии */
+        display: grid;
     }
     
     .sust-light-img {
@@ -225,7 +211,6 @@ body.sust-page-active footer * {
     }
 }
 
-/* Большие телефоны (576px - 767px) */
 @media (max-width: 767px) {
     .sust-hero,
     .sust-light {
@@ -271,7 +256,6 @@ body.sust-page-active footer * {
     }
 }
 
-/* Телефоны (до 575px) */
 @media (max-width: 575px) {
     .sust-hero,
     .sust-light {
@@ -314,7 +298,6 @@ body.sust-page-active footer * {
     }
 }
 
-/* Очень маленькие телефоны (до 375px) */
 @media (max-width: 375px) {
     .sust-title {
         font-size: 26px;

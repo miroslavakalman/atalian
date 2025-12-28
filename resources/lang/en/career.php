@@ -47,7 +47,6 @@ return [
     'age_notice' => 'By proceeding, you confirm that you are 18+ years old',
     'consent_required' => 'Consent to data processing is required to submit the form',
     
-    // SEO Meta Tags
     'page_title' => 'Career | Atalian',
     'meta_description' => 'Join Atalian - a leading facility management company in Russia. Career opportunities, professional growth, training programs, and geographic mobility across 9 regions.',
     'meta_keywords' => 'career Atalian, jobs facility management, career opportunities Russia, facility management jobs, Atalian vacancies',
