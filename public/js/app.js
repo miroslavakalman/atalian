@@ -323,38 +323,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    const regionsPresence = ["Москва", "Санкт-Петербург", "Новосибирская обл."]; // регионы присутствия
-    const tooltip = document.createElement('div');
-    tooltip.classList.add('tooltip');
-    document.body.appendChild(tooltip);
-
-    document.querySelectorAll('.map-rf path').forEach(region => {
-        const name = region.dataset.region;
-
-        // Если регион присутствует — сразу подсвечиваем
-        if (regionsPresence.includes(name)) {
-            region.classList.add('active');
-        }
-
-        // hover tooltip
-        region.addEventListener('mousemove', e => {
-            tooltip.style.left = e.pageX + 10 + 'px';
-            tooltip.style.top = e.pageY + 10 + 'px';
-            tooltip.textContent = name;
-            tooltip.style.display = 'block';
-        });
-        region.addEventListener('mouseleave', () => {
-            tooltip.style.display = 'none';
-        });
-
-        // click toggle
-        region.addEventListener('click', () => {
-            region.classList.toggle('active');
-        });
-    });
-});
 document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('showMore');
 

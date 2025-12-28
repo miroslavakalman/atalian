@@ -30,8 +30,8 @@
 <x-cookie-banner />
  @stack('scripts')
     <header class="header">
-        <!-- ЛОГОТИП С СЕКРЕТНОЙ КОМБИНАЦИЕЙ -->
-        <a href="{{ url(app()->getLocale() . '/') }}" class="logo-link" id="secret-logo">
+        <!-- ОБЫЧНЫЙ ЛОГОТИП в хедере (без секрета) -->
+        <a href="{{ url(app()->getLocale() . '/') }}" class="logo-link">
             <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo">
         </a>
 
@@ -112,7 +112,8 @@
         <!-- Mobile Menu -->
         <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
             <div class="mobile-nav-header">
-                <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="mobile-logo" id="secret-logo-mobile">
+                <!-- ОБЫЧНЫЙ ЛОГОТИП в мобильном меню (без секрета) -->
+                <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="mobile-logo">
                 <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
                     <span>&times;</span>
                 </button>
@@ -199,21 +200,22 @@
                     border-left: 4px solid #f46f1f;">
             <div style="display: flex; align-items: center; margin-bottom: 10px;">
                 <span style="color: #f46f1f; margin-right: 8px;">🔐</span>
-                <strong>Доступ к админ-панели</strong>
+                <strong>Секретный доступ к админке</strong>
             </div>
             <a href="{{ route('login') }}" 
                style="display: block; background: #f46f1f; color: white; 
                       text-decoration: none; padding: 8px 16px; 
                       border-radius: 4px; text-align: center; margin-bottom: 8px;">
-                Войти в админку
+                🔒 Войти в админ-панель
             </a>
-            <small style="opacity: 0.8; display: block; margin-top: 8px;">
-                Секретная комбинация: 5 кликов по логотипу
+            <small style="opacity: 0.8; display: block; margin-top: 8px; font-size: 11px;">
+                Только для администраторов.<br>
+                Секрет: 5 кликов по логотипу в подвале сайта
             </small>
             <button onclick="hideAdminPanel()" 
                     style="position: absolute; top: 5px; right: 5px; 
                            background: none; border: none; color: white; 
-                           font-size: 18px; cursor: pointer;">
+                           font-size: 18px; cursor: pointer; padding: 0 5px;">
                 ×
             </button>
         </div>
@@ -228,7 +230,12 @@
 @if (!isset($hideFooter) || $hideFooter === false)
 <footer class="footer">
     <div class="footer-container">
-        <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="logo-white" id="secret-logo-footer">
+        <!-- СЕКРЕТНЫЙ ЛОГОТИП ТОЛЬКО ЗДЕСЬ -->
+        <img src="{{ asset('img/logo-white.png') }}" alt="Logo" 
+             class="logo-white" id="secret-logo-footer" 
+             style="cursor: pointer;" 
+             title="Нажмите для перехода на главную">
+        
         <div class="footer-row">
             <div class="footer-column">
                 <h5>{{ __('messages.company') }}</h5>
@@ -360,11 +367,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ================= СЕКРЕТНАЯ КОМБИНАЦИЯ КЛИКОВ =================
+// ================= СЕКРЕТНАЯ КОМБИНАЦИЯ КЛИКОВ (ТОЛЬКО ДЛЯ ЛОГО В ФУТЕРЕ) =================
 (function() {
     let clickCount = 0;
     let clickTimeout;
     let isAdminPanelVisible = false;
+    
+    // Только один секретный логотип - в футере
+    const secretLogo = document.getElementById('secret-logo-footer');
+    
+    if (!secretLogo) {
+        console.log('Секретный логотип не найден');
+        return;
+    }
     
     // Функция для показа админ-панели
     function showAdminPanel() {
@@ -379,6 +394,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     hideAdminPanel();
                 }
             }, 30000);
+            
+            // Скрыть панель при скролле
+            window.addEventListener('scroll', hideAdminPanelOnScroll);
         }
     }
     
@@ -388,12 +406,19 @@ document.addEventListener('DOMContentLoaded', function() {
         if (panel) {
             panel.style.display = 'none';
             isAdminPanelVisible = false;
+            window.removeEventListener('scroll', hideAdminPanelOnScroll);
         }
     }
     
-    // Функция обработки клика по логотипу
+    // Скрытие при скролле
+    function hideAdminPanelOnScroll() {
+        if (isAdminPanelVisible) {
+            hideAdminPanel();
+        }
+    }
+    
+    // Функция обработки клика по секретному логотипу
     function handleSecretClick(e) {
-        // Предотвращаем стандартное поведение ссылки
         e.preventDefault();
         e.stopPropagation();
         
@@ -402,24 +427,22 @@ document.addEventListener('DOMContentLoaded', function() {
         clickCount++;
         
         // Визуальная обратная связь (легкая анимация)
-        const logo = e.target.closest('.logo-link, .mobile-logo, .logo-white');
-        if (logo) {
-            logo.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                logo.style.transform = 'scale(1)';
-            }, 150);
-        }
+        secretLogo.style.transform = 'scale(0.95)';
+        secretLogo.style.opacity = '0.8';
         
-        // Консоль для отладки (можно убрать)
-        console.log(`Секретные клики: ${clickCount}/5`);
+        setTimeout(() => {
+            secretLogo.style.transform = 'scale(1)';
+            secretLogo.style.opacity = '1';
+        }, 150);
+        
+        // Консоль для отладки
+        console.log(`🤫 Секретные клики: ${clickCount}/5`);
         
         // Проверка на 5 кликов
         if (clickCount === 5) {
-            // Воспроизводим звук (опционально)
-            try {
-                const audio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAZGF0YQ');
-                audio.play();
-            } catch(e) {}
+            // Эффект успеха
+            secretLogo.style.boxShadow = '0 0 15px rgba(244, 111, 31, 0.7)';
+            secretLogo.style.transition = 'box-shadow 0.3s ease';
             
             // Показываем админ-панель
             showAdminPanel();
@@ -427,39 +450,26 @@ document.addEventListener('DOMContentLoaded', function() {
             // Сбрасываем счетчик
             clickCount = 0;
             
-            return false;
+            // Убираем эффект через 1 секунду
+            setTimeout(() => {
+                secretLogo.style.boxShadow = '';
+            }, 1000);
+            
+            return;
         }
         
-        // Сброс счетчика через 2 секунды
+        // Сброс счетчика через 3 секунды
         clickTimeout = setTimeout(() => {
-            console.log('Секретная комбинация сброшена');
+            console.log('⏰ Секретная комбинация сброшена');
             clickCount = 0;
-        }, 2000);
+        }, 3000);
         
-        // Возвращаемся на главную (обычное поведение ссылки)
-        setTimeout(() => {
-            if (clickCount === 1) {
-                window.location.href = e.currentTarget.href;
-            }
-        }, 50);
-        
-        return false;
+      
     }
     
-    // Добавляем обработчики ко всем логотипам
-    const secretLogos = [
-        document.getElementById('secret-logo'),
-        document.getElementById('secret-logo-mobile'),
-        document.getElementById('secret-logo-footer')
-    ];
-    
-    secretLogos.forEach(logo => {
-        if (logo) {
-            logo.addEventListener('click', handleSecretClick);
-            logo.style.cursor = 'pointer';
-            logo.title = 'Нажмите для перехода на главную';
-        }
-    });
+    // Добавляем обработчик к секретному логотипу
+    secretLogo.addEventListener('click', handleSecretClick);
+    secretLogo.style.cursor = 'pointer';
     
     // Закрытие админ-панели по клику вне ее
     document.addEventListener('click', function(e) {
@@ -479,8 +489,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Сообщение в консоль для разработчиков
     console.log('%c🔐 Секретная админ-панель активирована', 
                 'color: #f46f1f; font-weight: bold; font-size: 14px;');
-    console.log('%cЧтобы открыть панель доступа, сделайте 5 быстрых кликов по любому логотипу', 
-                'color: #666;');
+    console.log('%cЧтобы открыть панель доступа, сделайте 5 быстрых кликов по белому логотипу в футере', 
+                'color: #666; font-style: italic;');
+    
+    // Дополнительная подсказка при наведении на логотип
+    secretLogo.addEventListener('mouseenter', function() {
+        this.title = 'Нажмите 5 раз для доступа к админке';
+    });
+    
+    secretLogo.addEventListener('mouseleave', function() {
+        this.title = 'Нажмите для перехода на главную';
+    });
 })();
     </script>
 
