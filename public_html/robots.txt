@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /404
+Disallow: /505
+Disallow: /career/thanks
+Disallow: /forms/
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+
+Allow: /
+
+# Sitemap
+Sitemap: https://atalian.ru/sitemap.xml

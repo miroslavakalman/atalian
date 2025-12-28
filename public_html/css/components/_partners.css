@@ -1,0 +1,50 @@
+.partners {
+    padding: 0px var(--content-padding);
+    text-align: left;
+}
+
+.partners-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 3em;
+}
+
+.partners-track {
+    display: flex;
+    animation: scrollPartners 20s linear infinite;
+}
+
+.partners-slide {
+    display: flex;
+    gap: 4em;
+    flex-shrink: 0;
+    padding: 0 2em;
+}
+
+.partner-logo {
+    width: 200px;
+    height: 120px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@keyframes scrollPartners {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.partners-slider:hover .partners-track {
+    animation-play-state: paused;
+}

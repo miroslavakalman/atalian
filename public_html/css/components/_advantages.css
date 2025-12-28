@@ -1,0 +1,36 @@
+.wrapper {
+    background-color: #fdfdfd;
+    width: 100%;
+    padding: 0 var(--content-padding);
+    margin-top: -10em;
+}
+
+.advantages, .services {
+    padding-top: 120px;
+    text-align: center;
+}
+
+.services {
+    padding-bottom: 10%;
+}
+
+.ellipse {
+    width: 100px;
+    height: 100px;
+}
+
+.adv-row {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 8em;
+}
+
+.advantage {
+    border-radius: 20px;
+    width: 374px;
+    background: #f6f6f6;
+    text-align: left;
+    padding: 40px 20px;
+}

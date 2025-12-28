@@ -1,0 +1,19 @@
+.compliance {
+    padding: 80px var(--content-padding);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10%;
+    background-color: #fdfdfd;
+}
+
+.compliance-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.compliance-img {
+    border-radius: 20px;
+    width: 388px;
+    height: 485px;
+}

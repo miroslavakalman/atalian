@@ -1,0 +1,166 @@
+.cookie-page{
+    background-color: #fff;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 10%;
+}
+
+.cookie-page h1, .cookie-page p, .cookie-page h2, .cookie-page li{
+    color: #3F3E3E;
+}
+
+.sitemap-page {
+    padding: 80px var(--content-padding);
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sitemap-page h1 {
+    color: #3f3e3e;
+    font-size: 48px;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.sitemap-description {
+    color: #3f3e3e;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 3em;
+    opacity: 0.8;
+}
+
+.sitemap-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3em;
+}
+
+.sitemap-section {
+    background: #f8f8f8;
+    padding: 2em;
+    border-radius: 12px;
+}
+
+.sitemap-section h2 {
+    color: var(--coop-orange-accent);
+    font-size: 24px;
+    margin-bottom: 1.5em;
+    font-weight: 600;
+}
+
+.sitemap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sitemap-list li {
+    margin-bottom: 1em;
+}
+
+.sitemap-list li:last-child {
+    margin-bottom: 0;
+}
+
+.sitemap-list a {
+    color: #3f3e3e;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.sitemap-list a:hover {
+    color: var(--coop-orange-accent);
+    padding-left: 0.5em;
+}
+
+.sitemap-list li:last-child a {
+    border-bottom: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 1023px) {
+    .cookie-page {
+        padding: 5% 6%;
+    }
+    
+    .sitemap-page {
+        padding: 60px 4em;
+    }
+    
+    .sitemap-content {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2em;
+    }
+}
+
+@media (max-width: 767px) {
+    .cookie-page {
+        padding: 40px 20px;
+        border-radius: 0;
+        margin: 0;
+    }
+    
+    .cookie-page h1 {
+        font-size: 28px;
+    }
+    
+    .cookie-page h2 {
+        font-size: 24px;
+    }
+    
+    .cookie-page p,
+    .cookie-page li {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .sitemap-page {
+        padding: 40px 20px;
+    }
+    
+    .sitemap-page h1 {
+        font-size: 32px;
+    }
+    
+    .sitemap-description {
+        font-size: 16px;
+    }
+    
+    .sitemap-content {
+        grid-template-columns: 1fr;
+        gap: 2em;
+    }
+    
+    .sitemap-section {
+        padding: 1.5em;
+    }
+    
+    .sitemap-section h2 {
+        font-size: 20px;
+    }
+    
+    .sitemap-list a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 479px) {
+    .cookie-page {
+        padding: 30px 15px;
+    }
+    
+    .cookie-page h1 {
+        font-size: 24px;
+    }
+    
+    .cookie-page h2 {
+        font-size: 20px;
+    }
+}

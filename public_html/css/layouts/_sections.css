@@ -1,0 +1,101 @@
+.section {
+    width: 100%;
+    padding: 80px var(--content-padding);
+}
+
+.section-light {
+    background-color: var(--white);
+}
+
+.section-orange {
+    background: var(--coop-orange-accent);
+}
+
+.section-gray {
+    background: var(--light-gray);
+}
+
+.container {
+    padding: 0 var(--content-padding);
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+}
+
+.vacancy-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 310px;
+    overflow: hidden;
+}
+
+.vacancy-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.vacancy-company {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.vacancy-resp {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #444;
+
+    max-height: 60px;
+    overflow: hidden;
+}
+
+.vacancy-btn {
+    margin-top: auto;
+    padding: 10px 16px;
+    background: #ff6a00;
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.vacancy-btn:hover {
+    background: #ff7d20;
+}

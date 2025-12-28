@@ -1,0 +1,681 @@
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    h3 {
+        font-size: 28px;
+    }
+
+    .desc {
+        font-size: 18px;
+    }
+
+    .secondary-p,
+    .secondary-p-black {
+        font-size: 18px;
+    }
+
+    .orange-secondary {
+        font-size: 18px;
+    }
+
+    .disclaimer {
+        font-size: 13px;
+    }
+
+    .slide-about {
+        height: 500px;
+        margin-top: 3em;
+        border-radius: 15px;
+    }
+
+    .slides-container {
+        height: 500px;
+        margin-top: 3%;
+    }
+
+    .slider {
+        padding: 0 2em;
+    }
+
+    .about-company {
+        flex-direction: column;
+        padding: 5em 4em;
+        gap: 3em;
+        text-align: center;
+    }
+
+    .about-company img {
+        display: none;
+    }
+
+    .about-company > div {
+        order: 1;
+    }
+
+    .about-company p {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    #stats-rus {
+        margin-top: -5em;
+        padding: 5em 4em;
+    }
+
+    .about-company {
+        margin-bottom: 0;
+    }
+
+    #stats-rus {
+        margin-top: 0;
+    }
+
+    .mission {
+        margin-top: 0;
+    }
+
+    .licenses {
+        margin-top: 0;
+    }
+
+    #stats-rus img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+    .stats-row {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 1.5em;
+    }
+
+    .stat {
+        flex: 1;
+        max-width: none;
+        min-width: 0;
+    }
+
+    .stats-separator {
+        max-width: 100%;
+        margin: 2em 0;
+    }
+
+    .mission {
+        padding: 5em 4em;
+    }
+
+    .mission-row,
+    .values-row {
+        flex-direction: column;
+        gap: 2em;
+        align-items: flex-start;
+    }
+
+    .mission-row p {
+        max-width: 100%;
+    }
+
+    .values-column {
+        flex-direction: row;
+        max-width: 100%;
+        gap: 2em;
+        flex-wrap: nowrap;
+    }
+
+    .values-column .column {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .licenses {
+        padding: 5em 4em;
+    }
+
+    .pdf-row {
+        gap: 1.5em;
+        flex-wrap: nowrap;
+    }
+
+    .pdf-row iframe {
+        flex: 1;
+        min-width: 0;
+        height: 450px;
+    }
+
+    .btn-primary {
+        width: 200px;
+        height: 55px;
+        font-size: 18px;
+    }
+}
+
+
+@media (min-width: 480px) and (max-width: 767px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .desc {
+        font-size: 16px;
+    }
+
+    .secondary-p,
+    .secondary-p-black {
+        font-size: 16px;
+    }
+
+    .orange-secondary {
+        font-size: 17px;
+    }
+
+    .disclaimer {
+        font-size: 12px;
+    }
+
+    .slide-about {
+        height: 450px;
+        margin-top: 2em;
+        border-radius: 10px;
+    }
+
+    .slides-container {
+        height: 450px;
+        margin-top: 2%;
+    }
+
+    .slider {
+        padding: 0 1em;
+    }
+
+    .txt {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .about-company {
+        flex-direction: column;
+        padding: 3em 2em;
+        gap: 2em;
+        margin-top: -5em;
+        text-align: center;
+    }
+
+    .about-company img {
+        display: none;
+    }
+
+    .about-company p {
+        max-width: 100%;
+        width: auto;
+        text-align: center;
+    }
+
+    .about-company h2 {
+        text-align: center;
+    }
+
+    .about-company {
+        margin-bottom: 0;
+    }
+
+    .mission {
+        margin-top: 0;
+    }
+
+    .licenses {
+        margin-top: 0;
+    }
+
+    #stats-rus {
+        margin-top: 0;
+        padding: 3em 2em;
+        flex-direction: column;
+    }
+
+    #stats-rus img {
+        display: none;
+    }
+
+    .column-txt {
+        width: 100%;
+        text-align: center;
+    }
+
+    .stats-row {
+        flex-direction: column;
+        gap: 2em;
+        align-items: center;
+        width: 100%;
+    }
+
+    .stat {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .stat h3 {
+        font-size: 32px;
+    }
+
+    .stats-separator {
+        max-width: 100%;
+        margin: 2em 0;
+    }
+
+    .mission {
+        padding: 3em 2em;
+    }
+
+    .mission-row,
+    .values-row {
+        flex-direction: column;
+        gap: 1.5em;
+        align-items: flex-start;
+    }
+
+    .mission-row h3,
+    .values-row h3 {
+        text-align: left;
+        width: 100%;
+    }
+
+    .mission-row p {
+        max-width: 100%;
+        width: auto;
+    }
+
+    .values-column {
+        flex-direction: column;
+        max-width: 100%;
+        width: auto;
+        gap: 2em;
+    }
+
+    .values-column .column {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .licenses {
+        padding: 3em 2em;
+    }
+
+    .licenses h2 {
+        margin-bottom: 2em;
+        text-align: center;
+    }
+
+    .pdf-row {
+        flex-direction: column;
+        gap: 1.5em;
+        align-items: center;
+    }
+
+    .pdf-row iframe {
+        width: 100%;
+        max-width: 400px;
+        height: 500px;
+    }
+
+    .btn-primary {
+        width: 180px;
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 479px) {
+    h1 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+
+    h3 {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .desc {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-top: -10px;
+    }
+
+    .secondary-p,
+    .secondary-p-black {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .orange-secondary {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .disclaimer {
+        font-size: 12px;
+    }
+
+    .slide-about {
+        height: 400px;
+        margin-top: 0;
+        border-radius: 0;
+    }
+
+    .slides-container {
+        height: 400px;
+        margin-top: 0;
+    }
+
+    .slider {
+        padding: 0;
+    }
+
+    .txt {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .prev {
+        left: 5px;
+    }
+
+    .next {
+        right: 5px;
+    }
+
+    .slider-dots {
+        bottom: 15px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .about-company {
+        flex-direction: column;
+        padding: 2.5em 1.5em;
+        gap: 1.5em;
+        margin-top: -3em;
+        text-align: center;
+    }
+
+    .about-company img {
+        display: none;
+    }
+
+    .about-company p {
+        max-width: 100%;
+        width: auto;
+        text-align: center;
+    }
+
+    .about-company h2 {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .about-company {
+        margin-bottom: 0;
+    }
+
+    .mission {
+        margin-top: 0;
+    }
+
+    .licenses {
+        margin-top: 0;
+    }
+
+    #stats-rus {
+        margin-top: 0;
+        padding: 2.5em 1.5em;
+        flex-direction: column;
+    }
+
+    #stats-rus img {
+        display: none;
+    }
+
+    .column-txt {
+        width: 100%;
+        text-align: center;
+    }
+
+    .column-txt h2 {
+        font-size: 24px;
+        margin-bottom: 1em;
+    }
+
+    .stats-row {
+        flex-direction: column;
+        gap: 1.5em;
+        align-items: center;
+        width: 100%;
+    }
+
+    .stat {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .stat h3 {
+        font-size: 28px;
+        margin-bottom: 0.5em;
+    }
+
+    .stat .secondary-p {
+        max-width: 100%;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .stats-separator {
+        max-width: 100%;
+        margin: 1.5em 0;
+    }
+
+    .mission {
+        padding: 2.5em 1.5em;
+    }
+
+    .mission h2 {
+        font-size: 24px;
+        margin-bottom: 1.5em;
+        text-align: center;
+    }
+
+    .mission-row,
+    .values-row {
+        flex-direction: column;
+        gap: 1em;
+        align-items: flex-start;
+        margin-bottom: 2em;
+    }
+
+    .mission-row:last-child,
+    .values-row:last-child {
+        margin-bottom: 0;
+    }
+
+    .mission-row h3,
+    .values-row h3 {
+        text-align: left;
+        width: 100%;
+        font-size: 20px;
+        margin-bottom: 0.5em;
+    }
+
+    .mission-row p {
+        max-width: 100%;
+        width: auto;
+        font-size: 14px;
+    }
+
+    .values-column {
+        flex-direction: column;
+        max-width: 100%;
+        width: auto;
+        gap: 1.5em;
+    }
+
+    .values-column .column {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .values-column .column .orange-secondary {
+        margin-bottom: 0.5em;
+    }
+
+    .licenses {
+        padding: 2.5em 1.5em;
+    }
+
+    .licenses h2 {
+        margin-bottom: 1.5em;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .pdf-row {
+        flex-direction: column;
+        gap: 1.5em;
+        align-items: center;
+    }
+
+    .pdf-row iframe {
+        width: 100%;
+        max-width: 100%;
+        height: 450px;
+        min-height: 400px;
+    }
+
+    .btn-primary {
+        width: 160px;
+        height: 45px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .footer-row {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .footer-column {
+        width: auto;
+        flex: 1;
+        margin-bottom: 0;
+    }
+}
+
+
+@media (max-width: 359px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .about-company,
+    #stats-rus,
+    .mission,
+    .licenses {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .slider {
+        padding: 0;
+    }
+
+    .txt {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .slide-about {
+        height: 350px;
+    }
+
+    .slides-container {
+        height: 350px;
+    }
+
+    .btn-primary {
+        width: 150px;
+        height: 40px;
+        font-size: 13px;
+    }
+}
+
+
+@media (min-width: 1440px) {
+    .about-company {
+        padding: 10em var(--content-padding);
+    }
+
+    .mission {
+        padding: 10em var(--content-padding);
+    }
+
+    .licenses {
+        padding: 10em var(--content-padding);
+    }
+}
