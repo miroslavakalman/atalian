@@ -7,6 +7,7 @@ use App\Models\CareerSubmission;
 use App\Models\ContactSubmission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class CareerAdminController extends Controller
 {
@@ -17,18 +18,9 @@ class CareerAdminController extends Controller
 
      public function index(Request $request)
     {
-        // Проверка в каждом методе
-        if (!auth()->check()) {
-            abort(403, 'Требуется авторизация');
-        }
-        
-        if (auth()->user()->email !== 'admin@example.com') {
-            abort(403, 'У вас нет прав для доступа к админ-панели');
-        }
         
         $query = CareerSubmission::latest();
 
-        // Поиск
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where(function($q) use ($search) {
@@ -39,12 +31,10 @@ class CareerAdminController extends Controller
             });
         }
 
-        // Фильтр по статусу
         if ($request->filled('status')) {
             $query->where('status', $request->status);
         }
 
-        // Фильтр по дате
         if ($request->filled('date_from')) {
             $query->whereDate('created_at', '>=', $request->date_from);
         }
@@ -78,47 +68,42 @@ class CareerAdminController extends Controller
         return back()->with('success', 'Статус обновлен');
     }
 
-public function downloadResume(CareerSubmission $submission)
-{
-    if (!$submission->resume_path) {
-        return back()->with('error', 'Файл резюме не найден в базе данных');
-    }
-    
-    try {
-        // Проверяем, существует ли файл
-        if (!Storage::disk('public')->exists($submission->resume_path)) {
-            // Пробуем найти файл в storage/app/public
-            $alternativePath = str_replace('resumes/', '', $submission->resume_path);
-            
-            if (Storage::disk('public')->exists($alternativePath)) {
-                $filePath = Storage::disk('public')->path($alternativePath);
-                $fileName = 'resume_' . $this->sanitizeFileName($submission->name) . '_' . date('Y-m-d') . '.' . pathinfo($alternativePath, PATHINFO_EXTENSION);
-                
-                return response()->download($filePath, $fileName);
-            }
-            
-            return back()->with('error', 'Файл резюме не найден на сервере. Путь: ' . $submission->resume_path);
+    public function downloadResume(CareerSubmission $submission)
+    {
+        if (!$submission->resume_path) {
+            return back()->with('error', 'Файл резюме не найден в базе данных');
         }
         
-        // Получаем полный путь к файлу
-        $filePath = Storage::disk('public')->path($submission->resume_path);
-        $fileName = 'resume_' . $this->sanitizeFileName($submission->name) . '_' . date('Y-m-d') . '.' . pathinfo($submission->resume_path, PATHINFO_EXTENSION);
-        
-        // Используем response()->download для принудительного скачивания
-        return response()->download($filePath, $fileName);
-        
-    } catch (\Exception $e) {
-        return back()->with('error', 'Ошибка при загрузке файла: ' . $e->getMessage());
+        try {
+            if (!Storage::disk('public')->exists($submission->resume_path)) {
+                $alternativePath = str_replace('resumes/', '', $submission->resume_path);
+                
+                if (Storage::disk('public')->exists($alternativePath)) {
+                    $filePath = Storage::disk('public')->path($alternativePath);
+                    $fileName = 'resume_' . $this->sanitizeFileName($submission->name) . '_' . date('Y-m-d') . '.' . pathinfo($alternativePath, PATHINFO_EXTENSION);
+                    
+                    return response()->download($filePath, $fileName);
+                }
+                
+                return back()->with('error', 'Файл резюме не найден на сервере. Путь: ' . $submission->resume_path);
+            }
+            
+            $filePath = Storage::disk('public')->path($submission->resume_path);
+            $fileName = 'resume_' . $this->sanitizeFileName($submission->name) . '_' . date('Y-m-d') . '.' . pathinfo($submission->resume_path, PATHINFO_EXTENSION);
+            
+            return response()->download($filePath, $fileName);
+            
+        } catch (\Exception $e) {
+            return back()->with('error', 'Ошибка при загрузке файла: ' . $e->getMessage());
+        }
     }
-}
 
-// Добавьте вспомогательный метод для очистки имени файла
-protected function sanitizeFileName($name)
-{
-    $name = preg_replace('/[^\w\s-]/', '', $name);
-    $name = preg_replace('/\s+/', '_', $name);
-    return mb_strtolower($name, 'UTF-8');
-}
+    protected function sanitizeFileName($name)
+    {
+        $name = preg_replace('/[^\w\s-]/', '', $name);
+        $name = preg_replace('/\s+/', '_', $name);
+        return mb_strtolower($name, 'UTF-8');
+    }
 
     public function destroy(CareerSubmission $submission)
     {
@@ -183,24 +168,18 @@ protected function sanitizeFileName($name)
             ->header('Content-Disposition', "attachment; filename=\"{$filename}\"");
     }
      public function dashboard()
-{
-    // Проверка аутентификации
-    if (!auth()->check()) {
-        abort(403, 'Требуется авторизация');
+    {
+        $stats = [
+            'total' => CareerSubmission::count(),
+            'new' => CareerSubmission::where('status', 'new')->count(),
+            'reviewed' => CareerSubmission::where('status', 'reviewed')->count(),
+            'invited' => CareerSubmission::where('status', 'invited')->count(),
+            'rejected' => CareerSubmission::where('status', 'rejected')->count(),
+            'last_week' => CareerSubmission::where('created_at', '>=', now()->subWeek())->count(),
+        ];
+        
+        $recentSubmissions = CareerSubmission::latest()->take(10)->get();
+        
+        return view('admin.dashboard', compact('stats', 'recentSubmissions'));
     }
-    
-    // Статистика по откликам на вакансии
-    $stats = [
-        'total' => CareerSubmission::count(),
-        'new' => CareerSubmission::where('status', 'new')->count(),
-        'reviewed' => CareerSubmission::where('status', 'reviewed')->count(),
-        'invited' => CareerSubmission::where('status', 'invited')->count(),
-        'rejected' => CareerSubmission::where('status', 'rejected')->count(),
-        'last_week' => CareerSubmission::where('created_at', '>=', now()->subWeek())->count(),
-    ];
-    
-    $recentSubmissions = CareerSubmission::latest()->take(10)->get();
-    
-    return view('admin.dashboard', compact('stats', 'recentSubmissions'));
-}
 }
