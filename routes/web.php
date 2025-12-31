@@ -227,7 +227,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::delete('/{submission}', [\App\Http\Controllers\Admin\CareerAdminController::class, 'destroy'])->name('destroy');
     });
 });
-// routes/web.php
 Route::get('/test-content', function() {
     // Проверка работы хелпера
     $test = \App\Helpers\ContentHelper::get('about.title', 'Значение по умолчанию');
