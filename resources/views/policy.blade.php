@@ -119,14 +119,13 @@
         <section class="contacts-section">
             <h2>{{ __('policy.contacts') }}</h2>
             <p>{!! __('policy.contacts_text', ['email' => __('policy.company_email')]) !!}</p>
-            <p>{{ __('policy.company_address') }}</p>
         </section>
     </div>
 </div>
 
 <style>
 .policy-page {
-    max-width: 1000px;
+    max-width: 1000px;  
     margin: 40px auto;
     padding: 0 20px;
 }

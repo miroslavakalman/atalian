@@ -108,7 +108,6 @@
         <section>
             <h2>{{ __('cookies.contact_info') }}</h2>
             <p>info@atalian.ru</p>
-            <p>{{ __('policy.company_address') }}</p>
         </section>
         
         <section class="consent-section">
