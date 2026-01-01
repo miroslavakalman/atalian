@@ -5,7 +5,6 @@ return [
     'last_updated' => 'Last updated: :date',
     
     'company_info' => 'Limited Liability Company "ATALIAN GLOBAL SERVICES"',
-    'company_address' => 'Legal address: 125284, Moscow, Begovaya street, 7, building 1',
     'company_email' => 'info@atalian.ru',
     
     'general_provisions' => '1. GENERAL PROVISIONS',
