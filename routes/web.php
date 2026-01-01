@@ -218,13 +218,13 @@ Route::prefix('{locale}')->group(function () {
 // Админ-маршруты (требуют аутентификации)
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::prefix('career')->name('admin.career.')->group(function () {
-        Route::get('/', [\App\Http\Controllers\Admin\CareerAdminController::class, 'index'])->name('index');
-        Route::get('/export', [\App\Http\Controllers\Admin\CareerAdminController::class, 'export'])->name('export');
-        Route::post('/bulk', [\App\Http\Controllers\Admin\CareerAdminController::class, 'bulkAction'])->name('bulk');
-        Route::get('/{submission}', [\App\Http\Controllers\Admin\CareerAdminController::class, 'show'])->name('show');
-        Route::put('/{submission}/status', [\App\Http\Controllers\Admin\CareerAdminController::class, 'updateStatus'])->name('update-status');
-        Route::get('/{submission}/download', [\App\Http\Controllers\Admin\CareerAdminController::class, 'downloadResume'])->name('download');
-        Route::delete('/{submission}', [\App\Http\Controllers\Admin\CareerAdminController::class, 'destroy'])->name('destroy');
+        Route::get('/', [CareerAdminController::class, 'index'])->name('index');
+        Route::get('/export', [CareerAdminController::class, 'export'])->name('export');
+        Route::post('/bulk', [CareerAdminController::class, 'bulkAction'])->name('bulk');
+        Route::get('/{submission}', [CareerAdminController::class, 'show'])->name('show');
+        Route::put('/{submission}/status', [CareerAdminController::class, 'updateStatus'])->name('update-status');
+        Route::get('/{submission}/download', [CareerAdminController::class, 'downloadResume'])->name('download');
+        Route::delete('/{submission}', [CareerAdminController::class, 'destroy'])->name('destroy');
     });
 });
 Route::get('/test-content', function() {
