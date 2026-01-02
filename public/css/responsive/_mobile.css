@@ -148,7 +148,7 @@
 
     .slide-career,
     .slide-contact {
-        height: 400px;
+        height: 600px;
         margin-top: 3em;
     }
 
@@ -199,7 +199,6 @@
     }
 
     .stats  {
-        margin-top: -10em;
         padding: 10px;
     }
 

@@ -66,9 +66,9 @@ return [
             'route' => 'about',
         ],
         [
-            'title' => 'Professional <br>Team',
-            'desc'  => 'Our specialists have extensive experience across industries and provide optimal solutions for your business.',
-            'btn'   => 'Our Team',
+            'title' => 'Responsible <br>approach',
+            'desc' => 'At the core of our work are business ethics, compliance, and sustainable development. We deliver structured, transparent solutions aligned with international best practices.',
+            'btn'   => 'Our approach',
             'route' => 'ethics',
         ],
         [

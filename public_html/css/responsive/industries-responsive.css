@@ -42,7 +42,7 @@
     .slide-industries{
         border-radius: 0;
         margin-top: 0 !important;
-        height: 500px;
+        height: 600px;
     }
 
     .slides-container {
@@ -104,12 +104,12 @@
         font-size: 12px;
     }
 
-    .slide-industries{
-        height: 400px;
+    #showMore{
+        justify-self: center;
     }
     
     .industries-page {
-        padding: 40px 15px;
+        padding: 80px 15px;
     }
 }
 

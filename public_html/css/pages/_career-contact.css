@@ -543,7 +543,7 @@
 
     #contactblock2 .btn-primary{
         height: 50px;
-        font-size: 16px;
+        font-size: 16px !important;
         margin-bottom: 40px;
     }
     
@@ -588,9 +588,7 @@
 }
 
 @media (max-width: 479px) {
-    .slide-contact {
-        height: 400px !important;
-    }
+
     
     .contact-form-section, #contactblock2 {
         padding: 30px 15px !important;
