@@ -152,7 +152,11 @@
     width: 100%;
 }
 
-.mission {
+.mission, .licenses {
     padding: 8em var(--content-padding);
     background-color: #fff;
+    margin-top: -10em !important;
+}
+#stats-rus{
+    margin-top: -10em !important;
 }

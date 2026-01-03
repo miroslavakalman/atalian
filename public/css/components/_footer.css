@@ -80,7 +80,7 @@ footer a {
 
 @media (max-width: 475px){
     .logo-white {
-        width: auto;
+        width: 120px;
         height: auto;
     }
 }
