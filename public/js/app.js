@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== ИНИЦИАЛИЗАЦИЯ СКРИПТОВ ===');
-
     initSlider();
     initFAQ();
     initCounter();
@@ -117,11 +115,6 @@ function initFAQ() {
     const dropdownItems = document.querySelectorAll('.dropdown-item');
     const serviceImage = document.querySelector('.service-img');
 
-    if (dropdownItems.length === 0) {
-        console.log('FAQ: нет элементов на странице');
-        return;
-    }
-
     const serviceImages = {
         0: 'img/service-1.png',
         1: 'img/service-2.png',
@@ -172,10 +165,7 @@ function initFAQ() {
 function initCounter() {
     const statsSection = document.querySelector('.stats');
 
-    if (!statsSection) {
-        console.log('Счетчик: нет блока статистики на странице');
-        return;
-    }
+
 
     function animateNumbers() {
         const numberElements = document.querySelectorAll('.stat h3[data-target]');
