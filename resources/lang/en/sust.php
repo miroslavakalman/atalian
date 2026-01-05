@@ -17,7 +17,6 @@ return [
     
     'main_image_alt' => 'Overview of our sustainability projects and achievements',
 
-    'hero_title' => "Our Commitments<br> to Sustainable<br> Development",
 
     'ecology_title' => "Environmental Responsibility",
     'ecology_text' =>

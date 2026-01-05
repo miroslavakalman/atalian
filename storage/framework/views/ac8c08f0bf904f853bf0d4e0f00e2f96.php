@@ -359,11 +359,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let isAdminPanelVisible = false;
     
     const secretLogo = document.getElementById('secret-logo-footer');
-    
-    if (!secretLogo) {
-        console.log('Секретный логотип не найден');
-        return;
-    }
+
     
     function showAdminPanel() {
         const panel = document.getElementById('admin-panel');
@@ -411,7 +407,6 @@ document.addEventListener('DOMContentLoaded', function() {
             secretLogo.style.opacity = '1';
         }, 150);
         
-        console.log(`🤫 Секретные клики: ${clickCount}/5`);
         
         if (clickCount === 5) {
             secretLogo.style.boxShadow = '0 0 15px rgba(244, 111, 31, 0.7)';
@@ -429,7 +424,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         clickTimeout = setTimeout(() => {
-            console.log('⏰ Секретная комбинация сброшена');
             clickCount = 0;
         }, 3000);
         
@@ -451,11 +445,6 @@ document.addEventListener('DOMContentLoaded', function() {
             hideAdminPanel();
         }
     });
-    
-    console.log('%c🔐 Секретная админ-панель активирована', 
-                'color: #f46f1f; font-weight: bold; font-size: 14px;');
-    console.log('%cЧтобы открыть панель доступа, сделайте 5 быстрых кликов по белому логотипу в футере', 
-                'color: #666; font-style: italic;');
     
     secretLogo.addEventListener('mouseenter', function() {
         this.title = 'Нажмите 5 раз для доступа к админке';

@@ -9,11 +9,6 @@ function initSlider() {
     const dots = document.querySelectorAll('.dot');
     const slider = document.querySelector('.slides-container');
 
-    if (!slides.length || !slider) {
-        console.warn('Слайдер: нет слайдов');
-        return;
-    }
-
     let currentSlide = 0;
     let startX = null;
     let moved = false;
