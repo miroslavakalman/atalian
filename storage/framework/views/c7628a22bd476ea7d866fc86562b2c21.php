@@ -29,6 +29,7 @@
                 <?php echo csrf_field(); ?>
 
                 <input type="text" name="website" style="display:none" autocomplete="off">
+                <input type="hidden" name="form_time" value="<?php echo e(time()); ?>">
 
                 <div class="form-group" style="margin-bottom: 20px;">
                     <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 500; color: #3f3e3e;"><?php echo e(__('messages.subject')); ?> *</label>
@@ -134,10 +135,7 @@
                 zoom: 16
             });
             
-            var placemarkMoscow = new ymaps.Placemark([55.77640375130164,37.5740400598111], {
-                hintContent: '<?php echo e(__('messages.moscow_hint')); ?>',
-                balloonContent: '<?php echo e(__('messages.moscow_balloon')); ?>'
-            });
+            var placemarkMoscow = new ymaps.Placemark([55.77640375130164,37.5740400598111]);
             
             mapMoscow.geoObjects.add(placemarkMoscow);
         });
@@ -149,10 +147,7 @@
                 zoom: 16
             });
             
-            var placemarkSpb = new ymaps.Placemark([59.849966,30.30295], {
-                hintContent: '<?php echo e(__('messages.spb_hint')); ?>',
-                balloonContent: '<?php echo e(__('messages.spb_balloon')); ?>'
-            });
+            var placemarkSpb = new ymaps.Placemark([59.849966,30.30295]);
             
             mapSpb.geoObjects.add(placemarkSpb);
         });

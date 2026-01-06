@@ -133,10 +133,7 @@
                 zoom: 16
             });
             
-            var placemarkMoscow = new ymaps.Placemark([55.77640375130164,37.5740400598111], {
-                hintContent: '{{ __('messages.moscow_hint') }}',
-                balloonContent: '{{ __('messages.moscow_balloon') }}'
-            });
+            var placemarkMoscow = new ymaps.Placemark([55.77640375130164,37.5740400598111]);
             
             mapMoscow.geoObjects.add(placemarkMoscow);
         });
@@ -148,10 +145,7 @@
                 zoom: 16
             });
             
-            var placemarkSpb = new ymaps.Placemark([59.849966,30.30295], {
-                hintContent: '{{ __('messages.spb_hint') }}',
-                balloonContent: '{{ __('messages.spb_balloon') }}'
-            });
+            var placemarkSpb = new ymaps.Placemark([59.849966,30.30295]);
             
             mapSpb.geoObjects.add(placemarkSpb);
         });
