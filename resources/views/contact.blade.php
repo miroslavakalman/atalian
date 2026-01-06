@@ -29,6 +29,7 @@
                 @csrf
 
                 <input type="text" name="website" style="display:none" autocomplete="off">
+                <input type="hidden" name="form_time" value="{{ time() }}">
 
                 <div class="form-group" style="margin-bottom: 20px;">
                     <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 500; color: #3f3e3e;">{{ __('messages.subject') }} *</label>
