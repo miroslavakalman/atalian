@@ -29,7 +29,7 @@
  @stack('scripts')
     <header class="header">
         <a href="{{ url(app()->getLocale() . '/') }}" class="logo-link">
-            <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo">
+            <img src="{{ asset('img/logos/logo.webp') }}" alt="Logo" class="logo">
         </a>
 
         <nav class="nav" id="mainNav">
@@ -102,7 +102,7 @@
         
         <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
             <div class="mobile-nav-header">
-                <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="mobile-logo">
+            <img src="{{ asset('img/logos/logo-white.webp') }}" alt="Logo" 
                 <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
                     <span>&times;</span>
                 </button>
@@ -212,7 +212,7 @@
 @if (!isset($hideFooter) || $hideFooter === false)
 <footer class="footer">
     <div class="footer-container">
-        <img src="{{ asset('img/logo-white.png') }}" alt="Logo" 
+        <img src="{{ asset('img/logos/logo-white.webp') }}" alt="Logo" 
              class="logo-white" id="secret-logo-footer" 
              style="cursor: pointer;" 
              title="Нажмите для перехода на главную">

@@ -9,12 +9,12 @@
     <div class="dropdown-item">
         <div class="dropdown-closed">
             <p class="secondary-p-black">{!! $service['title'] !!}</p>
-            <img src="img/arrow.png" class="arrow-down" alt="{{ __('messages.arrow_down_alt') }}">
+            <img src="img/icons/arrow.webp" class="arrow-down" alt="{{ __('messages.arrow_down_alt') }}">
         </div>
         <div class="dropdown-opened">
             <div class="dropdown-opened-row">
                 <p class="secondary-p-white">{!! $service['title'] !!}</p>
-                <img src="img/arrow-up.png" class="arrow-up" alt="{{ __('messages.arrow_up_alt') }}">
+                <img src="img/icons/arrow-up.webp" class="arrow-up" alt="{{ __('messages.arrow_up_alt') }}">
             </div>
             <ul class="dropdown-list">
                 @foreach($service['items'] as $item)

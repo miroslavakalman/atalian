@@ -34,7 +34,7 @@ if ($lang === 'admin') {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #111;
+    background: #9c9c9c;
     color: #fff;
     padding: 15px;
     display: flex;
@@ -64,6 +64,8 @@ if ($lang === 'admin') {
     cursor: pointer;
     border-radius: 4px;
     font-size: 14px;
+    background-color: #555;
+    color: #fff;
 }
 
 .cookie-category{

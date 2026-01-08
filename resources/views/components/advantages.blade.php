@@ -5,7 +5,7 @@
     <div class="adv-row">
         @foreach(__('messages.advantages') as $adv)
             <div class="advantage">
-                <img src="img/ellipse-{{ $loop->iteration }}.png" alt="0{{ $loop->iteration }}" class="ellipse">
+                <img src="img/icons/ellipse-{{ $loop->iteration }}.webp" alt="0{{ $loop->iteration }}" class="ellipse">
                 <h4>{!! $adv['title'] !!}</h4>
                 <p class="small">{{ $adv['desc'] }}</p>
             </div>

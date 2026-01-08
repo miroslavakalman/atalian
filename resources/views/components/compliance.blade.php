@@ -6,5 +6,5 @@
         <a href="mailto:larissa.silkina@atalianworld.com" class="btn-primary">{{ __('messages.compliance.btn') }}</a>
         <p class="disclaimer-black">{{ __('messages.compliance.notice') }}</p>
     </div>
-    <img src="img/compliance.png" alt="{{ __('messages.compliance_img_alt') }}" class="compliance-img">
+    <img src="img/home/compliance.webp" alt="{{ __('messages.compliance_img_alt') }}" class="compliance-img">
 </div>

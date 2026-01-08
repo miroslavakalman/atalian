@@ -40,7 +40,7 @@
                 <div class="adv-row">
                     @foreach(__('ethics.cards') as $adv)
                         <div class="advantage">
-                            <img src="/img/ellipse-{{ $loop->iteration }}.png" alt="0{{ $loop->iteration }}" class="ellipse">
+                            <img src="/img/icons/ellipse-{{ $loop->iteration }}.webp" alt="0{{ $loop->iteration }}" class="ellipse">
                             <h4>{!! $adv['title'] !!}</h4>
                             <p class="small">{!! nl2br($adv['desc']) !!}</p>
                         </div>
@@ -82,7 +82,7 @@
             <a href="mailto:larissa.silkina@atalianworld.com" class="btn-primary">{!! __('messages.compliance.btn') !!}</a>
             <p class="disclaimer-black">{!! nl2br(__('messages.compliance.notice')) !!}</p>
         </div>
-        <img src="/img/compliance.png" alt="" class="compliance-img">
+        <img src="/img/home/compliance.webp" alt="" class="compliance-img">
     </div>
 
 </div>

@@ -1,5 +1,5 @@
 .slide-career {
-    background-image: url(/img/career.png);
+    background-image: url(/img/sliders/career.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -10,7 +10,7 @@
 }
 
 .slide-contact {
-    background-image: url(/img/contact.png);
+    background-image: url(/img/sliders/contact.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

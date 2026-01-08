@@ -111,12 +111,12 @@ function initFAQ() {
     const serviceImage = document.querySelector('.service-img');
 
     const serviceImages = {
-        0: 'img/service-1.png',
-        1: 'img/service-2.png',
-        2: 'img/service-3.png',
-        3: 'img/service-4.png',
-        4: 'img/service-5.png',
-        5: 'img/service-6.png',
+        0: 'img/services/main/service-1.webp',
+        1: 'img/services/main/service-2.webp',
+        2: 'img/services/main/service-3.webp',
+        3: 'img/services/main/service-4.webp',
+        4: 'img/services/main/service-5.webp',
+        5: 'img/services/main/service-6.webp',
     };
 
     dropdownItems.forEach((item, index) => {

@@ -48,7 +48,7 @@
  <?php echo $__env->yieldPushContent('scripts'); ?>
     <header class="header">
         <a href="<?php echo e(url(app()->getLocale() . '/')); ?>" class="logo-link">
-            <img src="<?php echo e(asset('img/logo.png')); ?>" alt="Logo" class="logo">
+            <img src="<?php echo e(asset('img/logo.webp')); ?>" alt="Logo" class="logo">
         </a>
 
         <nav class="nav" id="mainNav">

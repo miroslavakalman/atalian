@@ -9,17 +9,17 @@ return [
 
     'cards' => [
         [
-            'image' => '/img/career/img-1.png',
+            'image' => '/img/career/img-1.webp',
             'title' => 'Career Advancement',
             'desc' => 'The opportunity to build a career in one of the leading international companies in your field.'
         ],
         [
-            'image' => '/img/career/img-2.png',
+            'image' => '/img/career/img-2.webp',
             'title' => 'Learning & Development',
             'desc' => 'Access to training programs and workshops for professional improvement.'
         ],
         [
-            'image' => '/img/career/img-3.png',
+            'image' => '/img/career/img-3.webp',
             'title' => 'Geographic Mobility',
             'desc' => 'Opportunities to work in different regions of Russia thanks to the company’s wide presence.'
         ],

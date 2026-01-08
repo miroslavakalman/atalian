@@ -28,15 +28,15 @@
 }
 
 .slide-1 {
-    background-image: url(/img/slider01.png);
+    background-image: url(/img/sliders/slider01.webp);
 }
 
 .slide-2 {
-    background-image: url(/img/slider02.png); 
+    background-image: url(/img/slider/slider02.webp); 
 }
 
 .slide-3 {
-    background-image: url(/img/slider03.png); 
+    background-image: url(/img/slider/slider03.webp); 
 }
 
 .txt {
