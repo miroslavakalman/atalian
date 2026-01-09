@@ -1,5 +1,5 @@
 <div class="stats">
-    <img src="/img/stats-img.png" alt="<?php echo e(__('messages.stats_img_alt')); ?>" class="main-stat-img">
+    <img src="/img/home/stats-img.webp" alt="<?php echo e(__('messages.stats_img_alt')); ?>" class="main-stat-img">
     <div class="column-txt">
         <p class="disclaimer"><?php echo e(__('messages.stats_label')); ?></p>
         <h2 class="main-stat-h2"><?php echo e(__('messages.stats_title')); ?></h2>

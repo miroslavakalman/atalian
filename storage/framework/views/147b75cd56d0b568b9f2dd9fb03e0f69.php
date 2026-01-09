@@ -11,10 +11,10 @@
                            target="_blank" 
                            rel="noopener noreferrer" 
                            class="partner-link">
-                            <img src="img/logo-<?php echo e($i); ?>.png" class="partner-logo" alt="<?php echo e(__('messages.partner_logo_alt', ['num' => $i])); ?>">
+                            <img src="img/partners/logo-<?php echo e($i); ?>.webp" class="partner-logo" alt="<?php echo e(__('messages.partner_logo_alt', ['num' => $i])); ?>">
                         </a>
                     <?php else: ?>
-                        <img src="img/logo-<?php echo e($i); ?>.png" class="partner-logo" alt="<?php echo e(__('messages.partner_logo_alt', ['num' => $i])); ?>">
+                        <img src="img/partners/logo-<?php echo e($i); ?>.webp" class="partner-logo" alt="<?php echo e(__('messages.partner_logo_alt', ['num' => $i])); ?>">
                     <?php endif; ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>

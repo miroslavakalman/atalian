@@ -48,7 +48,7 @@
  <?php echo $__env->yieldPushContent('scripts'); ?>
     <header class="header">
         <a href="<?php echo e(url(app()->getLocale() . '/')); ?>" class="logo-link">
-            <img src="<?php echo e(asset('img/logo.webp')); ?>" alt="Logo" class="logo">
+            <img src="<?php echo e(asset('img/logos/logo.webp')); ?>" alt="Logo" class="logo">
         </a>
 
         <nav class="nav" id="mainNav">
@@ -121,7 +121,7 @@
         
         <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
             <div class="mobile-nav-header">
-                <img src="<?php echo e(asset('img/logo-white.png')); ?>" alt="Logo" class="mobile-logo">
+            <img src="<?php echo e(asset('img/logos/logo-white.webp')); ?>" alt="Logo" 
                 <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
                     <span>&times;</span>
                 </button>
@@ -234,7 +234,7 @@
 <?php if(!isset($hideFooter) || $hideFooter === false): ?>
 <footer class="footer">
     <div class="footer-container">
-        <img src="<?php echo e(asset('img/logo-white.png')); ?>" alt="Logo" 
+        <img src="<?php echo e(asset('img/logos/logo-white.webp')); ?>" alt="Logo" 
              class="logo-white" id="secret-logo-footer" 
              style="cursor: pointer;" 
              title="Нажмите для перехода на главную">

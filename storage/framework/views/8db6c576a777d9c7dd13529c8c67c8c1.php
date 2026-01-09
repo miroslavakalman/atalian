@@ -5,7 +5,7 @@
     <div class="adv-row">
         <?php $__currentLoopData = __('messages.advantages'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $adv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="advantage">
-                <img src="img/ellipse-<?php echo e($loop->iteration); ?>.png" alt="0<?php echo e($loop->iteration); ?>" class="ellipse">
+                <img src="img/icons/ellipse-<?php echo e($loop->iteration); ?>.webp" alt="0<?php echo e($loop->iteration); ?>" class="ellipse">
                 <h4><?php echo $adv['title']; ?></h4>
                 <p class="small"><?php echo e($adv['desc']); ?></p>
             </div>

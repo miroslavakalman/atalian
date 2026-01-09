@@ -2,7 +2,7 @@
     <h2 class="black">{{ __('messages.services_title') }}</h2>
 
     <div class="services-row">
-        <img src="img/service-1.png" class="service-img" alt="{{ __('messages.services_img_alt') }}">
+        <img src="img/services/main/service-1.webp" class="service-img" alt="{{ __('messages.services_img_alt') }}">
 
         <div class="dropdown-column">
          @foreach(__('messages.services_list') as $service)
