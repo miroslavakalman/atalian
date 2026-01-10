@@ -9,6 +9,8 @@ use App\Mail\ContactForm;
 
 class ContactController extends Controller
 {
+
+
 public function submit(Request $request)
 {
     $locale = session('locale', app()->getLocale());
@@ -86,7 +88,42 @@ public function submit(Request $request)
         abort(403);
     }
 
-    /* ======================
+   
+        function looksLikeGibberish(string $text): bool
+{
+    // слишком много заглавных
+    $upperRatio = preg_match_all('/[A-Z]/', $text) / max(1, strlen($text));
+    if ($upperRatio > 0.5) {
+        return true;
+    }
+
+    // длинные "слова" без гласных
+    if (preg_match('/\b[^aeiouyаеиоуыэюя]{8,}\b/ui', $text)) {
+        return true;
+    }
+
+    // нет пробелов при длинном тексте
+    if (strlen($text) > 20 && substr_count($text, ' ') < 1) {
+        return true;
+    }
+
+    return false;
+}
+    if (looksLikeGibberish($message)) {
+        abort(403);
+    }
+
+    if (str_word_count($message) < 3) {
+        abort(403);
+    }
+
+    if (
+        preg_match('/\.(\w\.){3,}/', $data['email']) 
+    ) {
+        abort(403);
+    }
+
+ /* ======================
        7. СОХРАНЕНИЕ
     ====================== */
     ContactSubmission::create([
@@ -99,7 +136,6 @@ public function submit(Request $request)
         'consent_pd' => true,
         'status'     => ContactSubmission::STATUS_NEW,
     ]);
-
     return back()->with('success', __('messages.contact_success'));
 }
 
