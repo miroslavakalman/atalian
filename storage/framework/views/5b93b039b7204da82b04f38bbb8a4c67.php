@@ -2,6 +2,7 @@
     <h2 class="black"><?php echo e(__('messages.services_title')); ?></h2>
 
     <div class="services-row">
+        <img src="img/services/main/service-1.webp" class="service-img" alt="<?php echo e(__('messages.services_img_alt')); ?>">
 
         <div class="dropdown-column">
          <?php $__currentLoopData = __('messages.services_list'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
