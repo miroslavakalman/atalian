@@ -189,19 +189,7 @@ Yandex Maps API
 
 SQLite for its simplicity and reliability
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p><!-- MARKDOWN LINKS & IMAGES -->[production-shield]: https://img.shields.io/badge/Status-Production-brightgreen?style=for-the-badge
-[production-url]: https://atalian.ru
-[laravel-shield]: https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[laravel-url]: https://laravel.com
-[php-shield]: https://img.shields.io/badge/PHP-8.1+-777BB4?style=for-the-badge&logo=php&logoColor=white
-[php-url]: https://www.php.net
-[license-shield]: https://img.shields.io/badge/License-Proprietary-blue?style=for-the-badge
-[license-url]: #
-[product-screenshot]: https://atalian.ru/screenshot.png
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[PHP.net]: https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white
-[PHP-url]: https://php.net
+
 [SQLite.org]: https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white
 [SQLite-url]: https://sqlite.org
 [Yandex-shield]: https://img.shields.io/badge/Yandex_Maps-API-red?style=for-the-badge
