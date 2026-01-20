@@ -3,140 +3,144 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 use App\Models\ContactSubmission;
-use App\Mail\ContactForm;
 
 class ContactController extends Controller
 {
+    public function submit(Request $request)
+    {
+        $locale = session('locale', app()->getLocale());
+        app()->setLocale($locale);
 
-
-public function submit(Request $request)
-{
-    $locale = session('locale', app()->getLocale());
-    app()->setLocale($locale);
-
-    /* ======================
-       1. ХАНИПОТ
-    ====================== */
-    if ($request->filled('website')) {
-        abort(403);
-    }
-
-    /* ======================
-       2. ТАЙМИНГ (anti-bot)
-    ====================== */
-    if ($request->has('form_time')) {
-        if (time() - (int)$request->form_time < 3) {
-            abort(403);
+        /* ======================
+           1. ХАНИПОТ
+        ====================== */
+        if ($request->filled('website')) {
+            return $this->reject($request, 'honeypot');
         }
-    }
 
-    /* ======================
-       3. БАЗОВАЯ ВАЛИДАЦИЯ
-    ====================== */
-    if (!$request->has('consent_pd')) {
-        return back()->withErrors([
-            'consent_pd' => 'Необходимо согласие на обработку ПДн'
+        /* ======================
+           2. ТАЙМИНГ (мягкий)
+        ====================== */
+        if ($request->has('form_time')) {
+            if (time() - (int) $request->form_time < 1) {
+                return $this->reject($request, 'too_fast');
+            }
+        }
+
+        /* ======================
+           3. ВАЛИДАЦИЯ
+        ====================== */
+        $data = $request->validate([
+            'subject'     => 'required|string|max:255',
+            'name'        => 'required|string|max:255',
+            'email'       => 'required|email|max:255',
+            'phone'       => 'nullable|string|max:50',
+            'company'     => 'nullable|string|max:255',
+            'message'     => 'required|string|max:2000',
+            'consent_pd'  => 'required|accepted',
         ]);
-    }
 
-    $data = $request->validate([
-        'subject'     => 'required|string|max:255',
-        'name'        => 'required|string|max:255',
-        'email'       => 'required|email|max:255',
-        'phone'       => 'nullable|string|max:50',
-        'company'     => 'nullable|string|max:255',
-        'message'     => 'required|string|max:2000',
-        'consent_pd'  => 'required|accepted',
-    ]);
+        $message = trim($data['message']);
 
-    $message = $data['message'];
-
-    /* ======================
-       4. ССЫЛКИ / HTML / NSFW
-    ====================== */
-    $spamPatterns = [
-        '/https?:\/\//i',
-        '/www\./i',
-        '/<a\s/i',
-        '/href=/i',
-        '/<script/i',
-        '/\[url]/i',
-    ];
-
-    foreach ($spamPatterns as $pattern) {
-        if (preg_match($pattern, $message)) {
-            abort(403);
+        /* ======================
+           4. СЛИШКОМ КОРОТКО
+        ====================== */
+        if (mb_strlen($message) < 15) {
+            return $this->reject($request, 'too_short');
         }
+
+        /* ======================
+           5. ССЫЛКИ (разрешаем 1)
+        ====================== */
+        if (preg_match_all('/https?:\/\/|www\./i', $message) > 1) {
+            return $this->reject($request, 'too_many_links');
+        }
+
+        /* ======================
+           6. МУСОР / ГИББЕРИШ
+        ====================== */
+        if ($this->looksLikeGibberish($message)) {
+            return $this->reject($request, 'gibberish');
+        }
+
+        /* ======================
+           7. PRICE-SPAM (узкий)
+        ====================== */
+        if (
+            preg_match('/price|pricing|quote|cost/i', $message) &&
+            mb_strlen($message) < 60
+        ) {
+            return $this->reject($request, 'price_spam');
+        }
+
+        /* ======================
+           8. EMAIL СПАМ-ФОРМАТ
+        ====================== */
+        if (preg_match('/\.(\w\.){3,}/', $data['email'])) {
+            return $this->reject($request, 'email_pattern');
+        }
+
+        /* ======================
+           9. СОХРАНЕНИЕ
+        ====================== */
+        ContactSubmission::create([
+            'subject'    => $data['subject'],
+            'name'       => $data['name'],
+            'email'      => $data['email'],
+            'phone'      => $data['phone'] ?? null,
+            'company'    => $data['company'] ?? null,
+            'message'    => $message,
+            'consent_pd' => true,
+            'status'     => ContactSubmission::STATUS_NEW,
+        ]);
+
+        return back()->with('success', __('messages.contact_success'));
     }
 
     /* ======================
-       5. ЯЗЫК (RU / EN only)
+       АНТИСПАМ: гиббериш
     ====================== */
-    if (!preg_match('/[а-яА-Яa-zA-Z]/u', $message)) {
-        abort(403);
+    private function looksLikeGibberish(string $text): bool
+    {
+        // слишком много заглавных
+        $upperRatio =
+            preg_match_all('/[A-ZА-Я]/u', $text) /
+            max(1, mb_strlen($text));
+
+        if ($upperRatio > 0.6) {
+            return true;
+        }
+
+        // длинные слова без гласных
+        if (preg_match('/\b[^aeiouyаеиоуыэюя]{8,}\b/ui', $text)) {
+            return true;
+        }
+
+        // длинный текст без пробелов
+        if (mb_strlen($text) > 25 && substr_count($text, ' ') < 1) {
+            return true;
+        }
+
+        return false;
     }
 
     /* ======================
-       6. КОРОТКИЙ "PRICE SPAM"
+       ОТКАЗ (без 403)
     ====================== */
-    if (
-        preg_match('/price|pricing|quote|cost/i', $message)
-        && mb_strlen($message) < 60
-    ) {
-        abort(403);
+    private function reject(Request $request, string $reason)
+    {
+        Log::info('Contact form blocked', [
+            'reason' => $reason,
+            'ip'     => $request->ip(),
+            'email'  => $request->input('email'),
+        ]);
+
+        return back()
+            ->withInput()
+            ->withErrors([
+                'message' => __('messages.contact_failed'),
+            ]);
     }
-
-   
-        function looksLikeGibberish(string $text): bool
-{
-    // слишком много заглавных
-    $upperRatio = preg_match_all('/[A-Z]/', $text) / max(1, strlen($text));
-    if ($upperRatio > 0.5) {
-        return true;
-    }
-
-    // длинные "слова" без гласных
-    if (preg_match('/\b[^aeiouyаеиоуыэюя]{8,}\b/ui', $text)) {
-        return true;
-    }
-
-    // нет пробелов при длинном тексте
-    if (strlen($text) > 20 && substr_count($text, ' ') < 1) {
-        return true;
-    }
-
-    return false;
-}
-    if (looksLikeGibberish($message)) {
-        abort(403);
-    }
-
-    if (str_word_count($message) < 3) {
-        abort(403);
-    }
-
-    if (
-        preg_match('/\.(\w\.){3,}/', $data['email']) 
-    ) {
-        abort(403);
-    }
-
- /* ======================
-       7. СОХРАНЕНИЕ
-    ====================== */
-    ContactSubmission::create([
-        'subject'    => $data['subject'],
-        'name'       => $data['name'],
-        'email'      => $data['email'],
-        'phone'      => $data['phone'] ?? null,
-        'company'    => $data['company'] ?? null,
-        'message'    => $data['message'],
-        'consent_pd' => true,
-        'status'     => ContactSubmission::STATUS_NEW,
-    ]);
-    return back()->with('success', __('messages.contact_success'));
-}
-
 }
