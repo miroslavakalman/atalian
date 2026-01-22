@@ -70,11 +70,11 @@
                 <div class="values-column">
                     <div class="column">
                         <p class="orange-secondary">{!! __('about.values_card_1') !!}</p>
-                        <p class="secondary-p-black">{!! __('about.values_card_1_desc') !!}</p>
+                        <p class="orange-secondary">{!! __('about.values_card_2') !!}</p>
                     </div>
                     <div class="column">
-                        <p class="orange-secondary">{!! __('about.values_card_2') !!}</p>
-                        <p class="secondary-p-black">{!! __('about.values_card_2_desc') !!}</p>
+                        <p class="orange-secondary">{!! __('about.values_card_3') !!}</p>
+                        <p class="orange-secondary">{!! __('about.values_card_4') !!}</p>
                     </div>
                 </div>
             </div>

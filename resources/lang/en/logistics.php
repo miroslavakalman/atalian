@@ -7,20 +7,20 @@ return [
     'cards' => [
         [
             'image' => '/img/services/logistics/card-1.png',
-            'title' => 'Food and Kitchen Supplies',
-            'desc' => 'Full-cycle supply: from food products to disposable tableware and cleaning agents.'
+            'title' => 'Professional Cleaning Supplies and Equipment',
+            'desc' => 'Supply of everything needed for cleaning: from chemicals and consumables to modern machinery and tools.'
         ],
         [
             'image' => '/img/services/logistics/card-2.png',
-            'title' => 'Hygiene Products',
-            'desc' => 'Distribution of personal hygiene products, professional cleaning chemicals, and consumables.'
+            'title' => 'Hygiene Supplies',
+            'desc' => 'Procurement of personal hygiene products, professional cleaning chemicals, and consumables.'
         ],
         [
             'image' => '/img/services/logistics/card-3.png',
             'title' => 'Office Supplies',
             'desc' => 'Comprehensive office provisioning — from paper products to office equipment.'
         ],
-    ],
+    ],  
     
     'page_title' => 'Supply Chain Management | Atalian',
     'meta_description' => 'Comprehensive supply chain management by Atalian. Food supplies, hygiene products, office supplies. Trusted supplier network across Russia.',

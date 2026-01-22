@@ -7,19 +7,16 @@ return [
 
     'cards' => [
         [
-            'image' => '/img/services/facility/card-1.png',
-            'title' => 'Uninterrupted Operations',
-            'desc' => 'Prevent equipment downtime and completely eliminate workplace accidents.'
-        ],
-        [
             'image' => '/img/services/facility/card-2.png',
-            'title' => 'Quality & Budget Control',
-            'desc' => 'Ensuring work meets standards within established timelines and budget.'
+            'title' => 'Client cost reduction of up to 15%',
         ],
         [
             'image' => '/img/services/facility/card-3.png',
-            'title' => 'Digitalization & Smart Management',
-            'desc' => 'Leveraging modern digital tools to monitor, optimize processes, and boost operational efficiency across your facility.'
+            'title' => 'Single point of contact',
+        ],
+        [
+            'image' => '/img/services/facility/card-1.png',
+            'title' => 'Process optimization and enhanced facility efficiency',
         ],
     ],
     

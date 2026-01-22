@@ -3,7 +3,7 @@ return [
     'hero_title' => "Cleaning & Related Services",
     'hero_desc' => "Atalian offers comprehensive solutions for both routine and deep cleaning of indoor spaces and surrounding areas. Every day, we maintain over 3 million square meters of property across Russia.",
     'hero_button' => "Learn More",
-    'main' => "Core Areas",
+    'main' => "Additional Areas",
 
     'cards' => [
         [
