@@ -3,7 +3,7 @@
         <h2 class="black">{{ __('messages.compliance.title') }}</h2>
         <p class="secondary-p-black">{{ __('messages.compliance.desc1') }}</p>
         <p class="secondary-p-black">{{ __('messages.compliance.desc2') }}</p>
-        <a href="mailto:larissa.silkina@atalianworld.com" class="btn-primary">{{ __('messages.compliance.btn') }}</a>
+        <a href="mailto:ethics@atalian.ru" class="btn-primary">{{ __('messages.compliance.btn') }}</a>
         <p class="disclaimer-black">{{ __('messages.compliance.notice') }}</p>
     </div>
     <img src="img/home/compliance.webp" alt="{{ __('messages.compliance_img_alt') }}" class="compliance-img">

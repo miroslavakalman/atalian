@@ -220,7 +220,7 @@ return [
     */
     'compliance' => [
         'title'   => 'Compliance',
-        'desc1'   => 'At Atalian Group, a whistleblowing system ensures transparency and integrity. By emailing larissa.silkina@atalianworld.com, you can report any violations of laws, codes, or signs of fraud and corruption.',
+        'desc1'   => 'At Atalian Group, a whistleblowing system ensures transparency and integrity. By emailing ethics@atalian.ru, you can report any violations of laws, codes, or signs of fraud and corruption.',
         'desc2'   => 'For more details, please refer to the Whistleblowing Policy.',
         'btn'     => 'Contact',
         'notice'  => '*Submitting a request to this address implies consent to the processing of personal data in accordance with Federal Law No. 152-FZ of 27.07.2006 "On Personal Data"',
