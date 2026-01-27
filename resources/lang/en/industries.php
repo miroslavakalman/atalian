@@ -18,7 +18,7 @@ return [
     'industrial.desc'  => 'High-tech industrial facilities require a comprehensive approach and strict compliance with regulations. We ensure process stability and technical support.',
 
     'premium_housing.title' => 'Premium Residential Properties',
-    'premium_housing.desc'  => 'We provide a high standard of service, confidentiality, and precision in execution at premium residential properties.',
+    'premium_housin``g.desc'  => 'We provide a high standard of service, confidentiality, and precision in execution at premium residential properties.',
 
     'showmore' => 'Show more',
     

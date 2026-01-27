@@ -18,8 +18,13 @@
                     <div class="txt">
                         <h1><?php echo __('about.hero_title'); ?></h1>
                         <p class="desc"><?php echo __('about.hero_desc'); ?></p>
-                        <button class="btn-primary"><?php echo __('about.hero_button'); ?></button>
-                    </div>
+                <button
+                    class="btn-primary"
+                    onclick="window.open('https://cloud.mail.ru/public/doks/oxZ5kWAdx', '_blank')"
+                >
+                    <?php echo e(__('industries.presentation_btn')); ?> ↗
+                </button>
+                </div>
                 </div>
             </div>
         </div>
@@ -31,32 +36,22 @@
             <img src="/img/about/card-1.webp" alt="<?php echo e(__('about.img_card1_alt')); ?>">
         </div>
         <div class="stats" id="stats-rus">
-            <img src="/img/about/card-2.webp" alt="<?php echo e(__('about.img_card2_alt')); ?>">
+            <img src="/img/home/stats-img.webp" alt="<?php echo e(__('messages.stats_img_alt')); ?>" class="main-stat-img">
             <div class="column-txt">
-                <p class="disclaimer"><?php echo e(__('about.stats_label')); ?></p>
-                <h2><?php echo e(__('about.stats_title')); ?></h2>
-                <div class="stats-row" id="stats-rus-row">
-                    <?php $__currentLoopData = __('about.stats'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $stat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <p class="disclaimer"><?php echo e(__('messages.stats_label')); ?></p>
+                <h2 class="main-stat-h2"><?php echo e(__('messages.stats_title')); ?></h2>
+                <p class="secondary-p"><?php echo e(__('messages.stats_desc')); ?></p>
+                <div class="stats-row">
+                    <?php $__currentLoopData = __('messages.stats'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $stat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="stat">
                             <h3 data-target="<?php echo e($stat['value']); ?>" data-suffix="<?php echo e($stat['suffix']); ?>">0</h3>
                             <p class="secondary-p"><?php echo e($stat['label']); ?></p>
                         </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
-
-                <hr class="stats-separator">
-
-                <div class="stats-row" id="stats-rus-row">
-                    <?php $__currentLoopData = __('about.stats-2'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $stat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="stat">
-                            <h3 data-target="<?php echo e($stat['value']); ?>" data-suffix="<?php echo e($stat['suffix']); ?>">0</h3>
-                            <p class="secondary-p"><?php echo e($stat['label']); ?></p>
-                        </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </div>
-
             </div>
         </div>
+
         <div class="mission">
             <h2 class="black"><?php echo e(__('about.mission_title')); ?></h2>
 

@@ -24,3 +24,17 @@ nav {
 .content-container {
     padding: 0 var(--content-padding);
 }
+
+@media (min-width: 1024px) {
+    .header.is-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    /* чтобы контент не прыгал */
+    body.has-fixed-header {
+        padding-top: 90px; /* высота хедера */
+    }
+}

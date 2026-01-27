@@ -18,8 +18,13 @@
                     <div class="txt">
                         <h1>{!! __('about.hero_title') !!}</h1>
                         <p class="desc">{!! __('about.hero_desc') !!}</p>
-                        <button class="btn-primary">{!! __('about.hero_button') !!}</button>
-                    </div>
+                <button
+                    class="btn-primary"
+                    onclick="window.open('https://cloud.mail.ru/public/doks/oxZ5kWAdx', '_blank')"
+                >
+                    {{ __('industries.presentation_btn') }} ↗
+                </button>
+                </div>
                 </div>
             </div>
         </div>
@@ -31,32 +36,22 @@
             <img src="/img/about/card-1.webp" alt="{{ __('about.img_card1_alt') }}">
         </div>
         <div class="stats" id="stats-rus">
-            <img src="/img/about/card-2.webp" alt="{{ __('about.img_card2_alt') }}">
+            <img src="/img/home/stats-img.webp" alt="{{ __('messages.stats_img_alt') }}" class="main-stat-img">
             <div class="column-txt">
-                <p class="disclaimer">{{ __('about.stats_label') }}</p>
-                <h2>{{ __('about.stats_title') }}</h2>
-                <div class="stats-row" id="stats-rus-row">
-                    @foreach(__('about.stats') as $stat)
+                <p class="disclaimer">{{ __('messages.stats_label') }}</p>
+                <h2 class="main-stat-h2">{{ __('messages.stats_title') }}</h2>
+                <p class="secondary-p">{{ __('messages.stats_desc') }}</p>
+                <div class="stats-row">
+                    @foreach(__('messages.stats') as $stat)
                         <div class="stat">
                             <h3 data-target="{{ $stat['value'] }}" data-suffix="{{ $stat['suffix'] }}">0</h3>
                             <p class="secondary-p">{{ $stat['label'] }}</p>
                         </div>
                     @endforeach
                 </div>
-
-                <hr class="stats-separator">
-
-                <div class="stats-row" id="stats-rus-row">
-                    @foreach(__('about.stats-2') as $stat)
-                        <div class="stat">
-                            <h3 data-target="{{ $stat['value'] }}" data-suffix="{{ $stat['suffix'] }}">0</h3>
-                            <p class="secondary-p">{{ $stat['label'] }}</p>
-                        </div>
-                    @endforeach
-        </div>
-
             </div>
         </div>
+
         <div class="mission">
             <h2 class="black">{{ __('about.mission_title')}}</h2>
 

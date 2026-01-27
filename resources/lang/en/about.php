@@ -8,16 +8,14 @@ return [
 
     'block-1-title' => "About the Company",
     'block-1-desc' => "
-    EUROPEAN LEADER IN FACILITY MANAGEMENT
-    <br><br>
-    Founded in 1944, Atalian is one of the leading facility management companies in Europe.
-    <br><br>
-    The company entered the Russian market in 2015.
-    <br><br>
-    It continues to grow successfully, providing a wide range of property management services across various industries.
-    <br><br>
-    The focus is on quality, safety, and long-term partnerships.
+        A EUROPEAN LEADER IN FACILITY MANAGEMENT
+        <br><br>
+    Founded in 1944, Atalian is one of Europe’s leading facility management companies. The Group serves over 200,000 clients across various sectors of the economy and delivers its services in 19 countries worldwide.
+        <br><br>
+    Atalian’s service portfolio includes integrated facility management, technical maintenance and operations, cleaning services, administrative support, and supply management.
+        <br><br>
     ",
+
 
     'stats_label' => "Statistics in Russia",
     'stats_title' => "Key Figures",

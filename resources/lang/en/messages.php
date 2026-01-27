@@ -113,7 +113,7 @@ return [
     'advantages' => [
         [
             'title' => 'Comprehensive <br>Services',
-            'desc'  => 'Everything your facility needs in one place — from cleaning to technical maintenance',
+            'desc'  => 'All services are delivered by our in-house staff, supported by our own material and technical resources ',
         ],
         [
             'title' => 'International Experience',
@@ -132,27 +132,47 @@ return [
     | Services
     |--------------------------------------------------------------------------
     */
-    'services_list' => [
+        'services_list' => [   
         [
-            'title' => 'Cleaning & Related Services',
+            'title' => 'Facility Management',
             'items' => [
-                'Daily maintenance cleaning',
-                'Deep cleaning of premises',
-                'Facade and window cleaning',
-                'Post-renovation cleaning',
-                'Carpet and furniture dry cleaning',
-                'Winter territory cleaning',
+                'Building operations management',
+                'Energy management and optimization',
+                'Preventive maintenance planning',
+                'Renovation and refurbishment project management',
+                'Strategic planning',
             ],
         ],
         [
             'title' => 'Technical Maintenance',
             'items' => [
-                'Heating and ventilation systems maintenance',
-                'Electrical works',
+                'Heating and ventilation system maintenance',
+                'Electrical installation and repair works',
                 'Plumbing maintenance',
-                'Premises repair',
+                'Interior repairs',
                 'Elevator equipment maintenance',
-                'System installation and setup',
+                'System installation and configuration',
+            ],
+        ],
+        [
+            'title' => 'Cleaning and Related Services',
+            'items' => [
+                'Daily routine cleaning',
+                'Deep cleaning of premises',
+                'Facade and shopfront cleaning',
+                'Post-construction cleaning',
+                'Carpet and upholstery cleaning',
+                'Cleaning of adjacent areas',
+            ],
+        ],
+        [
+            'title' => 'Administrative Support',
+            'items' => [
+                'Call handling and distribution',
+                'Organization of meetings and negotiations',
+                'Document management and archiving',
+                'Courier services',
+                'Report preparation',
             ],
         ],
         [
@@ -166,36 +186,16 @@ return [
             ],
         ],
         [
-            'title' => 'Administrative Support',
+            'title' => 'Green Space Care',
             'items' => [
-                'Call handling',
-                'Organization of meetings and negotiations',
-                'Document management & archiving',
-                'Courier services',
-                'Reporting preparation',
-            ],
-        ],
-        [
-            'title' => 'Facility Management',
-            'items' => [
-                'Building operations management',
-                'Energy management & optimization',
-                'Preventive maintenance planning',
-                'Reconstruction project management',
-                'Strategic planning',
-            ],
-        ],
-        [
-            'title' => 'Custom Solutions',
-            'items' => [
-                'Facility needs analysis',
-                'Development of tailored concepts',
-                'Integration of specialized equipment',
-                'Staff training',
-                'Ongoing technical support',
+                'Care of indoor plants',
+                'Maintenance of interior greenery aesthetics',
+                'Lawn mowing and grass maintenance',
+                'Seasonal maintenance of landscaped areas',
             ],
         ],
     ],
+
     'services_title' => 'Services',
 
     /*

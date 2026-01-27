@@ -74,10 +74,8 @@
                     <div class="dropdown-links">
                         <a href="<?php echo e(url(app()->getLocale() . '/industries/#offices')); ?>"><?php echo e(__('menu.industries_offices')); ?></a>
                         <a href="<?php echo e(url(app()->getLocale() . '/industries/#industrial')); ?>"><?php echo e(__('menu.industries_industrial')); ?></a>
-                        <a href="<?php echo e(url(app()->getLocale() . '/industries/#retail_service')); ?>"><?php echo e(__('menu.industries_retail_service')); ?></a>
+                        <a href="<?php echo e(url(app()->getLocale() . '/industries/#mass_retail')); ?>"><?php echo e(__('menu.industries_mass_retail')); ?></a>
                         <a href="<?php echo e(url(app()->getLocale() . '/industries/#public')); ?>"><?php echo e(__('menu.industries_public')); ?></a>
-                        <a href="<?php echo e(url(app()->getLocale() . '/industries/#transport')); ?>"><?php echo e(__('menu.industries_transport')); ?></a>
-                        <a href="<?php echo e(url(app()->getLocale() . '/industries/#healthcare')); ?>"><?php echo e(__('menu.industries_healthcare')); ?></a>
                         <a href="<?php echo e(url(app()->getLocale() . '/industries/#premium_housing')); ?>"><?php echo e(__('menu.industries_premium_housing')); ?></a>
                     </div>
                 </div>
@@ -159,10 +157,8 @@
                     <div class="mobile-dropdown-menu">
                         <a href="<?php echo e(url(app()->getLocale() . '/industries/#offices')); ?>"><?php echo e(__('menu.industries_offices')); ?></a>
                         <a href="<?php echo e(url(app()->getLocale() . '/industries/#industrial')); ?>"><?php echo e(__('menu.industries_industrial')); ?></a>
-                        <a href="<?php echo e(url(app()->getLocale() . '/industries/#retail_service')); ?>"><?php echo e(__('menu.industries_retail_service')); ?></a>
+                        <a href="<?php echo e(url(app()->getLocale() . '/industries/#mass_retail')); ?>"><?php echo e(__('menu.industries_mass_retail')); ?></a>
                         <a href="<?php echo e(url(app()->getLocale() . '/industries/#public')); ?>"><?php echo e(__('menu.industries_public')); ?></a>
-                        <a href="<?php echo e(url(app()->getLocale() . '/industries/#transport')); ?>"><?php echo e(__('menu.industries_transport')); ?></a>
-                        <a href="<?php echo e(url(app()->getLocale() . '/industries/#healthcare')); ?>"><?php echo e(__('menu.industries_healthcare')); ?></a>
                         <a href="<?php echo e(url(app()->getLocale() . '/industries/#premium_housing')); ?>"><?php echo e(__('menu.industries_premium_housing')); ?></a>
                     </div>
                 </div>
@@ -263,6 +259,33 @@
 </footer>
 <?php endif; ?>
     <script>
+        (function () {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    const desktopBreakpoint = 1024;
+    const fixOffset = 80; // через сколько px фиксировать
+
+    function handleScroll() {
+        if (window.innerWidth < desktopBreakpoint) {
+            header.classList.remove('is-fixed');
+            document.body.classList.remove('has-fixed-header');
+            return;
+        }
+
+        if (window.scrollY > fixOffset) {
+            header.classList.add('is-fixed');
+            document.body.classList.add('has-fixed-header');
+        } else {
+            header.classList.remove('is-fixed');
+            document.body.classList.remove('has-fixed-header');
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const mobileMenuClose = document.getElementById('mobileMenuClose');

@@ -237,6 +237,33 @@
 </footer>
 @endif
     <script>
+        (function () {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    const desktopBreakpoint = 1024;
+    const fixOffset = 80; // через сколько px фиксировать
+
+    function handleScroll() {
+        if (window.innerWidth < desktopBreakpoint) {
+            header.classList.remove('is-fixed');
+            document.body.classList.remove('has-fixed-header');
+            return;
+        }
+
+        if (window.scrollY > fixOffset) {
+            header.classList.add('is-fixed');
+            document.body.classList.add('has-fixed-header');
+        } else {
+            header.classList.remove('is-fixed');
+            document.body.classList.remove('has-fixed-header');
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const mobileMenuClose = document.getElementById('mobileMenuClose');
